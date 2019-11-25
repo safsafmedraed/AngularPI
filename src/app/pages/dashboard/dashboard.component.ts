@@ -1,63 +1,43 @@
-import {Component, OnInit} from '@angular/core';
-import Chart from 'chart.js';
+import {Component, Inject, OnInit} from '@angular/core';
 
-// core components
-import {
-  chartOptions,
-  parseOptions,
-  chartExample1,
-  chartExample2
-} from '../../variables/charts';
+import {Entreprise} from '../../Models/entreprise';
+import {EntrepriseService} from '../../Services/entreprise.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {PopupComponent} from '../popup/popup.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  providers: [EntrepriseService]
 })
 export class DashboardComponent implements OnInit {
+  Companies: Entreprise[] = [];
 
-  public datasets: any;
-  public data: any;
-  public salesChart;
-  public clicked: boolean = true;
-  public clicked1: boolean = false;
+  accepted: string;
+  Pending: false;
+  pending: string;
+  index: number;
 
-  constructor() {
+  constructor(public CompanyService: EntrepriseService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
-
-    this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
-    ];
-    this.data = this.datasets[0];
-
-
-    var chartOrders = document.getElementById('chart-orders');
-
-    parseOptions(Chart, chartOptions());
-
-
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
-    });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    this.salesChart = new Chart(chartSales, {
-      type: 'line',
-      options: chartExample1.options,
-      data: chartExample1.data
-    });
+    this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));
+    this.accepted = 'Accepted';
+    this.pending = 'Pending';
   }
 
+  approveCompany(id) {
+    console.log(this.index);
+    this.index = this.Companies.indexOf(id);
+    console.log(id);
+    this.CompanyService.approveCompany(this.index + 1).subscribe(data => console.log('ok'));
+    window.location.reload();
+  }
 
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
+  popup() {
+    this.dialog.open(PopupComponent);
   }
 
 }

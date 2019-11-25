@@ -7,11 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
+import {NotifierModule} from 'angular-notifier';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule
+    FormsModule,
+    NotifierModule,
+    ReactiveFormsModule,
     // NgbModule
   ],
   declarations: [
