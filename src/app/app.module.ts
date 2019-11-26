@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { PopupComponent } from './pages/popup/popup.component';
+import {NotifierOptions} from 'angular-notifier';
 
 
 

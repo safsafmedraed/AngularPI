@@ -17,7 +17,7 @@ import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 // import { ToastrModule } from 'ngx-toastr';
 
-@NgModule({
+@NgModule({ 
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),

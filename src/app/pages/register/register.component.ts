@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EntrepriseService} from '../../Services/entreprise.service';
-import {NotifierService} from 'angular-notifier';
+import {NotifierOptions, NotifierService} from 'angular-notifier';
 import {Entreprise} from '../../Models/entreprise';
 
 @Component({
@@ -21,13 +21,15 @@ export class RegisterComponent implements OnInit {
 
 
 
+
   addCompany(c) {
     this.CompanyService.registerCompany(c).subscribe(data => 'ok');
     console.log(c);
     this.notifier.show({
       type: 'success',
       message: 'Company successfully registred...wait for Approvement',
-      id: 'THAT_NOTIFICATION_ID'
+      id: 'THAT_NOTIFICATION_ID',
+
     });
   }
 }

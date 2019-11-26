@@ -1,0 +1,57 @@
+<br><br>
+<div class="container-fluid mt--7">
+  <!-- Table -->
+
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Other Details</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">General presentaion</th>
+              <th scope="col">Linkedin Link</th>
+              <th scope="col">Website Link</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let i of Companies">
+              <th scope="row">
+                <div class="media align-items-center" >
+                  <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                    <img alt="Image placeholder" src="{{i.logoentreprise}}">
+                  </a>
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">{{i.nomEntreprise}}</span>
+                  </div>
+                </div>
+              </th>
+              <td>
+                {{i.description}}
+              </td>
+              <td>
+                  {{i.presentation}}
+              </td>
+              <td>
+                {{i.lienlinkedin}}
+              </td>
+              <td>
+                {{i.siteweb}}
+              </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div></div>
+
