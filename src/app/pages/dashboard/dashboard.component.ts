@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   Pending: false;
   pending: string;
   index: number;
+  id: number;
 
   constructor(public CompanyService: EntrepriseService, public dialog: MatDialog) {
   }
@@ -29,15 +30,24 @@ export class DashboardComponent implements OnInit {
   }
 
   approveCompany(id) {
-    console.log(this.index);
+
     this.index = this.Companies.indexOf(id);
+    console.log(this.index);
     console.log(id);
-    this.CompanyService.approveCompany(this.index + 1).subscribe(data => console.log('ok'));
+    this.CompanyService.approveCompany(id.id).subscribe(data => console.log('ok'));
     window.location.reload();
   }
 
   popup() {
     this.dialog.open(PopupComponent);
+  }
+
+  deleteCompany(id) {
+    this.index = this.Companies.indexOf(id);
+    console.log(this.index);
+    console.log(id);
+    this.CompanyService.deleteCompany(id.id).subscribe(data => console.log('delete succesfull'));
+    window.location.reload();
   }
 
 }

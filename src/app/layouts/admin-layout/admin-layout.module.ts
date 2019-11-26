@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,9 +15,10 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
+import {OfferComponent} from '../../pages/offer/offer.component';
 // import { ToastrModule } from 'ngx-toastr';
 
-@NgModule({ 
+@NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
@@ -34,8 +35,14 @@ import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    NourcheneComponent
+    NourcheneComponent,
+    OfferComponent
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule {/*constructor(
+  private readonly router: Router,
+) {
+  router.events
+    .subscribe(console.log);
+}*/}

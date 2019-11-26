@@ -11,7 +11,7 @@ export class MapsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let map = document.getElementById('map-canvas');
+   /* let map = document.getElementById('map-canvas');
     let lat = map.getAttribute('data-lat');
     let lng = map.getAttribute('data-lng');
 
@@ -50,7 +50,7 @@ export class MapsComponent implements OnInit {
 
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map, marker);
-    });
+    });*/
   }
 
 }

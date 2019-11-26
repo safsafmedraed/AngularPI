@@ -27,4 +27,9 @@ export class EntrepriseService {
   registerCompany(Company) {
     return this.http.post<Entreprise>(this.host, Company);
   }
+
+  /************Delete Company ************/
+  deleteCompany(id) {
+    return this.http.delete(this.host + '/' + id);
+  }
 }
