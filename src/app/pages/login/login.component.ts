@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
       });
   }
-  
+
 dashbord(email, password) {
     this.ls.logIn(email.value, password.value).subscribe(
       data => {

@@ -15,7 +15,7 @@ getAllSheet() {
 
 getStaffSheet() {
   return this.httpClient.get<Sheet[]>(
-    'http://localhost:9080/Graduation-Project-web/Staff/DisplayStaffSheets/'+57
+    'http://localhost:9080/Graduation-Project-web/Staff/DisplayStaffSheets/'+56
 ); }
 }
 

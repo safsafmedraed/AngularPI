@@ -1,3 +1,4 @@
+import { SheetComponent } from 'src/app/pages/Sheet/Sheet.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -16,8 +17,10 @@ import {PopupComponent} from './pages/popup/popup.component';
 import {NotifierOptions} from 'angular-notifier';
 import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
-import { SheetComponent } from './pages/Sheet/Sheet.component';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -28,13 +31,16 @@ import { SheetComponent } from './pages/Sheet/Sheet.component';
       ComponentsModule,
       NgbModule,
       RouterModule,
-      AppRoutingModule
+      AppRoutingModule,
+      BrowserModule,
+      FormsModule,
+      PanelMenuModule,
    ],
    declarations: [
       AppComponent,
       AdminLayoutComponent,
       AuthLayoutComponent,
-      PopupComponent
+      PopupComponent,
    ],
    providers: [],
    bootstrap: [

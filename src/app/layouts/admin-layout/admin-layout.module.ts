@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {Router, RouterModule} from '@angular/router';
@@ -17,6 +19,9 @@ import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import { SheetComponent } from 'src/app/pages/Sheet/Sheet.component';
 // import { ToastrModule } from 'ngx-toastr';
+import {ButtonModule} from 'primeng/button';
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {TabMenuModule} from 'primeng/tabmenu';
 
 @NgModule({
   imports: [
@@ -27,7 +32,11 @@ import { SheetComponent } from 'src/app/pages/Sheet/Sheet.component';
     NgbModule,
     ClipboardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    ButtonModule,
+    PanelMenuModule,
+    TabMenuModule
+
   ],
   declarations: [
     DashboardComponent,

@@ -1,18 +1,24 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 
 </div>
-<button (click)="getAllSheetData()">All Sheets</button>
+
+<p-tabMenu [model]="items">
+    <ng-template pTemplate="item" let-item let-i="index">
+        <button> aa</button>
+    </ng-template>
+</p-tabMenu>
+
+<!--<button (click)="getAllSheetData()">All Sheets</button>
 <div *ngFor="let sh of sheet">
     {{sh.issue}}
     {{sh.student.nom}}
-    <!--<div *ngFor="let s of toArrays(sh.student)">
+    <div *ngFor="let s of toArrays(sh.student)">
         {{ s.nom }}
-    </div>-->
+    </div>
 </div>
-
 <button (click)="getStaffSheet()">57</button>
 <div *ngFor="let sh of sheet">
     {{sh.issue}}
     
-</div>
+</div>-->
 
