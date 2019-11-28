@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA} from '@angular/material';
   providedIn: 'root'
 })
 export class EntrepriseService {
-  public host = 'http://localhost:9080/Graduation-Project-web/Entreprise';
+  public host = '/api/Entreprise';
 
 
   constructor(private http: HttpClient) {

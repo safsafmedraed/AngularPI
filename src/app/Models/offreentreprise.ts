@@ -13,8 +13,8 @@ export class Offreentreprise {
   profilrech: string;
   type: TypeO;
   ville: string;
-  Entreprise: Entreprise[];
-  category: Category;
+  entreprise: Entreprise;
+  category: Category[];
 }
 
 export enum TypeO {
