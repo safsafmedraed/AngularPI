@@ -16,6 +16,8 @@ import {PopupComponent} from './pages/popup/popup.component';
 import {NotifierOptions} from 'angular-notifier';
 import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
+import { GestionSoutenancesComponent } from './pages/gestion-soutenances/gestion-soutenances.component';
+import {MatDialogModule} from '@angular/material';
 
 
 @NgModule({
@@ -26,17 +28,20 @@ import { OfferComponent } from './pages/offer/offer.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    PopupComponent
+    PopupComponent,
+    NourcheneComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent]
+  entryComponents: [PopupComponent,NourcheneComponent]
 })
 export class AppModule {
 }

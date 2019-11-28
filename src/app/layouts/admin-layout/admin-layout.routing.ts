@@ -5,8 +5,10 @@ import {IconsComponent} from '../../pages/icons/icons.component';
 import {MapsComponent} from '../../pages/maps/maps.component';
 import {UserProfileComponent} from '../../pages/user-profile/user-profile.component';
 import {TablesComponent} from '../../pages/tables/tables.component';
-import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
+
 import {OfferComponent} from '../../pages/offer/offer.component';
+import {GestionSoutenancesComponent} from '../../pages/gestion-soutenances/gestion-soutenances.component';
+import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -15,5 +17,6 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'tables', component: TablesComponent},
   {path: 'icons', component: IconsComponent},
   {path: 'maps', component: MapsComponent},
-  {path: 'nourchene', component: NourcheneComponent}
+
+  {path: 'gestionSoutenance', component: GestionSoutenancesComponent}
 ];

@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           localStorage.setItem('identifiant', this.currentUser.identifiant.toString());
           localStorage.setItem('logoentreprise', this.currentUser.logoentreprise.toString());
 
-
+          console.log(this.currentUser.mail.toString());
           if (localStorage.getItem('nomEntreprise').toString() !== 'X') {
             this.router.navigateByUrl('/dashboard');
           } else {
@@ -83,24 +83,25 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.ls.logIn(email.value, password.value).subscribe(
       data => {
 
-        if (data.type == 'staff') {
+        if (data.role == 'staff') {
           console.log('staff');
 
           this.storage.set('email', email);
-          this.storage.set('type', 'staff');
           this.storage.set('user', data.user);
           this.storage.set('token', data.token);
           this.router.navigateByUrl('dashboard');
-        } else if (data.type == 'student') {
+        } else if (data.role == 'Student') {
           console.log('student');
-          this.storage.set('type', 'student');
+
+          this.storage.set('role', data.role);
           this.storage.set('email', email.value);
           this.storage.set('user', data.user);
           this.storage.set('token', data.token);
-          console.log(this.storage.get('user').id);
+          console.log('aaaa');
+          console.log(this.storage.get('role'));
           this.router.navigateByUrl('dashboard');
 
-        } else if (data.type == 'encadreur') {
+        } else if (data.role == 'encadreur') {
           console.log('encadreur');
 
           console.log(email.value);

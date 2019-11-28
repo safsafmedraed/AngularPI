@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
+import {GestionSoutenancesComponent} from '../../pages/gestion-soutenances/gestion-soutenances.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -35,7 +36,7 @@ import {OfferComponent} from '../../pages/offer/offer.component';
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    NourcheneComponent,
+    GestionSoutenancesComponent,
     OfferComponent
   ]
 })
