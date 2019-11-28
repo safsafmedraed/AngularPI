@@ -1,0 +1,18 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<button (click)="getAllSheetData()">All Sheets</button>
+<div *ngFor="let sh of sheet">
+    {{sh.issue}}
+    {{sh.student.nom}}
+    <!--<div *ngFor="let s of toArrays(sh.student)">
+        {{ s.nom }}
+    </div>-->
+</div>
+
+<button (click)="getStaffSheet()">57</button>
+<div *ngFor="let sh of sheet">
+    {{sh.issue}}
+    
+</div>
+

@@ -16,27 +16,33 @@ import {PopupComponent} from './pages/popup/popup.component';
 import {NotifierOptions} from 'angular-notifier';
 import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
+import { SheetComponent } from './pages/Sheet/Sheet.component';
+
 
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    NgbModule,
-    RouterModule,
-    AppRoutingModule
-  ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    AuthLayoutComponent,
-    PopupComponent
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [PopupComponent]
+   imports: [
+      BrowserAnimationsModule,
+      FormsModule,
+      HttpClientModule,
+      ComponentsModule,
+      NgbModule,
+      RouterModule,
+      AppRoutingModule
+   ],
+   declarations: [
+      AppComponent,
+      AdminLayoutComponent,
+      AuthLayoutComponent,
+      PopupComponent
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ],
+   entryComponents: [
+      PopupComponent
+   ]
 })
 export class AppModule {
 }
