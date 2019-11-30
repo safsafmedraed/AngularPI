@@ -13,13 +13,57 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app.routing';
 import {ComponentsModule} from './components/components.module';
 import {PopupComponent} from './pages/popup/popup.component';
-import {NotifierOptions} from 'angular-notifier';
+
 import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { GestionSoutenancesComponent } from './pages/gestion-soutenances/gestion-soutenances.component';
 import {MatDialogModule} from '@angular/material';
 
+import {MatTabsModule} from '@angular/material/tabs';
+import {NotifierModule, NotifierOptions, NotifierService} from 'angular-notifier';
 
+
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -29,7 +73,11 @@ import {MatDialogModule} from '@angular/material';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    NotifierModule.withConfig(customNotifierOptions),
+    MatTabsModule,
+
+
   ],
   declarations: [
     AppComponent,
@@ -39,7 +87,7 @@ import {MatDialogModule} from '@angular/material';
     NourcheneComponent
 
   ],
-  providers: [],
+  providers: [NotifierService],
   bootstrap: [AppComponent],
   entryComponents: [PopupComponent,NourcheneComponent]
 })
