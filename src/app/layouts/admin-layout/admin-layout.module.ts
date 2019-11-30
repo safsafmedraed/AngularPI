@@ -14,7 +14,7 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatButtonModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonToggleModule, MatCardModule, MatChipsModule, MatCheckboxModule, MatDatepickerModule, MatDividerModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import { SheetComponent } from 'src/app/pages/Sheet/Sheet.component';
@@ -22,6 +22,8 @@ import { SheetComponent } from 'src/app/pages/Sheet/Sheet.component';
 import {ButtonModule} from 'primeng/button';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {PanelModule} from 'primeng/panel';
+import { SheetDetailsChildComponent } from 'src/app/pages/SheetDetailsChild/SheetDetailsChild.component';
 
 @NgModule({
   imports: [
@@ -35,7 +37,45 @@ import {TabMenuModule} from 'primeng/tabmenu';
     MatButtonModule,
     ButtonModule,
     PanelMenuModule,
-    TabMenuModule
+    TabMenuModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    PanelMenuModule,
+    MatDialogModule
+
 
   ],
   declarations: [
@@ -45,7 +85,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
     SheetComponent,
     MapsComponent,
     NourcheneComponent,
-    OfferComponent
+    OfferComponent,
+    SheetDetailsChildComponent
   ]
 })
 

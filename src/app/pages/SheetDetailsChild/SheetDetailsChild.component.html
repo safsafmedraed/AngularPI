@@ -1,0 +1,43 @@
+<div *ngFor="let sh of sheet">
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header class="header">
+                <mat-panel-title>
+                    {{sh.student.nom}} 
+                </mat-panel-title>
+                <mat-panel-description>
+                     {{sh.student.prenom}}
+                     <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+                
+              </mat-expansion-panel-header>
+              <mat-panel-title>
+                Title :  {{sh.title}}
+               
+              </mat-panel-title>
+              <mat-panel-title>
+                 Issue :  {{sh.issue}}
+                
+               </mat-panel-title>
+          
+               <mat-panel-title>
+                  Features :  {{sh.features}}
+               </mat-panel-title>
+             <mat-panel-title>
+              Key words :  {{sh.key_words}}
+           </mat-panel-title>
+           <mat-panel-title>
+            Sheet status :  {{sh.sheetstatus}}
+         </mat-panel-title>
+           
+              <mat-action-row>
+               <div *ngIf="sh.sheetstatus == 'ACCEPTED'">
+                  <button mat-flat-button color="accent" (click)="nextStep()">Next</button>
+               </div>
+              </mat-action-row>
+              
+            </mat-expansion-panel>
+
+          </mat-accordion>
+          
+</div>

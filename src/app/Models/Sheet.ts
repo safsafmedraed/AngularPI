@@ -1,7 +1,7 @@
 import { Student } from './Student';
 export class Sheet {
 ID_SHEET: number;
-description: number;
+description: string;
 features: string;
 issue: string;
 KEY_WORDS: string;

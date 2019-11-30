@@ -1,7 +1,8 @@
+import { SheetDetailsChildComponent } from './../SheetDetailsChild/SheetDetailsChild.component';
 import { Student } from './../../Models/Student';
 import { SheetServiceService } from '../../Services/SheetService.service';
 import { Sheet } from '../../Models/Sheet';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 
@@ -13,22 +14,14 @@ import {MenuItem} from 'primeng/api';
   styleUrls: ['./Sheet.component.scss']
 })
 export class SheetComponent implements OnInit {
+  showFiller = false;
   sheet: Sheet[];
-  items: MenuItem[];
-  activeItem: MenuItem;
+  SheetD = false;
   constructor(private sheetservice: SheetServiceService , private router: Router) { }
-
+  // tslint:disable-next-line: use-life-cycle-interface
   ngOnInit() {
-    this.items = [
-      {label: 'Stats', icon: 'fa fa-fw fa-bar-chart' , routerLink: ['/register']},
-      {label: 'Calendar', icon: 'fa fa-fw fa-calendar'},
-      {label: 'Documentation', icon: 'fa fa-fw fa-book'},
-      {label: 'Support', icon: 'fa fa-fw fa-support'},
-      {label: 'Social', icon: 'fa fa-fw fa-twitter'}
-  ];
 }
-
-
+// tslint:disable-next-line: use-life-cycle-interface
   getAllSheetData() {
     this.sheetservice.getAllSheet().subscribe(data => {
       this.sheet = [];
@@ -40,7 +33,10 @@ export class SheetComponent implements OnInit {
   toArrays(student: object ) {
     return Object.keys(student).map(key => student[key] );
   }
-
+  hideAndShow(SheetD){
+    this.SheetD = true ;
+    console.log(this.SheetD);
+  }
   getStaffSheet() {
   this.sheetservice.getStaffSheet().subscribe(data => {
     this.sheet = [] ;
