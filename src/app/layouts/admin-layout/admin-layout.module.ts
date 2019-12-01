@@ -1,3 +1,4 @@
+import { SheetComponent } from './../../pages/sheet-module/sheet/sheet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,13 +18,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule, MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonToggleModule, MatCardModule, MatChipsModule, MatCheckboxModule, MatDatepickerModule, MatDividerModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
-import { SheetComponent } from 'src/app/pages/Sheet/Sheet.component';
+
 // import { ToastrModule } from 'ngx-toastr';
 import {ButtonModule} from 'primeng/button';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {PanelModule} from 'primeng/panel';
-import { SheetDetailsChildComponent } from 'src/app/pages/SheetDetailsChild/SheetDetailsChild.component';
+import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.module';
+
 
 @NgModule({
   imports: [
@@ -74,7 +76,8 @@ import { SheetDetailsChildComponent } from 'src/app/pages/SheetDetailsChild/Shee
     MatTooltipModule,
     MatTreeModule,
     PanelMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    SheetModuleModule
 
 
   ],
@@ -82,11 +85,10 @@ import { SheetDetailsChildComponent } from 'src/app/pages/SheetDetailsChild/Shee
     DashboardComponent,
     UserProfileComponent,
     TablesComponent,
-    SheetComponent,
     MapsComponent,
     NourcheneComponent,
     OfferComponent,
-    SheetDetailsChildComponent
+    
   ]
 })
 

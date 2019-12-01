@@ -1,4 +1,5 @@
 import { Student } from './Student';
+import { Category } from './Category';
 export class Sheet {
 ID_SHEET: number;
 description: string;
@@ -18,6 +19,7 @@ cancelProject: boolean;
 acceptAnnulation: string;
 refusAnnulation: string;
 sheetStatus: sheetStatus;
+category : Category[];
 }
 
 export enum sheetStatus {

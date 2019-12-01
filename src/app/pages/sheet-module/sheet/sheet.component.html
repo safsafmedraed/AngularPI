@@ -1,29 +1,30 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 
-</div>
-<div class="header">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-        Menu
-      </button>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div>
+    <button mat-icon-button (click)="calcul()" [matMenuTriggerFor]="menu">
+      <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+    </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="hideAndShow(SheetD)">
+        <a  class="nav-link" routerLink="/sheet/all"> <button mat-menu-item >
             Yes  
-        </button>
+        </button></a>
+        <a  class="nav-link" routerLink="/sheet/requests"> 
+          <mat-icon [matBadge]="res" matBadgeColor="warn">home</mat-icon>
+        </a>
         <button mat-menu-item disabled> 
           <mat-icon>voicemail</mat-icon>
           <span>Check voicemail</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
+        
+        <button mat-menu-item >
+          
           <span>Disable alerts</span>
         </button>
       </mat-menu>
-      <div *ngIf="SheetD">
-        <app-SheetDetailsChild></app-SheetDetailsChild>
-    </div>
+      
   </div>
-
+</div>
+  <router-outlet></router-outlet>
 <!--<button (click)="getAllSheetData()">All Sheets</button>
 <div *ngFor="let sh of sheet">
     {{sh.issue}}
@@ -37,4 +38,3 @@
     {{sh.issue}}
     
 </div>-->
-
