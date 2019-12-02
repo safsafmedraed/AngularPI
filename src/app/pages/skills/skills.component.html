@@ -1,0 +1,44 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+  <div class="example-container">
+    <h2>Skills List</h2>
+
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="skills"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of skills " cdkDrag >{{item.skill}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>My abilities</h2>
+
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="abilities"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of abilities " cdkDrag >
+        {{item.skill}}
+        <mat-form-field >
+          <mat-label>Rating</mat-label>
+          <mat-select [ngModel]="abilities[0].id" name="skillsid" >
+            <mat-option *ngFor="let food of foods" [value]="food.value" >
+              {{food.viewValue}}
+
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+<button type="submit" class="btn btn-primary mt-4" (click)="addskillsstudent(userskills)">Save my choices</button>
+

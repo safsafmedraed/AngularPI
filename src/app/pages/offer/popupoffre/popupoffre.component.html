@@ -1,0 +1,106 @@
+<h1>Add a new Offre</h1>
+
+     <form role="form">
+            <div class="form-group">
+              <div class="input-group input-group-append ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="Offre Name" type="text" [(ngModel)]="offre.annonce" name="annonce">
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose the Start date"  [(ngModel)]="offre.datedebut" name="datedebut">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker1" placeholder="Choose the end date"  [(ngModel)]="offre.datefin" name="datefin">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-append">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Location" [(ngModel)]="offre.localisation" name="localisation">
+              </div>
+            </div>
+            <!-- <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>-->
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="State" type="text" [(ngModel)]="offre.ville" name="ville">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="Corresponding Profil" type="text" [(ngModel)]="offre.profilrech" name="profilrech">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+               <!-- <input class="form-control" placeholder="Offre Type" type="text" [(ngModel)]="offre.type" name="type">-->
+                <mat-form-field>
+                <mat-label>Offre Type</mat-label>
+                <mat-select [(ngModel)]="offre.type" name="type">
+                  <mat-option *ngFor="let food of foods" [value]="food.value" >
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+
+                <mat-slide-toggle class="form-control" [(ngModel)]="offre.embauche" name="embauche">Hiring</mat-slide-toggle>
+              </div>
+            </div>
+            <!--<div class="form-group">
+              <div class="input-group input-group-append mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="Mission" type="text" >
+              </div>
+            </div>-->
+            <div class="form-group">
+              <div class="input-group input-group-append mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="Other Details" type="text" [(ngModel)]="offre.detailsstage" name="detailsstage">
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-4" (click)="addoffre(offre)">Create Offre</button>
+              <!-- notifier declare -->
+              <!--<notifier-container></notifier-container>-->
+            </div>
+          </form>
+
+
+
+
