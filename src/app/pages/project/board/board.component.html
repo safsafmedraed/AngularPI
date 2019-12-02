@@ -1,0 +1,81 @@
+<div class="header bg-gradient-danger pb-5 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="mt--7 pb-8">
+
+  <div class="row">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">All Projects</h3>
+        </div>
+        <div class="card-body">
+          <div cdkDropListGroup class="card-deck">
+            <div style="background-color: #EFEFEF;" class="card">
+              <div class="card-header bg-white">
+                <h2 class="align-items-center" >TO DO</h2>
+              </div>
+
+                <div
+                  cdkDropList
+                  #todoList="cdkDropList"
+                  [cdkDropListData]="todo"
+                  class="card-body"
+                  (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('TO_DO')" >
+                  <div  class="card card-stats" (cdkDragStarted)="dragStart(item.id,'todo')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of todo" cdkDrag>
+                    <div class="card-header bg-transparent">
+                      <h3 >{{item.title}}</h3>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+            <div style="background-color: #EFEFEF;" class="card">
+              <div class="card-header bg-white">
+                <h2 class="align-items-center" >DOING</h2>
+              </div>
+
+              <div class="card-body">
+
+                <div
+                  cdkDropList
+                  #doingList="cdkDropList"
+                  [cdkDropListData]="doing"
+                  (cdkDropListEntered)="dragEnd('DOING')"
+                  (cdkDropListDropped)="drop($event)">
+                  <div  class="card card-stats" (cdkDragStarted)="dragStart(item.id,'doing')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of doing" cdkDrag>
+                    <div class="card-header bg-transparent">
+                      <h3 >{{item.title}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="background-color: #EFEFEF;" class="card">
+              <div class="card-header bg-white">
+                <h2 class="align-items-center" >TO DO</h2>
+              </div>
+              <div class="card-body">
+
+                <div
+                  cdkDropList
+                  #doneList="cdkDropList"
+                  [cdkDropListData]="done"
+                  (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('DONE')" >
+                  <div  class="card card-stats" (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
+                    <div class="card-header bg-transparent">
+                      <h3 >{{item.title}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

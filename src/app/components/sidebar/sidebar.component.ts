@@ -14,6 +14,7 @@ export const ROUTES: RouteInfo[] = [
   {path: '/icons', title: 'Fiche', icon: 'ni-planet text-blue', class: ''},
   {path: '/maps', title: 'Marwen', icon: 'ni-pin-3 text-orange', class: ''},
   {path: '/user-profile', title: 'Dhaker', icon: 'ni-single-02 text-yellow', class: ''},
+  {path: '/projects', title: 'project', icon: ' ni-folder-17 text-yellow', class: ''},
   {path: '/tables', title: 'Aziz', icon: 'ni-bullet-list-67 text-red', class: ''},
   {path: '/nourchene', title: 'Nourchene', icon: 'ni-bullet-list-67 text-red', class: ''},
   {path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: ''},

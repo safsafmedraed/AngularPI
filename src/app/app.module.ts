@@ -16,6 +16,9 @@ import {PopupComponent} from './pages/popup/popup.component';
 import {NotifierOptions} from 'angular-notifier';
 import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
+import { ProjectComponent } from './pages/project/project.component';
+import { BoardComponent } from './pages/project/board/board.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import { OfferComponent } from './pages/offer/offer.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   declarations: [
     AppComponent,

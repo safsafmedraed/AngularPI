@@ -16,6 +16,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
+import {ProjectComponent} from '../../pages/project/project.component';
+import {BoardComponent} from '../../pages/project/board/board.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -27,7 +30,8 @@ import {OfferComponent} from '../../pages/offer/offer.component';
     NgbModule,
     ClipboardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    DragDropModule
   ],
   declarations: [
     DashboardComponent,
@@ -36,7 +40,9 @@ import {OfferComponent} from '../../pages/offer/offer.component';
     IconsComponent,
     MapsComponent,
     NourcheneComponent,
-    OfferComponent
+    OfferComponent,
+    ProjectComponent,
+    BoardComponent
   ]
 })
 

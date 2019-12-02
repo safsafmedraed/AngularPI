@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Task } from '../Models/Task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+   httpOptions =
+    {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 
+    };
   url = '/api/task';
   constructor(private http: HttpClient) { }
   getTasks(id) {
@@ -19,7 +23,7 @@ export class TaskService {
     return this.http.post<Task>(this.url + '/addtask/' , task);
   }
   updatestatus(task) {
-    return this.http.put<Task>(this.url + '/updatestatus/' , task);
+    return this.http.put(this.url + '/updatestatus/' , task, this.httpOptions);
   }
   updateapproved(task) {
     return this.http.put<Task>(this.url + '/updateapproved/' , task);
