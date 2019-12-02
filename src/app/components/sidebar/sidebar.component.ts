@@ -17,7 +17,10 @@ export const ROUTES: RouteInfo[] = [
   {path: '/tables', title: 'Aziz', icon: 'ni-bullet-list-67 text-red', class: ''},
   {path: '/nourchene', title: 'Nourchene', icon: 'ni-bullet-list-67 text-red', class: ''},
   {path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: ''},
-  {path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: ''}
+  {path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: ''},
+  {path: '/loginE', title: 'Login', icon: 'ni-key-25 text-info', class: ''},
+  {path: '/skills', title: 'Skills', icon: 'ni-tv-2 text-primary', class: ''}
+
 ];
 
 @Component({

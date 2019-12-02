@@ -32,7 +32,7 @@
 // Alternative input groups related to .form-control-alternative
 
 
-.input-group-alternative {
+.input-group-append {
     box-shadow: $input-alternative-box-shadow;
     border: 0;
     transition: box-shadow .15s ease;
@@ -45,7 +45,7 @@
 }
 
 .focused {
-	.input-group-alternative {
+	.input-group-append {
         box-shadow: $input-focus-alternative-box-shadow !important;
     }
 }

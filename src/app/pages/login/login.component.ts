@@ -25,8 +25,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router, private httpClient: HttpClient, private entrepriseservice: EntrepriseService, private ls: LoginService, @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
-  }
+              private router: Router, private httpClient: HttpClient,
+              private entrepriseservice: EntrepriseService, private ls: LoginService,
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -41,42 +42,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-  }
-
-
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    this.loading = true;
-    // const identifiant = $('.identifiant').val();
-    // const password = $('.password').val();
-
-    this.httpClient.post('/Graduation-Project-web/Entreprise/login?identifiant=' + this.f.identifiant + '&password='
-      + this.f.password, {identifiant: this.f.identifiant, password: this.f.password})
-      .subscribe((data: any) => {
-        if (data.identifiant !== null) {
-          this.currentUser = data;
-          localStorage.setItem('id', this.currentUser.id.toString());
-          localStorage.setItem('email', this.currentUser.mail.toString());
-          localStorage.setItem('nomEntreprise', this.currentUser.nomEntreprise.toString());
-          localStorage.setItem('identifiant', this.currentUser.identifiant.toString());
-          localStorage.setItem('logoentreprise', this.currentUser.logoentreprise.toString());
-
-
-          if (localStorage.getItem('nomEntreprise').toString() !== 'X') {
-            this.router.navigateByUrl('/dashboard');
-          } else {
-            this.router.navigateByUrl('/register');
-          }
-        } else {
-          console.log('bad credentials');
-        }
-      });
   }
 
   dashbord(email, password) {

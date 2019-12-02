@@ -1,7 +1,7 @@
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
@@ -13,9 +13,18 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app.routing';
 import {ComponentsModule} from './components/components.module';
 import {PopupComponent} from './pages/popup/popup.component';
-import {NotifierOptions} from 'angular-notifier';
-import {NourcheneComponent} from './pages/nourchene/nourchene.component';
-import { OfferComponent } from './pages/offer/offer.component';
+
+import {EntrepriseService} from './Services/entreprise.service';
+import {LoginService} from './Services/login.service';
+import {TokenInterceptorService} from './Services/token-interceptor.service';
+
+import {PopupoffreComponent} from './pages/offer/popupoffre/popupoffre.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSlideToggleModule} from '@angular/material';
+
+import {MatSelectModule} from '@angular/material/select';
+import {SkillsComponent} from './pages/skills/skills.component';
+import {CandidaturePopupComponent} from './pages/candidature-popup/candidature-popup.component';
 
 
 @NgModule({
@@ -26,17 +35,30 @@ import { OfferComponent } from './pages/offer/offer.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScrollingModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    PopupComponent
+    PopupComponent,
+    PopupoffreComponent,
+    CandidaturePopupComponent
   ],
-  providers: [],
+  providers: [EntrepriseService, LoginService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }, MatDatepickerModule],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent]
+  entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent]
 })
 export class AppModule {
 }

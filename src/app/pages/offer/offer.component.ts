@@ -1,9 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Offreentreprise} from '../../Models/offreentreprise';
 import {OffreService} from '../../Services/offre.service';
 import {Category} from '../../Models/Category';
 import {Entreprise} from '../../Models/entreprise';
 import {EntrepriseService} from '../../Services/entreprise.service';
+import {PopupComponent} from '../popup/popup.component';
+import {PopupoffreComponent} from './popupoffre/popupoffre.component';
+import {MatDialog} from '@angular/material';
+import {CandidaturePopupComponent} from '../candidature-popup/candidature-popup.component';
 
 @Component({
   selector: 'app-offer',
@@ -13,19 +17,24 @@ import {EntrepriseService} from '../../Services/entreprise.service';
 export class OfferComponent implements OnInit {
   Offre: Offreentreprise[] = [];
   entreprise: Entreprise[] = [];
-  //category: Category[];
   index: number;
 
-  constructor(public offreservice: OffreService) {
+  constructor(public offreservice: OffreService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.offreservice.getOffre().subscribe(
       data => {
         this.Offre = data;
-        console.log(data[0].entreprise);
+
       },
       eur => console.log('error'));
+  }
+
+  affectOffre(id) {
+    this.index = this.Offre.indexOf(id);
+    this.offreservice.applytoOffre(id.id).subscribe(data => console.log('affected'));
+    console.log(this.offreservice.applytoOffre(id.id));
   }
 
   deleteoffre(id) {
@@ -33,6 +42,28 @@ export class OfferComponent implements OnInit {
     console.log(this.index);
     console.log(id);
     this.offreservice.Deletoffre(id.id).subscribe(data => console.log('delete succesfull'));
-    /* window.location.reload();*/
+    this.offreservice.getOffre().subscribe(
+      data => {
+        this.Offre = data;
+
+      },
+      eur => console.log('error'));
+
+  }
+
+  viewcandidature(id) {
+    const dialogREf1 = this.dialog.open(CandidaturePopupComponent, id);
+
+    this.index = this.Offre.indexOf(id);
+    console.log(id);
+  }
+
+  popup() {
+    const dialogREf = this.dialog.open(PopupoffreComponent);
+    dialogREf.afterClosed().subscribe(data => {
+      this.offreservice.getOffre().subscribe(data1 => {
+        this.Offre = data1;
+      }, eur => console.log('error'));
+    });
   }
 }

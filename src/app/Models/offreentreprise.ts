@@ -1,5 +1,7 @@
 import {Entreprise} from './entreprise';
 import {Category} from './Category';
+import {Useroffre} from './useroffre';
+import {Student} from './Student';
 
 export class Offreentreprise {
   id: number;
@@ -15,6 +17,8 @@ export class Offreentreprise {
   ville: string;
   entreprise: Entreprise;
   category: Category[];
+  Useroffre: Useroffre;
+  student: Student;
 }
 
 export enum TypeO {

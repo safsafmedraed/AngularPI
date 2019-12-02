@@ -1,14 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthLayoutRoutes } from './auth-layout.routing';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthLayoutRoutes} from './auth-layout.routing';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { LoginComponent } from '../../pages/login/login.component';
-import { RegisterComponent } from '../../pages/register/register.component';
+import {LoginComponent} from '../../pages/login/login.component';
+import {RegisterComponent} from '../../pages/register/register.component';
 import {NotifierModule, NotifierOptions} from 'angular-notifier';
-const  notifierDefaultOptions: NotifierOptions = {
+import {LoginentrepriseComponent} from '../../pages/loginentreprise/loginentreprise.component';
+import {LoginService} from '../../Services/login.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptorService} from '../../Services/token-interceptor.service';
+import {EntrepriseService} from '../../Services/entreprise.service';
+
+const notifierDefaultOptions: NotifierOptions = {
   position: {
     horizontal: {
       position: 'left',
@@ -48,6 +54,7 @@ const  notifierDefaultOptions: NotifierOptions = {
     overlap: 150
   }
 };
+
 @NgModule({
   imports: [
     CommonModule,
@@ -56,10 +63,13 @@ const  notifierDefaultOptions: NotifierOptions = {
     NotifierModule.withConfig(notifierDefaultOptions),
     ReactiveFormsModule,
     // NgbModule
-  ],
+  ]
+  ,
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginentrepriseComponent
   ]
 })
-export class AuthLayoutModule { }
+export class AuthLayoutModule {
+}
