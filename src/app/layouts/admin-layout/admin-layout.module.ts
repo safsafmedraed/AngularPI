@@ -12,13 +12,15 @@ import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateParserFormatter, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {ProjectComponent} from '../../pages/project/project.component';
 import {BoardComponent} from '../../pages/project/board/board.component';
-import {DragDropModule} from "@angular/cdk/drag-drop";
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {AddTaskComponent} from '../../pages/project/add-task/add-task.component';
+import {PopupComponent} from '../../pages/popup/popup.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -31,7 +33,8 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     ClipboardModule,
     MatDialogModule,
     MatButtonModule,
-    DragDropModule
+    DragDropModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -42,8 +45,11 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     NourcheneComponent,
     OfferComponent,
     ProjectComponent,
-    BoardComponent
-  ]
+    BoardComponent,
+    AddTaskComponent
+  ],
+
+  entryComponents: [AddTaskComponent]
 })
 
 export class AdminLayoutModule {/*constructor(

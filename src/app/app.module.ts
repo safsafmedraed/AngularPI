@@ -19,6 +19,7 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { BoardComponent } from './pages/project/board/board.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AddTaskComponent } from './pages/project/add-task/add-task.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AdminLayoutComponent,
     AuthLayoutComponent,
     PopupComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,6 +4,8 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 
 import {TaskService} from '../../../Services/task.service';
 import {Task} from '../../../Models/Task';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {AddTaskComponent} from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-board',
@@ -16,7 +18,7 @@ export class BoardComponent implements OnInit {
   status: string;
   task: Task ;
   idd: number;
-  constructor(private route: ActivatedRoute, private ts: TaskService) {
+  constructor(private route: ActivatedRoute, private ts: TaskService, private modalService: NgbModal) {
 
   }
   todo: Task[] = [];
@@ -70,5 +72,13 @@ this.status = st;
     console.log(item);
     console.log(idd);
     this.idd = idd;
+  }
+  open() {
+    const modalRef = this.modalService.open(AddTaskComponent);
+    modalRef.componentInstance.id = this.projectid;
+    modalRef.componentInstance.passEntry.subscribe((task) => {
+      console.log(task)
+      this.todo.push(task);
+    });
   }
 }

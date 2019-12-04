@@ -9,4 +9,7 @@ export class Task {
   date: Date;
   status: string;
   project: Project;
+  constructor(title: string, description: string, deadline: Date , project: Project) {}
+
+
 }

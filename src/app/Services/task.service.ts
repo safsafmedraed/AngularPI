@@ -20,7 +20,7 @@ export class TaskService {
     return this.http.get<Task>(this.url + '/gettask/' + id);
   }
   addTask(task) {
-    return this.http.post<Task>(this.url + '/addtask/' , task);
+    return this.http.post<Task>(this.url + '/addtask/' , task, this.httpOptions);
   }
   updatestatus(task) {
     return this.http.put(this.url + '/updatestatus/' , task, this.httpOptions);
