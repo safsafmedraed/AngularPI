@@ -11,7 +11,8 @@
       [cdkDropListConnectedTo]="[doneList]"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of skills " cdkDrag >{{item.skill}}</div>
+      <div class="example-box" *ngFor="let item of skills " cdkDrag >{{item.skill}}
+      </div>
     </div>
   </div>
 
@@ -30,15 +31,15 @@
         <mat-form-field >
           <mat-label>Rating</mat-label>
           <mat-select [ngModel]="abilities[0].id" name="skillsid" >
-            <mat-option *ngFor="let food of foods" [value]="food.value" >
-              {{food.viewValue}}
-
-            </mat-option>
+            <mat-option *ngFor="let i of foods" [ngModel]="i.viewValue" name="rate" [value]="i.value"  ngDefaultControl>
+              {{i.viewValue}}
+              <button type="submit" class="btn btn-primary " (click)="addskillsstudent(abilities[0].id,i.viewValue )">Save my choices</button>
+            </mat-option >
           </mat-select>
         </mat-form-field>
 
       </div>
     </div>
   </div>
-<button type="submit" class="btn btn-primary mt-4" (click)="addskillsstudent(userskills)">Save my choices</button>
+
 

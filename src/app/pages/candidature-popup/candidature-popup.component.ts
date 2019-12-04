@@ -10,12 +10,13 @@ import {OffreService} from '../../Services/offre.service';
 export class CandidaturePopupComponent implements OnInit {
   userO: Useroffre[] = [];
 
+  index: number;
 
   constructor(private Offreservice: OffreService) {
   }
 
   ngOnInit() {
-    this.Offreservice.candidature(7).subscribe(data => this.userO = data);
+    this.Offreservice.candidature(this.index).subscribe(data => this.userO = data);
   }
 
 }

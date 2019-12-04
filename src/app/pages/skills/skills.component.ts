@@ -15,7 +15,8 @@ export class SkillsComponent implements OnInit {
   userskills: Userskills = new Userskills();
   skills: Skills[] = [];
   skills1: Skills = new Skills();
-   abilities: Array<Userskills>[];
+  abilities: Array<Userskills>[];
+  rate: number;
   foods: Food[] = [
     {value: '1', viewValue: '1'},
     {value: '2', viewValue: '2'},
@@ -24,11 +25,13 @@ export class SkillsComponent implements OnInit {
     {value: '5', viewValue: '5'}
   ];
 
+
   constructor(public skillservice: SkillsService) {
   }
 
   ngOnInit() {
     this.abilities = [];
+    this.rate = 0;
     this.skillservice.getAll().subscribe(data => this.skills = data, eur => console.log('error'));
   }
 
@@ -43,10 +46,12 @@ export class SkillsComponent implements OnInit {
         event.currentIndex);
     }
     console.log(this.abilities[0]);
+
   }
 
-  addskillsstudent(userskills) {
-    this.skillservice.affectstudentskills(userskills).subscribe(data => 'created');
-    console.log(this.skillservice.affectstudentskills(userskills).subscribe(data => 'created'));
+  addskillsstudent(userskills, rate) {
+    this.rate = rate;
+    this.skillservice.affectstudentskills(userskills, rate).subscribe(data => 'created');
+
   }
 }

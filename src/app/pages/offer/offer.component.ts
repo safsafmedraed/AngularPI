@@ -17,18 +17,22 @@ import {CandidaturePopupComponent} from '../candidature-popup/candidature-popup.
 export class OfferComponent implements OnInit {
   Offre: Offreentreprise[] = [];
   entreprise: Entreprise[] = [];
+  @Input()
   index: number;
+  newDynamic: any = {};
 
   constructor(public offreservice: OffreService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.Offre.push(this.newDynamic);
     this.offreservice.getOffre().subscribe(
       data => {
         this.Offre = data;
 
       },
       eur => console.log('error'));
+
   }
 
   affectOffre(id) {
@@ -41,21 +45,25 @@ export class OfferComponent implements OnInit {
     this.index = this.Offre.indexOf(id);
     console.log(this.index);
     console.log(id);
+
     this.offreservice.Deletoffre(id.id).subscribe(data => console.log('delete succesfull'));
-    this.offreservice.getOffre().subscribe(
+    this.Offre.splice(this.index, 1);
+    /*this.offreservice.getOffre().subscribe(
       data => {
         this.Offre = data;
 
       },
-      eur => console.log('error'));
+      eur => console.log('error'));*/
 
   }
 
   viewcandidature(id) {
-    const dialogREf1 = this.dialog.open(CandidaturePopupComponent, id);
+    const dialogREf1 = this.dialog.open(CandidaturePopupComponent);
 
     this.index = this.Offre.indexOf(id);
-    console.log(id);
+    console.log(id.id);
+    dialogREf1.componentInstance.index = id.id;
+
   }
 
   popup() {

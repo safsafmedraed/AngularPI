@@ -17,7 +17,7 @@ export class SkillsService {
     return this.http.get<Skills[]>(this.host + '/all');
   }
 
-  affectstudentskills(userskills) {
-    return this.http.post<Userskills >(this.host, userskills);
+  affectstudentskills(skills_id, rate) {
+    return this.http.post<Userskills>(this.host, {skills_id, rate});
   }
 }
