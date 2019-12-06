@@ -35,6 +35,7 @@ import {SkillsComponent} from './pages/skills/skills.component';
 import {CandidaturePopupComponent} from './pages/candidature-popup/candidature-popup.component';
 import {RedirecttologinComponent} from './pages/redirecttologin/redirecttologin.component';
 import {ByidComponent} from './pages/offer/byid/byid.component';
+import {MatchingComponent} from './pages/offer/matching/matching.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {ByidComponent} from './pages/offer/byid/byid.component';
     AuthLayoutComponent,
     PopupComponent,
     PopupoffreComponent,
-    CandidaturePopupComponent
+    CandidaturePopupComponent,
+    MatchingComponent
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
@@ -72,7 +74,7 @@ import {ByidComponent} from './pages/offer/byid/byid.component';
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent]
+  entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent, MatchingComponent]
 })
 export class AppModule {
 }

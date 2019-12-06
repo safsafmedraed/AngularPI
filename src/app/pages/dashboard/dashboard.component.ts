@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
     this.index = this.Companies.indexOf(id);
     console.log(this.index);
     console.log(id);
-    /*this.CompanyService.deleteCompany(id.id).subscribe(data => console.log('delete succesfull'));*/
+    this.CompanyService.deleteCompany(id.id).subscribe(data => console.log('delete succesfull'));
     this.Companies.splice(this.index, 1);
   }
 

@@ -71,6 +71,9 @@
                 <td ><button mat-button class="btn btn-icon btn-2 btn-primary" type="button" (click)="deleteoffre(i)">
                   <span class="btn-inner--icon" ><i class="ni ni-atom"></i>Delete offre</span>
                 </button></td>
+                <td ><button mat-button class="btn btn-icon btn-2 btn-primary" type="button" (click)="matching(i)">
+                  <span class="btn-inner--icon" ><i class="ni ni-atom"></i>Top 3 matching available</span>
+                </button></td>
                 <td class="text-right">
                   <div ngbDropdown placement="bottom-right">
                     <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
@@ -78,7 +81,7 @@
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
                       <a class="dropdown-item" href="javascript:void(0)" (click)="viewcandidature(i)">view Candidature list</a>
-                      <!--<a class="dropdown-item" href="javascript:void(0)" (click)="deleteoffre(i)">delete Offre</a>-->
+
 
 
                     </div>
@@ -95,3 +98,4 @@
 
   </div>
 </div>
+

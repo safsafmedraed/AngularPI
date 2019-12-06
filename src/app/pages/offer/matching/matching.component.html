@@ -1,0 +1,47 @@
+<div class="table-responsive">
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Offre</th>
+      <th scope="col">Skills</th>
+      <th scope="col">rate</th>
+      <th scope="col">Student name</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of userO">
+      <th scope="row">
+        {{i[[0]]}}
+      </th>
+      <td>
+        {{i[[1]]}}
+      </td>
+      <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-warning"></i> {{i[[2]]}}
+            </span>
+      </td>
+      <td>
+        {{i[[3]]}}
+      </td>
+      <td>
+        {{i[[4]]}}
+      </td>
+      <td class="text-right">
+        {{i[[5]]}}
+      </td>
+    </tr>
+
+    <td>
+      Export pdf: <button mat-button class="btn btn-icon btn-2 btn-primary" type="button" >
+        <span class="btn-inner--icon" ><i
+          class="ni ni-atom"></i><a href="http://localhost:9080/Graduation-Project-web/export.xls">Export to Excel</a></span>
+      </button>
+    </td>
+
+    </tbody>
+  </table>
+</div>

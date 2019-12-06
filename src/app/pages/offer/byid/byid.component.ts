@@ -5,6 +5,9 @@ import {CandidaturePopupComponent} from '../../candidature-popup/candidature-pop
 import {PopupoffreComponent} from '../popupoffre/popupoffre.component';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {LOCAL_STORAGE, WebStorageService} from 'ngx-webstorage-service';
+import {SkillsService} from '../../../Services/skills.service';
+import {Useroffre} from '../../../Models/useroffre';
+import {MatchingComponent} from '../matching/matching.component';
 
 @Component({
   selector: 'app-byid',
@@ -19,7 +22,7 @@ export class ByidComponent implements OnInit {
   x = this.storage.get('entreprise').id;
 
   constructor(public offreservice: OffreService, public dialog: MatDialog,
-              @Inject(LOCAL_STORAGE) private storage: WebStorageService, public snackBar: MatSnackBar) {
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService, public snackBar: MatSnackBar, private cand: SkillsService) {
   }
 
   ngOnInit() {
@@ -52,5 +55,9 @@ export class ByidComponent implements OnInit {
     });
   }
 
-
+  matching(id) {
+    const dialogRef = this.dialog.open(MatchingComponent);
+    this.index = this.Offre.indexOf(id);
+    dialogRef.componentInstance.index = id.id;
+  }
 }
