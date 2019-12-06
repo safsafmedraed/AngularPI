@@ -1,3 +1,4 @@
+import { Category } from './../Models/Category';
 import { Sheet } from './../Models/Sheet';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -10,6 +11,7 @@ import { InitialInputData } from '@angular/core/src/render3/interfaces/node';
 
 export class SheetServiceService {
   sheet: Sheet;
+  category : Category;
   constructor(private httpClient: HttpClient) { }
   getAllSheet() {
     return this.httpClient.get<Sheet[]>(
@@ -62,6 +64,16 @@ export class SheetServiceService {
       'http://localhost:9080/Graduation-Project-web/Student/AddSheet/',Sheet,httpOptions
 
     )
+  }
+  addCategory(category,id){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this.httpClient.post<Category>(
+      'http://localhost:9080/Graduation-Project-web/Student/AddCategory/'+id,category,httpOptions
+
+    )
+    
   }
 }
 
