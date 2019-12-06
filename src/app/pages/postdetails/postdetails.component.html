@@ -1,0 +1,19 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+
+</div>
+
+name :{{post.name_post}}<br>
+
+état :{{post.etat}}<br>
+
+Comments:<br>
+<div *ngFor="let i of Comments">
+
+  description : {{i.description}}<br>
+  User : {{i.s.nom }}  {{i.s.prenom}}<br>
+  <br><br>
+</div>
+
+
+

@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
+import {PostdetailsComponent} from '../../pages/postdetails/postdetails.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -27,7 +28,8 @@ import {OfferComponent} from '../../pages/offer/offer.component';
     NgbModule,
     ClipboardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,
@@ -36,7 +38,8 @@ import {OfferComponent} from '../../pages/offer/offer.component';
     IconsComponent,
     MapsComponent,
     NourcheneComponent,
-    OfferComponent
+    OfferComponent,
+    PostdetailsComponent
   ]
 })
 
