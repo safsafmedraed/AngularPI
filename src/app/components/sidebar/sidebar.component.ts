@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { LOCAL_STORAGE, WebStorageService } from 'ngx-webstorage-service';
+import { Component, OnInit, Inject } from '@angular/core';
 import {Router} from '@angular/router';
 import { Sheet } from 'src/app/Models/Sheet';
 import { SheetServiceService } from 'src/app/Services/SheetService.service';
@@ -8,19 +9,14 @@ declare interface RouteInfo {
   title: string;
   icon: string;
   class: string;
+  role : any; 
   
 }
 
 export const ROUTES: RouteInfo[] = [
-  {path: '/dashboard', title: 'Corporate space', icon: 'ni-tv-2 text-primary', class: ''},
-  {path: '/offer', title: 'Corporate space1', icon: 'ni-tv-2 text-primary', class: ''},
-  {path: '/sheet', title: 'Fiche', icon: 'ni-planet text-blue', class: ''},
-  {path: '/maps', title: 'Marwen', icon: 'ni-pin-3 text-orange', class: ''},
-  {path: '/user-profile', title: 'Dhaker', icon: 'ni-single-02 text-yellow', class: ''},
-  {path: '/tables', title: 'Aziz', icon: 'ni-bullet-list-67 text-red', class: ''},
-  {path: '/nourchene', title: 'Nourchene', icon: 'ni-bullet-list-67 text-red', class: ''},
-  {path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: ''},
-  {path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: ''}
+  {path: '/sheet', title: 'Fiche', icon: 'ni-planet text-blue', class: '', role: ['SUPERVISOR']},
+  {path: '/student', title: 'Student', icon: 'ni-tv-2 text-primary', class: '', role: ['student']},
+
 ];
 
 @Component({
@@ -31,11 +27,17 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
+  public role: string;
 
-  constructor(private sheetservice: SheetServiceService,private router: Router) {
+  constructor(private sheetservice: SheetServiceService,private router: Router ,@Inject(LOCAL_STORAGE) private storage: WebStorageService) {
   }
 
   ngOnInit() {
+    if (this.storage.get('type') === 'staff'){
+      this.role = this.storage.get('user').role;
+       } else {
+         this.role = this.storage.get('type');
+       }
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;

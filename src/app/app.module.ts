@@ -1,7 +1,8 @@
 
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
@@ -14,33 +15,30 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app.routing';
 import {ComponentsModule} from './components/components.module';
 import {PopupComponent} from './pages/popup/popup.component';
-import {NotifierOptions} from 'angular-notifier';
-import {NourcheneComponent} from './pages/nourchene/nourchene.component';
-import { OfferComponent } from './pages/offer/offer.component';
+import { FormsModule } from '@angular/forms';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { PanelMenuModule } from 'primeng/panelmenu';
-import {ButtonModule} from 'primeng/button';
+
+
 
 
 @NgModule({
    imports: [
-      BrowserAnimationsModule,
-      FormsModule,
-      HttpClientModule,
-      ComponentsModule,
-      NgbModule,
-      RouterModule,
-      AppRoutingModule,
-      BrowserModule,
-      FormsModule,
-      PanelMenuModule,
+   BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ComponentsModule,
+    NgbModule,
+    RouterModule,
+    AppRoutingModule,
    ],
    declarations: [
       AppComponent,
       AdminLayoutComponent,
       AuthLayoutComponent,
       PopupComponent,
+      
+      
+      
    ],
    providers: [],
    bootstrap: [

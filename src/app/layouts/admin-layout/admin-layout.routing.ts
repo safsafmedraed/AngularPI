@@ -1,4 +1,5 @@
 
+
 import {Routes} from '@angular/router';
 
 import {DashboardComponent} from '../../pages/dashboard/dashboard.component';
@@ -11,7 +12,7 @@ import { SheetComponent } from 'src/app/pages/sheet-module/sheet/sheet.component
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'offer', component: OfferComponent},
+  {path: 'student', component: OfferComponent},
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'tables', component: TablesComponent},
   {path: 'sheet', component: SheetComponent},

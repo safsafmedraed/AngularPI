@@ -1,3 +1,23 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-aaa
 </div>
+<form [formGroup]="sheetform">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Input" class="form-control" formControlName="title">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <textarea matInput placeholder="Textarea" class="form-control" formControlName="description"></textarea>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <textarea matInput placeholder="Textarea" class="form-control" formControlName="issue"></textarea>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <textarea matInput placeholder="Textarea" class="form-control" formControlName="features"></textarea>
+      </mat-form-field>
+     
+    </div>
+    <button mat-button (click)="createSheet()">Next</button>
+    </form>

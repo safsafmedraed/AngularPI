@@ -1,3 +1,4 @@
+
 import {NgModule} from '@angular/core';
 import {CommonModule, } from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
@@ -7,12 +8,15 @@ import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.componen
 import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 
 
+
+
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+  {
     path: '',
     component: AuthLayoutComponent,
     children: [
@@ -30,10 +34,12 @@ const routes: Routes = [
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }
     ]
-  }, {
+  },
+  {
     path: '**',
     redirectTo: 'dashboard'
-  }
+  },
+  
 ];
 
 @NgModule({

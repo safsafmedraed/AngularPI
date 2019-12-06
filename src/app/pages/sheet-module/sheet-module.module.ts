@@ -7,11 +7,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SheetComponent } from './sheet/sheet.component';
 import { SheetRouterRoutes } from './sheetRouter.routing';
-import { SheetModificationComponent } from './sheet/sheet-modification/sheet-modification.component';
+import { SheetModificationComponent, DialogOverviewExampleDialog } from './sheet/sheet-modification/sheet-modification.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
 
 
 @NgModule({
-  declarations: [SheetComponent, SheetChildComponent, SheetModificationComponent ],
+  declarations: [SheetComponent, SheetChildComponent, SheetModificationComponent , DialogOverviewExampleDialog ],
   imports: [
     CommonModule,
     MatDialogModule,
@@ -54,7 +56,13 @@ import { SheetModificationComponent } from './sheet/sheet-modification/sheet-mod
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    SheetRouterRoutes
+    SheetRouterRoutes,
+    FormsModule,
+    ReactiveFormsModule,
+    RxReactiveFormsModule
+  ],
+  entryComponents : [
+    DialogOverviewExampleDialog
   ]
 })
 export class SheetModuleModule { }

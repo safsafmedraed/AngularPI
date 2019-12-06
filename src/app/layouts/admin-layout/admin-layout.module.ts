@@ -1,3 +1,5 @@
+
+
 import { SheetComponent } from './../../pages/sheet-module/sheet/sheet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +27,8 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {PanelModule} from 'primeng/panel';
 import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.module';
+
+
 
 
 @NgModule({
@@ -77,9 +81,10 @@ import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.modul
     MatTreeModule,
     PanelMenuModule,
     MatDialogModule,
-    SheetModuleModule
-
-
+    SheetModuleModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   declarations: [
     DashboardComponent,
