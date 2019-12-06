@@ -1,0 +1,18 @@
+
+<div class="card card-stats ">
+  <div class="card-header">
+    <h4>Add Comment</h4>
+    <h5 class="card-title text-uppercase text-muted mb-0"></h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <form>
+          <textarea (keyup.enter)="onenter(cmm)" #cmm class="form-control"  rows="3" placeholder="press enter to add comment"></textarea>
+        </form>
+      </div>
+                     {{comm}}
+    </div>
+
+  </div>
+</div>

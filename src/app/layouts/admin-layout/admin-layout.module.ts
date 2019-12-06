@@ -22,6 +22,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AddTaskComponent} from '../../pages/project/add-task/add-task.component';
 import {PopupComponent} from '../../pages/popup/popup.component';
 import {TaskDetailsComponent} from '../../pages/project/task-details/task-details.component';
+import {TaskCommentComponent} from "../../pages/project/task-comment/task-comment.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -48,7 +49,8 @@ import {TaskDetailsComponent} from '../../pages/project/task-details/task-detail
     ProjectComponent,
     BoardComponent,
     AddTaskComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    TaskCommentComponent
   ],
 
   entryComponents: [AddTaskComponent, TaskDetailsComponent]
