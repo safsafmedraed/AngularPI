@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{task.title}}</h3>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+  <div class="modal-body">
+
+    <div class="row ">
+   <div class="col ml-3">
+     <div class="row">    <h4>   Status : </h4><p> {{task.status}}</p> </div>
+   </div>
+      <div class="col">
+        <div class="row">   <h4 >Deadline : </h4><p> {{task.deadline | date}}</p> </div>
+      </div>
+    </div>
+    <h4>Description : </h4>
+    <p> {{task.description}}</p>
+    <h4>Attachments : </h4>
+
+  </div>
+  <div class="modal-footer">
+
+
+  </div>
+
+
+
+
+
+

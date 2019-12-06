@@ -21,6 +21,7 @@ import {BoardComponent} from '../../pages/project/board/board.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AddTaskComponent} from '../../pages/project/add-task/add-task.component';
 import {PopupComponent} from '../../pages/popup/popup.component';
+import {TaskDetailsComponent} from '../../pages/project/task-details/task-details.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -46,10 +47,11 @@ import {PopupComponent} from '../../pages/popup/popup.component';
     OfferComponent,
     ProjectComponent,
     BoardComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    TaskDetailsComponent
   ],
 
-  entryComponents: [AddTaskComponent]
+  entryComponents: [AddTaskComponent, TaskDetailsComponent]
 })
 
 export class AdminLayoutModule {/*constructor(

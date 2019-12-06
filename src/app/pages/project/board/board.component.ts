@@ -8,6 +8,7 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddTaskComponent} from '../add-task/add-task.component';
 import {Project} from '../../../Models/Project';
 import {ProjectService} from '../../../Services/project.service';
+import {TaskDetailsComponent} from "../task-details/task-details.component";
 
 @Component({
   selector: 'app-board',
@@ -84,5 +85,11 @@ this.status = st;
       console.log(task);
       this.todo.push(task);
     });
+  }
+
+  openDetails(taskId) {
+    const modalRef = this.modalService.open(TaskDetailsComponent);
+    modalRef.componentInstance.id = taskId;
+
   }
 }
