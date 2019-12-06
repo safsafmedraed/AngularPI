@@ -10,7 +10,7 @@
           <h3 class="text-white mb-0">Other Details</h3>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-dark table-flush" >
+          <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
             <tr>
               <th scope="col">Student name</th>
@@ -26,11 +26,24 @@
               </th>
 
               <td>
-                  <span class="badge badge-dot mr-4" >
+                  <span class="badge badge-dot mr-4">
                     <i class="bg-warning"></i>
                     {{i[[1]]}}
                   </span>
 
+              </td>
+              <td class="text-right">
+                <div ngbDropdown placement="bottom-right">
+                  <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+
+                    <a class="dropdown-item"
+                       href="http://localhost:9080/Graduation-Project-web/pdfexport?id={{x}}&idE=7">export pdf </a>
+
+                  </div>
+                </div>
               </td>
 
 
@@ -41,4 +54,5 @@
         </div>
       </div>
     </div>
-  </div></div>
+  </div>
+</div>

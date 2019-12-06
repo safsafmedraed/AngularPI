@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Offreentreprise} from '../../../Models/offreentreprise';
 import {OffreService} from '../../../Services/offre.service';
 import {observable, Observable} from 'rxjs';
+import {MatDialog, MatSnackBar} from '@angular/material';
 
 export interface Food {
   value: string;
@@ -22,7 +23,7 @@ export class PopupoffreComponent implements OnInit {
     {value: 'training', viewValue: 'training'}
   ];
 
-  constructor(public offreservice: OffreService) {
+  constructor(public offreservice: OffreService, public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class PopupoffreComponent implements OnInit {
     this.offreservice.Addoffre(c).subscribe(
       data => 'ok'
     );
-
+    this.snackBar.open('Your Offre ' + c.annonce + ' has been added ');
     this.offreservice.getOffre().subscribe(data => this.Offre1 = data);
     console.log(c);
   }

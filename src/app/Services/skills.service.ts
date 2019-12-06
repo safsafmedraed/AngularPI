@@ -12,12 +12,18 @@ export class SkillsService {
   constructor(private http: HttpClient) {
   }
 
-
+  getAll1() {
+    return this.http.get<Userskills[]>(this.host + '/alluserskills');
+  }
   getAll() {
     return this.http.get<Skills[]>(this.host + '/all');
   }
 
   affectstudentskills(skills_id, rate) {
     return this.http.post<Userskills>(this.host, {skills_id, rate});
+  }
+
+  updateskills(id, skills_id, rate) {
+    return this.http.put<Userskills>(this.host, {id, skills_id, rate});
   }
 }

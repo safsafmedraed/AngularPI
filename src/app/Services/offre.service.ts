@@ -16,6 +16,12 @@ export class OffreService {
   constructor(private http: HttpClient) {
   }
 
+  /*****************OffreCby id*******************/
+  offrebyid(): Observable<Offreentreprise[]> {
+    return this.http.get<Offreentreprise[]>(this.host + '/MyOffres').pipe(tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError));
+  }
+
   /******************add offre****************/
   Addoffre(offre) {
     return this.http.post<Offreentreprise>(this.host, offre);

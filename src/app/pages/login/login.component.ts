@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router, private httpClient: HttpClient,
               private entrepriseservice: EntrepriseService, private ls: LoginService,
-              @Inject(LOCAL_STORAGE) private storage: WebStorageService) {}
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -63,7 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('user', data.user);
           this.storage.set('token', data.token);
           console.log(this.storage.get('user').id);
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('offer');
           console.log(data);
         } else if (data.type == 'encadreur') {
           console.log('encadreur');

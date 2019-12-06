@@ -4,6 +4,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import {Router} from '@angular/router';
 import {Entreprise} from '../../Models/entreprise';
 import {EntrepriseService} from '../../Services/entreprise.service';
+import {LoginService} from '../../Services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,8 @@ export class NavbarComponent implements OnInit {
   public nom: string;
   public prenom: string;
 
-  constructor(location: Location, private element: ElementRef, private router: Router, public CompanyService: EntrepriseService) {
+  constructor(location: Location, private element: ElementRef, private router: Router,
+              public CompanyService: EntrepriseService, public Logout: LoginService) {
     this.location = location;
   }
 
@@ -45,4 +47,11 @@ export class NavbarComponent implements OnInit {
     return 'Dashboard';
   }
 
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('type');
+    localStorage.removeItem('entreprise');
+    localStorage.removeItem('identifiant');
+
+  }
 }

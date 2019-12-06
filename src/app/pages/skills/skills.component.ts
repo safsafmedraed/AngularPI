@@ -13,10 +13,12 @@ import {getValue} from '@angular/core/src/render3/styling/class_and_style_bindin
 })
 export class SkillsComponent implements OnInit {
   userskills: Userskills = new Userskills();
+  userskills1: Userskills[] = [];
   skills: Skills[] = [];
   skills1: Skills = new Skills();
   abilities: Array<Userskills>[];
   rate: number;
+  index: number;
   foods: Food[] = [
     {value: '1', viewValue: '1'},
     {value: '2', viewValue: '2'},
@@ -46,12 +48,17 @@ export class SkillsComponent implements OnInit {
         event.currentIndex);
     }
     console.log(this.abilities[0]);
-
   }
 
   addskillsstudent(userskills, rate) {
     this.rate = rate;
     this.skillservice.affectstudentskills(userskills, rate).subscribe(data => 'created');
+
+  }
+
+  update(userskills, rate, id) {
+    this.rate = rate;
+    this.skillservice.updateskills(88, userskills, rate).subscribe(data => 'updated');
 
   }
 }

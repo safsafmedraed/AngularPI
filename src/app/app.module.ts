@@ -20,11 +20,21 @@ import {TokenInterceptorService} from './Services/token-interceptor.service';
 
 import {PopupoffreComponent} from './pages/offer/popupoffre/popupoffre.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSlideToggleModule} from '@angular/material';
+import {
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatButtonModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatSlideToggleModule, MatSnackBarModule
+} from '@angular/material';
 
 import {MatSelectModule} from '@angular/material/select';
 import {SkillsComponent} from './pages/skills/skills.component';
 import {CandidaturePopupComponent} from './pages/candidature-popup/candidature-popup.component';
+import {RedirecttologinComponent} from './pages/redirecttologin/redirecttologin.component';
+import {ByidComponent} from './pages/offer/byid/byid.component';
 
 
 @NgModule({
@@ -42,7 +52,8 @@ import {CandidaturePopupComponent} from './pages/candidature-popup/candidature-p
     MatSelectModule,
     MatDatepickerModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatButtonModule, MatSnackBarModule,
   ],
   declarations: [
     AppComponent,
@@ -56,7 +67,10 @@ import {CandidaturePopupComponent} from './pages/candidature-popup/candidature-p
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }, MatDatepickerModule],
+  }, MatDatepickerModule,
+
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+  ],
   bootstrap: [AppComponent],
   entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent]
 })

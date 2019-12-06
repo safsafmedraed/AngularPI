@@ -1,6 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, Input, OnInit, ViewChild} from '@angular/core';
 import {Useroffre} from '../../Models/useroffre';
 import {OffreService} from '../../Services/offre.service';
+import {LOCAL_STORAGE, WebStorageService} from 'ngx-webstorage-service';
 
 @Component({
   selector: 'app-candidature-popup',
@@ -11,8 +12,8 @@ export class CandidaturePopupComponent implements OnInit {
   userO: Useroffre[] = [];
 
   index: number;
-
-  constructor(private Offreservice: OffreService) {
+  x = this.storage.get('entreprise').id;
+  constructor(private Offreservice: OffreService, @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
   }
 
   ngOnInit() {

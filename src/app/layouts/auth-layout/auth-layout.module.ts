@@ -13,6 +13,8 @@ import {LoginService} from '../../Services/login.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptorService} from '../../Services/token-interceptor.service';
 import {EntrepriseService} from '../../Services/entreprise.service';
+import {CandidaturePopupComponent} from '../../pages/candidature-popup/candidature-popup.component';
+import {RedirecttologinComponent} from '../../pages/redirecttologin/redirecttologin.component';
 
 const notifierDefaultOptions: NotifierOptions = {
   position: {
@@ -68,7 +70,8 @@ const notifierDefaultOptions: NotifierOptions = {
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LoginentrepriseComponent
+    LoginentrepriseComponent,
+    RedirecttologinComponent
   ]
 })
 export class AuthLayoutModule {

@@ -6,7 +6,7 @@ import {Entreprise} from '../../Models/entreprise';
 import {EntrepriseService} from '../../Services/entreprise.service';
 import {PopupComponent} from '../popup/popup.component';
 import {PopupoffreComponent} from './popupoffre/popupoffre.component';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {CandidaturePopupComponent} from '../candidature-popup/candidature-popup.component';
 
 @Component({
@@ -19,26 +19,25 @@ export class OfferComponent implements OnInit {
   entreprise: Entreprise[] = [];
   @Input()
   index: number;
-  newDynamic: any = {};
 
-  constructor(public offreservice: OffreService, public dialog: MatDialog) {
+  constructor(public offreservice: OffreService, public dialog: MatDialog, public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-    this.Offre.push(this.newDynamic);
+
     this.offreservice.getOffre().subscribe(
       data => {
         this.Offre = data;
 
       },
       eur => console.log('error'));
-
   }
 
   affectOffre(id) {
     this.index = this.Offre.indexOf(id);
     this.offreservice.applytoOffre(id.id).subscribe(data => console.log('affected'));
-    console.log(this.offreservice.applytoOffre(id.id));
+    this.snackBar.open('Your choice has been saved ');
+
   }
 
   deleteoffre(id) {
@@ -48,13 +47,6 @@ export class OfferComponent implements OnInit {
 
     this.offreservice.Deletoffre(id.id).subscribe(data => console.log('delete succesfull'));
     this.Offre.splice(this.index, 1);
-    /*this.offreservice.getOffre().subscribe(
-      data => {
-        this.Offre = data;
-
-      },
-      eur => console.log('error'));*/
-
   }
 
   viewcandidature(id) {

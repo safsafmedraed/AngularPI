@@ -14,6 +14,7 @@ import {Message} from 'src/app/Services/message';
 })
 export class DashboardComponent implements OnInit {
   Companies: Entreprise[] = [];
+  Company: Entreprise;
   Message: Message;
   accepted: string;
   Pending: false;
@@ -29,7 +30,7 @@ export class DashboardComponent implements OnInit {
     this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));
     this.accepted = 'Accepted';
     this.pending = 'Pending';
-   // this.Message.message = 'Your company has been approved ,thanks for trusting Our Society';
+    // this.Message.message = 'Your company has been approved ,thanks for trusting Our Society';
   }
 
   approveCompany(id) {
@@ -37,10 +38,11 @@ export class DashboardComponent implements OnInit {
     this.index = this.Companies.indexOf(id);
     console.log(this.index);
     console.log(id);
+    this.pending = 'Accepted';
     this.CompanyService.approveCompany(id.id).subscribe(data => console.log('ok'));
 
-    this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));
-    this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));
+    /*this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));*/
+
 
   }
 
@@ -52,8 +54,8 @@ export class DashboardComponent implements OnInit {
     this.index = this.Companies.indexOf(id);
     console.log(this.index);
     console.log(id);
-    this.CompanyService.deleteCompany(id.id).subscribe(data => console.log('delete succesfull'));
-    this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));
+    /*this.CompanyService.deleteCompany(id.id).subscribe(data => console.log('delete succesfull'));*/
+    this.Companies.splice(this.index, 1);
   }
 
 }

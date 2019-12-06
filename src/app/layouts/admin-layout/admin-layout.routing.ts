@@ -9,6 +9,7 @@ import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {LoginentrepriseComponent} from '../../pages/loginentreprise/loginentreprise.component';
 import {SkillsComponent} from '../../pages/skills/skills.component';
+import {ByidComponent} from '../../pages/offer/byid/byid.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -20,6 +21,7 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'maps', component: MapsComponent},
   {path: 'nourchene', component: NourcheneComponent},
   {path: 'skills', component: SkillsComponent},
+  {path: 'offerc', component: ByidComponent},
 
 
 ];

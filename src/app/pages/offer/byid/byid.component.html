@@ -8,17 +8,17 @@
         <div class="card bg-default shadow">
           <div class="card-header bg-transparent border-0">
             <h3 class="text-white mb-0">All Offre</h3>
-            <!--<td class="text-left">
+            <td class="text-left">
               <div ngbDropdown placement="bottom-left">
                 <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
                   <i class="fas fa-ellipsis-v"></i>
                 </a>
-                &lt;!&ndash;<div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
+                <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
 
-                  <a class="dropdown-item" href="javascript:void(0)" (click)="popup()">Add offre</a>
-                </div>&ndash;&gt;
+                  <a class="dropdown-item" href="javascript:void(0)" (click)="popup()" >Add offre</a>
+                </div>
               </div>
-            </td>-->
+            </td>
           </div>
           <div class="table-responsive" >
             <table class="table align-items-center table-dark table-flush">
@@ -31,16 +31,16 @@
                 <th scope="col">Corresponding Profil</th>
                 <th scope="col">Offre type</th>
                 <th scope="col">Posted By</th>
-                <th scope="col">Apply to offre</th>
+                <th scope="col"> Delete</th>
                 <th scope="col"></th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let i of Offre" >
-                <th scope="row">
+                <th scope="row" >
                   <div class="media align-items-center" >
 
-                      {{i.annonce}}
+                    {{i.annonce}}
 
 
                   </div>
@@ -54,7 +54,7 @@
                     <i class="bg-warning"></i> {{i.localisation}}
 
                   </span>
-                   </td>
+                </td>
                 <td>
                   {{i.ville}}
                 </td>
@@ -68,23 +68,22 @@
                 <td>
                   {{i.entreprise.nomEntreprise}}
                 </td>
-                <td ><button mat-button class="btn btn-icon btn-2 btn-primary" type="button" (click)="affectOffre(i)">
-                  <span class="btn-inner--icon" ><i class="ni ni-atom"></i>Apply to Offre</span>
+                <td ><button mat-button class="btn btn-icon btn-2 btn-primary" type="button" (click)="deleteoffre(i)">
+                  <span class="btn-inner--icon" ><i class="ni ni-atom"></i>Delete offre</span>
                 </button></td>
-               <!-- <td class="text-right">
+                <td class="text-right">
                   <div ngbDropdown placement="bottom-right">
                     <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
                       <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                      <a class="dropdown-item" href="javascript:void(0)" (click)="viewcandidature(i)">view Candidature list</a>
+                      <!--<a class="dropdown-item" href="javascript:void(0)" (click)="deleteoffre(i)">delete Offre</a>-->
 
-                     &lt;!&ndash; <a class="dropdown-item" href="javascript:void(0)" >Apply to Offre</a>&ndash;&gt;
-                      &lt;!&ndash;<a class="dropdown-item" href="javascript:void(0)" (click)="viewcandidature(i)">view Candidature list</a>&ndash;&gt;
-                     &lt;!&ndash; <a class="dropdown-item" href="javascript:void(0)" (click)="deleteoffre(i)">delete Offre</a>&ndash;&gt;
 
                     </div>
                   </div>
-                </td>-->
+                </td>
               </tr>
 
               </tbody>
@@ -94,19 +93,5 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
 </div>

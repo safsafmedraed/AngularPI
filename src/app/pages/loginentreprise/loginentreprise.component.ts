@@ -16,6 +16,7 @@ import {NotifierService} from 'angular-notifier';
 export class LoginentrepriseComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   loading = false;
+
   private readonly notifier: NotifierService;
 
   constructor(private formBuilder: FormBuilder,
@@ -30,7 +31,6 @@ export class LoginentrepriseComponent implements OnInit, OnDestroy {
       identifiant: ['', Validators.required],
       password: ['', Validators.required]
     });
-
   }
 
   ngOnDestroy() {
@@ -44,11 +44,10 @@ export class LoginentrepriseComponent implements OnInit, OnDestroy {
     this.ls.logCompany(identifiant.value, password.value).subscribe(
       data => {
         if (data.entreprise.autorise === 1) {
-          this.storage.set('entreprise', data.user);
-          this.storage.set('identifiant', identifiant);
-
+          this.storage.set('entreprise', data.entreprise);
+          this.storage.set('identifiant', data.entreprise.identifiant);
           this.storage.set('token', data.token);
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('offerc');
         } else {
           console.log('cant connect');
           this.router.navigateByUrl('loginE');

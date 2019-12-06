@@ -23,6 +23,8 @@ import {TokenInterceptorService} from '../../Services/token-interceptor.service'
 import {SkillsComponent} from '../../pages/skills/skills.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {PopupoffreComponent} from '../../pages/offer/popupoffre/popupoffre.component';
+import {CandidaturePopupComponent} from '../../pages/candidature-popup/candidature-popup.component';
+import {ByidComponent} from '../../pages/offer/byid/byid.component';
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -36,10 +38,10 @@ import {PopupoffreComponent} from '../../pages/offer/popupoffre/popupoffre.compo
     NgbModule,
     ClipboardModule,
     MatDialogModule,
-    MatButtonModule,
     DragDropModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
@@ -55,7 +57,8 @@ import {PopupoffreComponent} from '../../pages/offer/popupoffre/popupoffre.compo
     MapsComponent,
     NourcheneComponent,
     OfferComponent,
-    SkillsComponent
+    SkillsComponent,
+    ByidComponent
   ]
 })
 
