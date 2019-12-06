@@ -4,8 +4,10 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 
 import {TaskService} from '../../../Services/task.service';
 import {Task} from '../../../Models/Task';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddTaskComponent} from '../add-task/add-task.component';
+import {Project} from '../../../Models/Project';
+import {ProjectService} from '../../../Services/project.service';
 
 @Component({
   selector: 'app-board',
@@ -18,7 +20,8 @@ export class BoardComponent implements OnInit {
   status: string;
   task: Task ;
   idd: number;
-  constructor(private route: ActivatedRoute, private ts: TaskService, private modalService: NgbModal) {
+  project: Project;
+  constructor(private route: ActivatedRoute, private ts: TaskService, private modalService: NgbModal, private ps: ProjectService) {
 
   }
   todo: Task[] = [];
@@ -49,6 +52,7 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
 
     this.projectid = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.ps.getProjectbyid(this.projectid).subscribe(data => {this.project = data; console.log(this.project); });
     this.ts.getTasks(this.projectid).subscribe(data => {this.done = data.filter(t => t.status.includes('DONE'));
                                                         this.doing = data.filter(t => t.status.includes('DOING'));
                                                         this.todo = data.filter(t => t.status.includes('TO_DO'));
@@ -77,7 +81,7 @@ this.status = st;
     const modalRef = this.modalService.open(AddTaskComponent);
     modalRef.componentInstance.id = this.projectid;
     modalRef.componentInstance.passEntry.subscribe((task) => {
-      console.log(task)
+      console.log(task);
       this.todo.push(task);
     });
   }

@@ -22,7 +22,7 @@ import * as moment from 'moment';
 })
 export class AddTaskComponent implements OnInit {
   @Input() id;
-  @Output() passEntry: EventEmitter<any> = new EventEmitter()
+  @Output() passEntry: EventEmitter<any> = new EventEmitter();
   constructor(public activeModal: NgbActiveModal, private ps: ProjectService, private ts: TaskService) { }
   ajout = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
