@@ -9,6 +9,8 @@ import {TablesComponent} from '../../pages/tables/tables.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {GestionSoutenancesComponent} from '../../pages/gestion-soutenances/gestion-soutenances.component';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
+import {DetailsSheetComponent} from '../../pages/Defense/details-sheet/details-sheet.component';
+import {AddDefenseComponent} from '../../pages/Defense/add-defense/add-defense.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -17,6 +19,8 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'tables', component: TablesComponent},
   {path: 'icons', component: IconsComponent},
   {path: 'maps', component: MapsComponent},
+  {path: 'Detailsheets', component: DetailsSheetComponent},
+  {path: 'AddDefense', component: AddDefenseComponent},
 
   {path: 'gestionSoutenance', component: GestionSoutenancesComponent}
 ];

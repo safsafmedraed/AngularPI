@@ -8,7 +8,7 @@ import {AppComponent} from './app.component';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppRoutingModule} from './app.routing';
 import {ComponentsModule} from './components/components.module';
@@ -21,6 +21,32 @@ import {MatDialogModule} from '@angular/material';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {NotifierModule, NotifierOptions, NotifierService} from 'angular-notifier';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
+import { DetailsSheetDiagComponent } from './pages/Defense/details-sheet-diag/details-sheet-diag.component';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import {DropDownsModule} from '@progress/kendo-angular-dropdowns';
+import { ScheduleModule, DayService, WeekService, WorkWeekService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService, MonthService, ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
+import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
+
+import { DropDownListAllModule, MultiSelectAllModule, DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+
+import { MaskedTextBoxModule, UploaderAllModule, NumericTextBoxModule } from '@syncfusion/ej2-angular-inputs';
+
+import { ToolbarAllModule, ContextMenuAllModule } from '@syncfusion/ej2-angular-navigations';
+
+import { ButtonAllModule, ButtonModule } from '@syncfusion/ej2-angular-buttons';
+
+import { CheckBoxAllModule } from '@syncfusion/ej2-angular-buttons';
+
+import {DatePickerAllModule, TimePickerAllModule, DateTimePickerAllModule, DatePickerModule} from '@syncfusion/ej2-angular-calendars';
+
+import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
+import { AddDefenseComponent } from './pages/Defense/add-defense/add-defense.component';
+import {ListViewAllModule} from '@syncfusion/ej2-angular-lists';
+import { SplitterModule } from '@syncfusion/ej2-angular-layouts';
+
+
+
 
 
 
@@ -76,7 +102,27 @@ const customNotifierOptions: NotifierOptions = {
     MatDialogModule,
     NotifierModule.withConfig(customNotifierOptions),
     MatTabsModule,
-
+    ScheduleModule,
+    Ng2SmartTableModule,
+    InputsModule,
+    DropDownsModule,
+    RecurrenceEditorAllModule,
+    DropDownListModule,
+    DateTimePickerAllModule,
+    DatePickerAllModule,
+    ButtonModule,
+    NumericTextBoxModule,
+    ScheduleAllModule,
+    NumericTextBoxAllModule, DatePickerAllModule, TimePickerAllModule,
+    DateTimePickerAllModule, CheckBoxAllModule,
+    ToolbarAllModule,   DropDownListAllModule,
+    MaskedTextBoxModule,
+    UploaderAllModule,
+    MultiSelectAllModule,
+    TreeViewModule,
+    ButtonAllModule,
+    ListViewAllModule,
+    SplitterModule
 
   ],
   declarations: [
@@ -84,12 +130,23 @@ const customNotifierOptions: NotifierOptions = {
     AdminLayoutComponent,
     AuthLayoutComponent,
     PopupComponent,
-    NourcheneComponent
+    NourcheneComponent,
+    DetailsSheetDiagComponent,
+
+
+
 
   ],
-  providers: [NotifierService],
+  providers: [NotifierService,DayService,
+    WeekService,
+    WorkWeekService,
+    MonthService,
+    AgendaService,
+    MonthAgendaService,
+    TimelineViewsService, TimelineMonthService],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent,NourcheneComponent]
+  entryComponents: [PopupComponent,NourcheneComponent,DetailsSheetDiagComponent]
 })
 export class AppModule {
 }
+
