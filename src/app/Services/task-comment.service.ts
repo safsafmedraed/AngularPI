@@ -18,6 +18,6 @@ export class TaskCommentService {
     return this.http.get<TaskComment[]>(this.url + '/getcommentsbytask/' + id);
   }
   addComment(COMMENT) {
-    return this.http.post(this.url + '/addcomment' , COMMENT, this.httpOptions);
+    return this.http.post<TaskComment>(this.url + '/addcomment' , COMMENT, this.httpOptions);
   }
 }

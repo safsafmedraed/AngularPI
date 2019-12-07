@@ -11,8 +11,15 @@
           <textarea (keyup.enter)="onenter(cmm)" #cmm class="form-control"  rows="3" placeholder="press enter to add comment"></textarea>
         </form>
       </div>
-                     {{comm}}
     </div>
-
+    <h4>All Comments :</h4>
+    <div  class="card card-stats"  style="border-color: #a8a9ad"  *ngFor="let item of comments" >
+      <div  style="background-color: #aaa9ad " class="card-header">
+        <h3> {{item.user.nom}}</h3>
+        {{ item.date }}
+      </div>
+      <div style="border-color: #a8a9ad"  class="card-body">
+        {{item.body}}
+      </div>
   </div>
-</div>
+  </div></div>
