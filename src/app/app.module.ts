@@ -17,6 +17,7 @@ import {NotifierOptions} from 'angular-notifier';
 import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import {PostdetailsComponent} from './pages/postdetails/postdetails.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {PostdetailsComponent} from './pages/postdetails/postdetails.component';
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    ModalModule.forRoot(),
   ],
   declarations: [
     AppComponent,

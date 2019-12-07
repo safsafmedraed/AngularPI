@@ -17,6 +17,7 @@
   </div></div>
 </div>
 </div>-->
+<button type="button" class="btn btn-primary" (click)="openModal(template)">add post</button>
 <div class="table-responsive">
   <table class="table align-items-center table-dark table-flush">
     <thead class="thead-dark">
@@ -70,7 +71,7 @@
     </tbody>
   </table>
 </div>
-
+<ng-template #template>
 <form [formGroup]="questionf" >
 
     <div class="col-md-6">
@@ -91,9 +92,11 @@
 
     <div class="col-md-6">
       <div class="form-group">
-        <input type="text" formControlName="image" class="form-control form-control-alternative" placeholder="image">
+        <input type="file" (change)="onFileChanged($event)" formControlName="image" class="form-control form-control-alternative" placeholder="image">
+
       </div>
     </div>
     <button class="btn btn-primary" (click)="ajouterpost()" type="button">Button</button>
 </form>
+</ng-template>
 
