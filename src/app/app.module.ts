@@ -16,6 +16,7 @@ import {AppRoutingModule} from './app.routing';
 import {ComponentsModule} from './components/components.module';
 import {PopupComponent} from './pages/popup/popup.component';
 import { FormsModule } from '@angular/forms';
+import { DialogMinorModif } from './pages/user-profile/user-profile.component';
 
 
 
@@ -38,14 +39,14 @@ import { FormsModule } from '@angular/forms';
       PopupComponent,
       
       
-      
    ],
    providers: [],
    bootstrap: [
       AppComponent
    ],
    entryComponents: [
-      PopupComponent
+      PopupComponent,
+      
    ]
 })
 export class AppModule {

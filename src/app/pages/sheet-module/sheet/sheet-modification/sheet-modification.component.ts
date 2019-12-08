@@ -72,9 +72,7 @@ export class DialogOverviewExampleDialog {
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any , private sheetservice: SheetServiceService,
     private formBuilder:FormBuilder) {}
-    // ngOnInit() {
-    // this.refuseForm = this.formBuilder.group({
-    //   name: ['']})}
+   
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -96,3 +94,4 @@ export class DialogOverviewExampleDialog {
     this.sheet.refuseModificationReason = this.refuseForm.value.refuseModificationReason;
   }
 }
+

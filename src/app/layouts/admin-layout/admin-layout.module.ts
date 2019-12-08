@@ -1,3 +1,4 @@
+import { DialogMinorModif, DialogMajorModif } from './../../pages/user-profile/user-profile.component';
 
 
 import { SheetComponent } from './../../pages/sheet-module/sheet/sheet.component';
@@ -93,8 +94,15 @@ import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.modul
     MapsComponent,
     NourcheneComponent,
     OfferComponent,
-    
+    DialogMinorModif,
+    DialogMajorModif
   ]
+  ,
+   entryComponents: [
+      DialogMinorModif,
+      DialogMajorModif
+      
+   ]
 })
 
 export class AdminLayoutModule {/*constructor(

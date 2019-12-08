@@ -13,7 +13,7 @@ import { SheetComponent } from 'src/app/pages/sheet-module/sheet/sheet.component
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'student', component: OfferComponent},
-  {path: 'user-profile', component: UserProfileComponent},
+  {path: 'sheet-process', component: UserProfileComponent},
   {path: 'tables', component: TablesComponent},
   {path: 'sheet', component: SheetComponent},
   {path: 'maps', component: MapsComponent},

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Refuse Reason</h1>
+<h5> Send your refuse reason to {{data.shh.student.nom}}</h5>
+<div mat-dialog-content>
+  <form [formGroup]="refuseForm">
+  <textarea matInput placeholder="Textarea" class="form-control" formControlName="issueRequest" [(ngModel)]="data.shh.issue"></textarea>
+  <textarea matInput placeholder="Textarea" class="form-control" formControlName="featuresRequest"  [(ngModel)]="data.shh.features"></textarea>
+    <!-- data.shh.refuseModificationReason -->
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="ModifMajor(data.shh.id_sheet)" cdkFocusInitial>Send</button>
+</div>

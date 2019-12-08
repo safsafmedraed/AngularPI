@@ -46,7 +46,7 @@ export class SheetServiceService {
   }
   getSheetbyIDstudent(id) {
     return this.httpClient.get<Sheet>(
-      'http://localhost:9080/Graduation-Project-web/Student/GetSheetByStudentId?idStudent=' + id
+      'http://localhost:9080/Graduation-Project-web/Student/GetSheetByStudentId?idStudent='+id
     );
   }
   ResfuseModification(id, ref) {
@@ -71,6 +71,27 @@ export class SheetServiceService {
     }
     return this.httpClient.post<Category>(
       'http://localhost:9080/Graduation-Project-web/Student/AddCategory/'+id,category,httpOptions
+
+    )
+    
+  }
+  ModifyMin(id,sheet){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this.httpClient.post<Sheet>(
+      'http://localhost:9080/Graduation-Project-web/Student/ModifySheet/'+id,sheet,httpOptions
+
+    )
+    
+  }
+
+  ModifyMajor(id,sheet){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this.httpClient.post<Sheet>(
+      'http://localhost:9080/Graduation-Project-web/Student/ModifySheetbyRequest/'+id,sheet,httpOptions
 
     )
     
