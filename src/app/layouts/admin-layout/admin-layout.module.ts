@@ -22,7 +22,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AddTaskComponent} from '../../pages/project/add-task/add-task.component';
 import {PopupComponent} from '../../pages/popup/popup.component';
 import {TaskDetailsComponent} from '../../pages/project/task-details/task-details.component';
-import {TaskCommentComponent} from "../../pages/project/task-comment/task-comment.component";
+import {TaskCommentComponent} from '../../pages/project/task-comment/task-comment.component';
+import {StatsComponent} from '../../pages/project/stats/stats.component';
+
+import {ChartModule} from 'primeng/chart';
+
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -37,6 +41,7 @@ import {TaskCommentComponent} from "../../pages/project/task-comment/task-commen
     MatButtonModule,
     DragDropModule,
     ReactiveFormsModule,
+    ChartModule,
   ],
   declarations: [
     DashboardComponent,
@@ -50,9 +55,9 @@ import {TaskCommentComponent} from "../../pages/project/task-comment/task-commen
     BoardComponent,
     AddTaskComponent,
     TaskDetailsComponent,
-    TaskCommentComponent
+    TaskCommentComponent,
+    StatsComponent
   ],
-
   entryComponents: [AddTaskComponent, TaskDetailsComponent]
 })
 

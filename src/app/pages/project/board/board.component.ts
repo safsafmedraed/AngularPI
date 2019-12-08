@@ -8,7 +8,7 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddTaskComponent} from '../add-task/add-task.component';
 import {Project} from '../../../Models/Project';
 import {ProjectService} from '../../../Services/project.service';
-import {TaskDetailsComponent} from "../task-details/task-details.component";
+import {TaskDetailsComponent} from '../task-details/task-details.component';
 
 @Component({
   selector: 'app-board',
@@ -22,6 +22,7 @@ export class BoardComponent implements OnInit {
   task: Task ;
   idd: number;
   project: Project;
+
   constructor(private route: ActivatedRoute, private ts: TaskService, private modalService: NgbModal, private ps: ProjectService) {
 
   }

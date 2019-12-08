@@ -19,6 +19,19 @@
     <p> {{task.description}}</p>
     <h4>Attachments : </h4>
 
+    <div class="form-group">
+      <label for="file">Choose File</label>
+      <input type="file"
+             id="file"
+             (change)="handleFileInput($event.target.files)">
+      <button (click)="uploadFileToActivity()"></button>
+    </div>
+
+
+
+
+
+
     <app-task-comment [task]="task"></app-task-comment>
   </div>
   <div class="modal-footer">

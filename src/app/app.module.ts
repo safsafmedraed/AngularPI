@@ -19,7 +19,8 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { BoardComponent } from './pages/project/board/board.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { TaskCommentComponent } from './pages/project/task-comment/task-comment.component';
+
+import { ActivityComponent } from './pages/project/activity/activity.component';
 
 
 
@@ -32,13 +33,15 @@ import { TaskCommentComponent } from './pages/project/task-comment/task-comment.
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    PopupComponent
+    PopupComponent,
+    ActivityComponent
 
 
   ],
