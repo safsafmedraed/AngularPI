@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {CommentService} from '../../Services/comment.service';
 import {Comment} from '../../Models/Comment';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Post} from '../../Models/Post';
 import {PostService} from '../../Services/post.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {LOCAL_STORAGE, WebStorageService} from 'ngx-webstorage-service';
+import {Observable} from 'rxjs';
+import {VoteComment} from '../../Models/VoteComment';
+import {VoteService} from '../../Services/vote.service';
 
 
 @Component({
@@ -13,8 +18,13 @@ import {PostService} from '../../Services/post.service';
 })
 export class PostdetailsComponent implements OnInit {
   Comments: Comment[] = [];
+  Comment: Comment;
   post: Post;
-  constructor(public commentService: CommentService, public postService: PostService , private route: ActivatedRoute) { }
+  Votes: VoteComment[] = [];
+  private reponse = new FormGroup({
+    description: new FormControl('', [Validators.required])
+  });
+  constructor(public commentService: CommentService, public voteService: VoteService, public postService: PostService , private route: ActivatedRoute, @Inject(LOCAL_STORAGE) private storage: WebStorageService, private router: Router) { }
 
   ngOnInit() {
     let id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
@@ -25,5 +35,22 @@ export class PostdetailsComponent implements OnInit {
     } );
 
   }
+  get description() {
+    return this.reponse.get('description');
+  }
+  addComment() {
+    this.Comment = new Comment(this.reponse.value['description']);
+    console.log(this.Comment);
+    this.Comment.s = this.storage.get('user');
+    this.postService.addPost(this.post).subscribe( );
+    this.commentService.addPComment(this.Comment, this.post.id_post).subscribe();
+    this.reponse.reset();
+    this.ngOnInit();
 
+  }
+  getNbr(id) {
+    let x: VoteComment[] = [];
+    this.voteService.getvotePerComment(id).subscribe(data => { x = data; });
+    return x.length ;
+  }
 }

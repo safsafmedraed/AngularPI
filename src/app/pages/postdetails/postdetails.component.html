@@ -3,17 +3,51 @@
 
 </div>
 
-name :{{post.name_post}}<br>
+<!--name :{{post.name_post}}<br>
 
 état :{{post.etat}}<br>
-<img src="{{post.image_post}}">
-Comments:<br>
-<div *ngFor="let i of Comments">
+<img align="center" height="60" width="50" src="{{post.image_post}}"><br> -->
+<div class="card" style="width: 60rem;" >
+  <div class="card-body">
+    <h5 class="card-title" style="color: #1da1f2" >Titre:</h5><br>
+    <h3 class="card-text">{{post.name_post}}</h3>
+    <h5 class="card-title" style="color: #1da1f2">Description:</h5><br>
+    <h3 class="card-text">{{post.description_post}}</h3>
+    <img class="card-img-top" src="{{post.image_post}}" alt="Card image cap">
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
 
-  description : {{i.description}}<br>
+<div class="alert alert-primary" role="alert">
+  <strong>Comments:</strong> !
+</div>q
+
+<!--<div *ngFor="let i of Comments">
+
+  description : {{i.description}}<br>+--------**
   User : {{i.s.nom }}  {{i.s.prenom}}<br>
   <br><br>
+
+</div>-->
+
+<div class="card" *ngFor="let i of Comments">
+  <span class="badge badge-pill badge-info" style="width: 15rem;">{{i.s.nom}} {{i.s.prenom}}:</span>
+  <div class="card-body" >
+    <p class="card-text" ><strong>{{i.description}}</strong></p> <br>
+    <button type="button" style="background-color: #3aaf85" class="btn btn-primary btn-sm">Vote</button><br>
+{{getNbr(i.id_comment)}}
+  </div>
 </div>
+<div class="alert alert-primary" role="alert">
+  <strong>Add a Comment</strong> !
+</div>
+<form [formGroup]="reponse">
+  <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description" rows="3" placeholder="Write your comment..."></textarea>
+  <button type="button" style="alignment: left;" class="btn btn-primary btn-sm" (click)="addComment()">Submit Your Comment !</button>
+</form>
 
 
 
