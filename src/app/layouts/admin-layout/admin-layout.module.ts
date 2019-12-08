@@ -13,7 +13,8 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatButtonModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatExpansionModule } from '@angular/material';
+
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {GestionSoutenancesComponent} from '../../pages/gestion-soutenances/gestion-soutenances.component';
@@ -24,16 +25,23 @@ import {NotifierModule, NotifierOptions, NotifierService} from 'angular-notifier
 import { ScheduleModule, DayService, WeekService, WorkWeekService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService, MonthService } from '@syncfusion/ej2-angular-schedule';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {DetailsSheetComponent} from '../../pages/Defense/details-sheet/details-sheet.component';
-import {ComboBoxModule} from '@progress/kendo-angular-dropdowns';
-import {DatePickerModule} from '@syncfusion/ej2-angular-calendars';
+import {ComboBoxModule, AutoCompleteModule} from '@progress/kendo-angular-dropdowns';
+import { DatePickerModule, DateTimePickerAllModule, DatePickerAllModule } from '@syncfusion/ej2-angular-calendars';
 import {ButtonAllModule, ButtonModule} from '@syncfusion/ej2-angular-buttons';
 import {AddDefenseComponent} from '../../pages/Defense/add-defense/add-defense.component';
 import {ListViewAllModule} from '@syncfusion/ej2-angular-lists';
 import {SplitterModule} from '@syncfusion/ej2-angular-layouts';
-
-
+import { Ng2ScreenshotModule } from 'ng2-screenshot';
+import { SignaturePadModule } from '@ng-plus/signature-pad';
 
 // import { ToastrModule } from 'ngx-toastr';
+import { DlDateTimePickerModule, DlDateTimeDateModule } from 'angular-bootstrap-datetimepicker';
+import { ToolbarService, GridModule } from '@syncfusion/ej2-angular-grids';
+import { EvaluationSheetComponent } from '../../pages/Defense/evaluation-sheet/evaluation-sheet.component';
+import { ViewListDefensesComponent } from '../../pages/Defense/view-list-defenses/view-list-defenses.component';
+import { ViewDefenseJuryComponent } from '../../pages/Defense/view-defense-jury/view-defense-jury.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 const customNotifierOptions: NotifierOptions = {
   position: {
     horizontal: {
@@ -79,6 +87,7 @@ const customNotifierOptions: NotifierOptions = {
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     ClipboardModule,
@@ -87,13 +96,24 @@ const customNotifierOptions: NotifierOptions = {
     NotifierModule.withConfig(customNotifierOptions),
     MatTabsModule,
     ScheduleModule,
+    GridModule,
     Ng2SmartTableModule,
     ComboBoxModule,
     DatePickerModule,
     ButtonAllModule,
     ButtonModule,
     ListViewAllModule,
-    SplitterModule
+    AutoCompleteModule,
+    SplitterModule,
+    DateTimePickerAllModule,
+    DatePickerAllModule,
+    MatExpansionModule,
+    SignaturePadModule,
+    NgxQRCodeModule,
+    Ng2ScreenshotModule
+ 
+
+    
 
   ],
   declarations: [
@@ -105,7 +125,10 @@ const customNotifierOptions: NotifierOptions = {
     GestionSoutenancesComponent,
     OfferComponent,
     DetailsSheetComponent,
-    AddDefenseComponent
+    AddDefenseComponent,
+    EvaluationSheetComponent,
+    ViewListDefensesComponent,
+    ViewDefenseJuryComponent
 
   ],
   providers: [NotifierService,DayService,
@@ -113,6 +136,7 @@ const customNotifierOptions: NotifierOptions = {
     WorkWeekService,
     MonthService,
     AgendaService,
+    ToolbarService,
     MonthAgendaService,
     TimelineViewsService, TimelineMonthService]
 })

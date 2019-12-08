@@ -11,6 +11,10 @@ import {GestionSoutenancesComponent} from '../../pages/gestion-soutenances/gesti
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {DetailsSheetComponent} from '../../pages/Defense/details-sheet/details-sheet.component';
 import {AddDefenseComponent} from '../../pages/Defense/add-defense/add-defense.component';
+import { EvaluationSheetComponent } from '../../pages/Defense/evaluation-sheet/evaluation-sheet.component';
+import { ViewListDefensesComponent } from '../../pages/Defense/view-list-defenses/view-list-defenses.component';
+import { ViewDetailsDefenseComponent } from '../../pages/Defense/view-details-defense/view-details-defense.component';
+import { ViewDefenseJuryComponent } from '../../pages/Defense/view-defense-jury/view-defense-jury.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -22,5 +26,7 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'Detailsheets', component: DetailsSheetComponent},
   {path: 'AddDefense', component: AddDefenseComponent},
 
-  {path: 'gestionSoutenance', component: GestionSoutenancesComponent}
+  {path: 'gestionSoutenance', component: GestionSoutenancesComponent},
+  {path: 'evaluateDefense', component: ViewListDefensesComponent},
+  {path: 'ViewDefenseJury', component: ViewDefenseJuryComponent}
 ];

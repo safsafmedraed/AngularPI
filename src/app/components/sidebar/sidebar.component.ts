@@ -19,6 +19,7 @@ export const ROUTES = [
   {path: '/gestionSoutenance', title: 'Manage Defenses', icon: 'ni-hat-3 text-red', class: '', role : ['Student']},
   {path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '', role : ['Student', 'Teacher']},
   {path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: '', role : ['Student']},
+  {path: '/evaluateDefense', title: 'EvaluateDefense', icon: 'ni-circle-08 text-pink', class: '', role : ['Student']},
 
 
 ];

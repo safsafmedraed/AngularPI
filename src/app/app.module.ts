@@ -1,7 +1,7 @@
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
@@ -24,7 +24,7 @@ import {NotifierModule, NotifierOptions, NotifierService} from 'angular-notifier
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import { DetailsSheetDiagComponent } from './pages/Defense/details-sheet-diag/details-sheet-diag.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import {DropDownsModule} from '@progress/kendo-angular-dropdowns';
+import {DropDownsModule, AutoCompleteModule} from '@progress/kendo-angular-dropdowns';
 import { ScheduleModule, DayService, WeekService, WorkWeekService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService, MonthService, ScheduleAllModule, RecurrenceEditorAllModule } from '@syncfusion/ej2-angular-schedule';
 import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 
@@ -38,13 +38,21 @@ import { ButtonAllModule, ButtonModule } from '@syncfusion/ej2-angular-buttons';
 
 import { CheckBoxAllModule } from '@syncfusion/ej2-angular-buttons';
 
-import {DatePickerAllModule, TimePickerAllModule, DateTimePickerAllModule, DatePickerModule} from '@syncfusion/ej2-angular-calendars';
+import {DatePickerAllModule, TimePickerAllModule, DateTimePickerAllModule, DatePickerModule, DateTimePickerModule} from '@syncfusion/ej2-angular-calendars';
 
 import { NumericTextBoxAllModule } from '@syncfusion/ej2-angular-inputs';
 import { AddDefenseComponent } from './pages/Defense/add-defense/add-defense.component';
 import {ListViewAllModule} from '@syncfusion/ej2-angular-lists';
 import { SplitterModule } from '@syncfusion/ej2-angular-layouts';
-
+import { DlDateTimePickerModule, DlDateTimeDateModule } from 'angular-bootstrap-datetimepicker';
+import { AgmCoreModule } from '@agm/core';
+import { ToolbarService, GridModule } from '@syncfusion/ej2-angular-grids';
+import { ViewDetailsDefenseComponent } from './pages/Defense/view-details-defense/view-details-defense.component';
+import { EvaluationSheetComponent } from './pages/Defense/evaluation-sheet/evaluation-sheet.component';
+import { SignaturePadModule } from '@ng-plus/signature-pad';
+import { ViewListDefensesComponent } from './pages/Defense/view-list-defenses/view-list-defenses.component';
+import { ViewDefenseJuryComponent } from './pages/Defense/view-defense-jury/view-defense-jury.component';
+import { Ng2ScreenshotModule } from 'ng2-screenshot';
 
 
 
@@ -94,9 +102,10 @@ const customNotifierOptions: NotifierOptions = {
   imports: [
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
-    NgbModule,
+    NgbModule, 
     RouterModule,
     AppRoutingModule,
     MatDialogModule,
@@ -122,7 +131,10 @@ const customNotifierOptions: NotifierOptions = {
     TreeViewModule,
     ButtonAllModule,
     ListViewAllModule,
-    SplitterModule
+    SplitterModule,
+    AutoCompleteModule,
+    GridModule,
+    SignaturePadModule
 
   ],
   declarations: [
@@ -132,7 +144,10 @@ const customNotifierOptions: NotifierOptions = {
     PopupComponent,
     NourcheneComponent,
     DetailsSheetDiagComponent,
+    ViewDetailsDefenseComponent,
+    
 
+   
 
 
 
@@ -140,12 +155,13 @@ const customNotifierOptions: NotifierOptions = {
   providers: [NotifierService,DayService,
     WeekService,
     WorkWeekService,
+    ToolbarService,
     MonthService,
     AgendaService,
     MonthAgendaService,
     TimelineViewsService, TimelineMonthService],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent,NourcheneComponent,DetailsSheetDiagComponent]
+  entryComponents: [PopupComponent,ViewDetailsDefenseComponent,NourcheneComponent,DetailsSheetDiagComponent]
 })
 export class AppModule {
 }
