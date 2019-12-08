@@ -1,4 +1,7 @@
+import { Sheet } from 'src/app/Models/Sheet';
 import { Component, OnInit } from '@angular/core';
+import { SheetServiceService } from 'src/app/Services/SheetService.service';
+import { SelectItem } from 'primeng/api';
 declare const google: any;
 
 @Component({
@@ -7,50 +10,75 @@ declare const google: any;
   styleUrls: ['./maps.component.scss']
 })
 export class MapsComponent implements OnInit {
+sheet : Sheet [];
+cols: any[];
 
-  constructor() { }
+    brands: SelectItem[];
+
+    colors: SelectItem[];
+
+    yearFilter: number;
+
+    yearTimeout: any;
+  constructor( private serviceSheet : SheetServiceService) { }
 
   ngOnInit() {
-   /* let map = document.getElementById('map-canvas');
-    let lat = map.getAttribute('data-lat');
-    let lng = map.getAttribute('data-lng');
+    this.serviceSheet.getAllSheet().subscribe(data => {
+      this.sheet = [];
+      this.sheet = data;
+  });
 
-    var myLatlng = new google.maps.LatLng(lat, lng);
-    var mapOptions = {
-        zoom: 12,
-        scrollwheel: false,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-          {"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},
-          {"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},
-          {"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},
-          {"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},
-          {"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},
-          {"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
-          {"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},
-          {"featureType":"water","elementType":"all","stylers":[{"color":'#5e72e4'},{"visibility":"on"}]}]
-    }
+  this.cols = [
+    { field: 'vin', header: 'Vin' },
+    { field: 'year', header: 'Year' },
+    { field: 'brand', header: 'Brand' },
+    { field: 'color', header: 'Color' }
+];
 
-    map = new google.maps.Map(map, mapOptions);
+this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));
+}
 
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title: 'Hello World!'
+exportPdf() {
+import("jspdf").then(jsPDF => {
+    import("jspdf-autotable").then(x => {
+        const doc = new jsPDF.default(0,0);
+        doc.autoTable(this.columns, this.cars);
+        doc.save('primengTable.pdf');
+    })
+})
+}
+
+exportExcel() {
+import("xlsx").then(xlsx => {
+    const worksheet = xlsx.utils.json_to_sheet(this.getCars());
+    const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+    this.saveAsExcelFile(excelBuffer, "primengTable");
+});
+}
+
+saveAsExcelFile(buffer: any, fileName: string): void {
+import("file-saver").then(FileSaver => {
+    let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    let EXCEL_EXTENSION = '.xlsx';
+    const data: Blob = new Blob([buffer], {
+        type: EXCEL_TYPE
     });
+    FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+});
+}
 
-    var contentString = '<div class="info-window-content"><h2>Argon Dashboard</h2>' +
-        '<p>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</p></div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
-    });*/
-  }
+getCars() {
+let cars = [];
+for(let car of this.cars) {
+    car.year = car.year.toString();
+    cars.push(car);
+}
+return cars;
+}
 
 }
+
+  
+
+

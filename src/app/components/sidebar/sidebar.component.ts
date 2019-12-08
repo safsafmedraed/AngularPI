@@ -17,6 +17,8 @@ export const ROUTES: RouteInfo[] = [
   {path: '/sheet', title: 'Fiche', icon: 'ni-planet text-blue', class: '', role: ['SUPERVISOR']},
   {path: '/student', title: 'Student', icon: 'ni-tv-2 text-primary', class: '', role: ['student']},
   {path: '/sheet-process', title: 'Sheet Process', icon: 'ni-single-02 text-yellow', class: '', role: ['student']},
+  {path: '/stats', title: 'Stats', icon: 'ni-single-02 text-yellow', class: '', role: ['DEPARTEMENT_MANAGER']},
+  {path: '/allsheets', title: 'All sheets', icon: 'ni-single-02 text-yellow', class: '', role: ['DEPARTEMENT_MANAGER']},
 ];
 
 @Component({

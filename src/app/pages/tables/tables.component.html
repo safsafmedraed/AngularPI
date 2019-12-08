@@ -1,6 +1,10 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 
 </div>
-<!-- Page content -->
+
+<div *ngIf="stats">
+        <p-chart type="polarArea" [data]="data"></p-chart>
+        <p-chart type="doughnut" [data]="data1"></p-chart>
+</div>
 
 

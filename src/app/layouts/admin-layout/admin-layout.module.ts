@@ -23,12 +23,24 @@ import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 
 // import { ToastrModule } from 'ngx-toastr';
-import {ButtonModule} from 'primeng/button';
+
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {PanelModule} from 'primeng/panel';
 import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.module';
+import {ChartModule} from 'primeng/chart';
 
+import {TableModule} from 'primeng/table';
+import { SliderModule } from 'primeng/slider';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { TabViewModule } from 'primeng/tabview';
+import { CodeHighlighterModule } from 'primeng/codehighlighter';
 
 
 
@@ -85,6 +97,18 @@ import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.modul
     SheetModuleModule,
     FormsModule,
     ReactiveFormsModule,
+    ChartModule,
+    TableModule,
+    SliderModule,
+		DialogModule,
+		MultiSelectModule,
+		ContextMenuModule,
+		DropdownModule,
+		ButtonModule,
+		ToastModule,
+		InputTextModule,
+		TabViewModule,
+		CodeHighlighterModule
     
   ],
   declarations: [

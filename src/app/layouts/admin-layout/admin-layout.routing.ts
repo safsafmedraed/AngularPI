@@ -14,9 +14,9 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'student', component: OfferComponent},
   {path: 'sheet-process', component: UserProfileComponent},
-  {path: 'tables', component: TablesComponent},
+  {path: 'stats', component: TablesComponent},
   {path: 'sheet', component: SheetComponent},
-  {path: 'maps', component: MapsComponent},
+  {path: 'allsheets', component: MapsComponent},
   {path: 'nourchene', component: NourcheneComponent},
   
 ];
