@@ -32,6 +32,7 @@
     "jquery": "^3.4.1",
     "ngx-clipboard": "11.1.9",
     "ngx-toastr": "9.1.2",
+    "ngx-webstorage-service": "^4.1.0",
     "nouislider": "13.1.1",
     "rxjs": "6.4.0",
     "save": "^2.4.0",

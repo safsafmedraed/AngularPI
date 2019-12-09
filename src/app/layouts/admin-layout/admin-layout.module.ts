@@ -15,9 +15,27 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
+import {AjoutSchoolComponent} from '../../pages/maps/ajout-school/ajout-school.component';
+import {DetailsComponent} from '../../pages/maps/details/details.component';
+import {SiteComponent} from '../../pages/site/site.component';
+import {NotifierModule} from 'angular-notifier';
+import {AjoutsiteComponent} from '../../pages/site/ajoutsite/ajoutsite.component';
+import {PoopupComponent} from '../../pages/site/poopup/poopup.component';
+import {DepartementsComponent} from '../../pages/departements/departements.component';
+import {AjoutdepartComponent} from '../../pages/departements/ajoutdepart/ajoutdepart.component';
+import {PoppupComponent} from '../../pages/departements/poppup/poppup.component';
+import {NadepartsComponent} from '../../pages/departements/nadeparts/nadeparts.component';
+import {NasiteComponent} from '../../pages/site/nasite/nasite.component';
+import {OptionsComponent} from '../../pages/options/options.component';
+import {NaoptionsComponent} from '../../pages/options/naoptions/naoptions.component';
+import {AjoutOptionComponent} from '../../pages/options/ajout-option/ajout-option.component';
+import {ClasspopupComponent} from "../../pages/classes/classpopup/classpopup.component";
+import {NaclassesComponent} from "../../pages/classes/naclasses/naclasses.component";
+import {ClassesComponent} from "../../pages/classes/classes.component";
+import {AjoutclassComponent} from "../../pages/classes/ajoutclass/ajoutclass.component";
 // import { ToastrModule } from 'ngx-toastr';
 
-@NgModule({ 
+@NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
@@ -26,7 +44,8 @@ import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
     NgbModule,
     ClipboardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    NotifierModule
   ],
   declarations: [
     DashboardComponent,
@@ -34,7 +53,21 @@ import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    NourcheneComponent
+    NourcheneComponent,
+    AjoutSchoolComponent,
+    DetailsComponent,
+    SiteComponent,
+    AjoutsiteComponent,
+    DepartementsComponent,
+    AjoutdepartComponent,
+    NadepartsComponent,
+    NasiteComponent,
+    OptionsComponent,
+    NaoptionsComponent,
+    AjoutOptionComponent,
+    NaclassesComponent,
+    ClassesComponent,
+    AjoutclassComponent,
   ]
 })
 

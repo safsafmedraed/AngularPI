@@ -9,13 +9,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { PopupComponent } from './pages/popup/popup.component';
-import {NotifierOptions} from 'angular-notifier';
-
-
+import {NotifierModule} from 'angular-notifier';
+import { PoopupComponent } from './pages/site/poopup/poopup.component';
+import { PoppupComponent } from './pages/departements/poppup/poppup.component';
+import { OptionpoppupComponent } from './pages/options/optionpoppup/optionpoppup.component';
+import { ClasspopupComponent } from './pages/classes/classpopup/classpopup.component';
 
 @NgModule({
   imports: [
@@ -25,16 +26,21 @@ import {NotifierOptions} from 'angular-notifier';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NotifierModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    PopupComponent
+    PopupComponent,
+    PoopupComponent,
+    PoppupComponent,
+    OptionpoppupComponent,
+    ClasspopupComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent]
+  entryComponents: [PopupComponent, PoopupComponent, PoppupComponent, OptionpoppupComponent, ClasspopupComponent]
 })
 export class AppModule { }

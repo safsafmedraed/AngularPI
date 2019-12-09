@@ -1,0 +1,60 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Non assigned Options</h3>
+          <td class="text-left">
+          </td>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor=" let i of options">
+              <th scope="row">
+                <div class="media align-items-center" >
+
+                  <div class="media-body">
+                    <span class="mb-0 text-sm" *ngIf="i.departement == null">{{i.id}}</span>
+                  </div>
+                </div>
+              </th>
+              <td *ngIf="i.departement == null">
+                {{i.name}}
+              </td>
+              <td class="text-right" *ngIf="i.departement == null">
+                <div ngbDropdown placement="bottom-right">
+                  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="popup(i.id)">Assign to a departement</a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="deleteoption(i.id)">
+                      delete this Option</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
