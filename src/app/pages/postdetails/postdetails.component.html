@@ -37,8 +37,9 @@
   <span class="badge badge-pill badge-info" style="width: 15rem;">{{i.s.nom}} {{i.s.prenom}}:</span>
   <div class="card-body" >
     <p class="card-text" ><strong>{{i.description}}</strong></p> <br>
-    <button type="button" style="background-color: #3aaf85" class="btn btn-primary btn-sm">Vote</button><br>
-{{getNbr(i.id_comment)}}
+    <button type="button" style="background-color: #3aaf85" (click)="addV(i.id_comment)" class="btn btn-primary btn-sm">Vote</button><br>
+{{i.v.length}}
+
   </div>
 </div>
 <div class="alert alert-primary" role="alert">

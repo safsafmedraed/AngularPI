@@ -17,7 +17,9 @@
   </div></div>
 </div>
 </div>-->
+
 <button type="button" class="btn btn-primary" (click)="openModal(template)">add post</button>
+<input type="text"  class="form-control form-control-alternative"  placeholder="search.." [(ngModel)]="term">
 <div class="table-responsive">
   <table class="table align-items-center table-dark table-flush">
     <thead class="thead-dark">
@@ -25,13 +27,14 @@
       <th scope="col">Posts</th>
       <th scope="col">Autheur</th>
       <th scope="col">Etat</th>
+      <th scope="col">Categorie</th>
       <th scope="col"></th>
 
       <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let i of Posts">
+    <tr *ngFor="let i of Posts | filter:term | paginate:{itemsPerPage:4,currentPage:p}">
       <th scope="row">
         <div class="media align-items-center">
 
@@ -52,7 +55,10 @@
 
 
       </td>
+      <td >
 
+        {{i.categorie}}
+      </td>
 
       <td class="text-right">
         <div ngbDropdown placement="bottom-right">
@@ -64,12 +70,16 @@
           </div>
         </div>
       </td>
+
+
+
     </tr>
 
 
 
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 <ng-template #template>
 <form [formGroup]="questionf" >

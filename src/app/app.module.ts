@@ -18,6 +18,8 @@ import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import {PostdetailsComponent} from './pages/postdetails/postdetails.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {Ng2SearchPipe, Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -30,6 +32,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     RouterModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    Ng2SearchPipeModule,
+    NgxPaginationModule
+
   ],
   declarations: [
     AppComponent,

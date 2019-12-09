@@ -20,6 +20,7 @@ export class PostdetailsComponent implements OnInit {
   Comments: Comment[] = [];
   Comment: Comment;
   post: Post;
+  vote: VoteComment;
   Votes: VoteComment[] = [];
   private reponse = new FormGroup({
     description: new FormControl('', [Validators.required])
@@ -48,9 +49,12 @@ export class PostdetailsComponent implements OnInit {
     this.ngOnInit();
 
   }
-  getNbr(id) {
-    let x: VoteComment[] = [];
-    this.voteService.getvotePerComment(id).subscribe(data => { x = data; });
-    return x.length ;
+  addV(i: number){
+    this.vote = new VoteComment();
+    this.vote.users = this.storage.get('user');
+    this.voteService.addVote(this.vote, i).subscribe();
+
+
   }
+
 }

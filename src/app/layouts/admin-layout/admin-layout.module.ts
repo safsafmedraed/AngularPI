@@ -17,6 +17,8 @@ import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {PostdetailsComponent} from '../../pages/postdetails/postdetails.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -29,7 +31,9 @@ import {PostdetailsComponent} from '../../pages/postdetails/postdetails.componen
     ClipboardModule,
     MatDialogModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   declarations: [
     DashboardComponent,

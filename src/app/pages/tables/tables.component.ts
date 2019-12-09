@@ -16,6 +16,8 @@ export class TablesComponent implements OnInit {
 Posts: Post[] = [];
 post: Post;
 img: string;
+term: string;
+p = 1;
   modalRef: BsModalRef;
 
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, public postService: PostService, private router: Router , private modalService: BsModalService) { }
