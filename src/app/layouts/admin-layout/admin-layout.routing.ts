@@ -8,7 +8,7 @@ import {UserProfileComponent} from '../../pages/user-profile/user-profile.compon
 import {TablesComponent} from '../../pages/tables/tables.component';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
-import { SheetComponent } from 'src/app/pages/sheet-module/sheet/sheet.component';
+import { SheetComponent } from 'app/pages/sheet-module/sheet/sheet.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},

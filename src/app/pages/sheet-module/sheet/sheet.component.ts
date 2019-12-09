@@ -1,7 +1,7 @@
 import { Category } from './../../../Models/Category';
 import { Sheet } from './../../../Models/Sheet';
 import { Component, OnInit, Input } from '@angular/core';
-import { SheetServiceService } from 'src/app/Services/SheetService.service';
+import { SheetServiceService } from 'app/Services/SheetService.service';
 import { Router } from '@angular/router';
 
 @Component({

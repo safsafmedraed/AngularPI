@@ -1,8 +1,8 @@
 import { Category } from './../../Models/Category';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Sheet } from 'src/app/Models/Sheet';
-import { SheetServiceService } from 'src/app/Services/SheetService.service';
+import { Sheet } from 'app/Models/Sheet';
+import { SheetServiceService } from 'app/Services/SheetService.service';
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',

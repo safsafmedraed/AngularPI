@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Sheet } from './../../Models/Sheet';
 import { LOCAL_STORAGE, WebStorageService } from 'ngx-webstorage-service';
 import { Component, OnInit, Inject } from '@angular/core';
-import { SheetServiceService } from 'src/app/Services/SheetService.service';
+import { SheetServiceService } from 'app/Services/SheetService.service';
 
 @Component({
   selector: 'app-user-profile',

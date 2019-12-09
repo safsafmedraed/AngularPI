@@ -1,9 +1,11 @@
+import { Sheet } from 'app/Models/Sheet';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { Sheet } from 'src/app/Models/Sheet';
-import { SheetServiceService } from 'src/app/Services/SheetService.service';
+
+
 import { forEach } from '@angular/router/src/utils/collection';
+import { SheetServiceService } from 'app/Services/SheetService.service';
 
 export interface DialogData {
   animal: string;

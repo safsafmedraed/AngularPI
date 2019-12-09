@@ -1,7 +1,9 @@
-import { Sheet } from 'src/app/Models/Sheet';
+import { Sheet } from 'app/Models/Sheet';
 import { Component, OnInit } from '@angular/core';
-import { SheetServiceService } from 'src/app/Services/SheetService.service';
+
 import { SelectItem } from 'primeng/api';
+import { SheetServiceService } from 'app/Services/SheetService.service';
+import { MatTableDataSource } from '@angular/material';  
 declare const google: any;
 
 @Component({
@@ -10,39 +12,47 @@ declare const google: any;
   styleUrls: ['./maps.component.scss']
 })
 export class MapsComponent implements OnInit {
+    
 sheet : Sheet [];
-cols: any[];
+    cols: any[];
+    selectedCars: Sheet[];
+    exportColumns: any[];
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+    dataSource ;
 
-    brands: SelectItem[];
-
-    colors: SelectItem[];
-
-    yearFilter: number;
-
-    yearTimeout: any;
+    displayedColumns: string[] = ['nom','title','date','staff','sheetstatus','assign'];
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
   constructor( private serviceSheet : SheetServiceService) { }
 
   ngOnInit() {
     this.serviceSheet.getAllSheet().subscribe(data => {
       this.sheet = [];
       this.sheet = data;
+      this.dataSource = new MatTableDataSource(data);
+      console.log(this.dataSource);
   });
-
-  this.cols = [
-    { field: 'vin', header: 'Vin' },
-    { field: 'year', header: 'Year' },
-    { field: 'brand', header: 'Brand' },
-    { field: 'color', header: 'Color' }
+this.cols = [
+    { field: 'description', header: 'Description' },
+    { field: 'title', header: 'Title' },
+    { field: 'issue', header: 'Issue' },
+    { field: 'features', header: 'Features' }
 ];
-
-this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));
+this.exportColumns = this.cols.map(sh => ({title: sh.header, dataKey: sh.field}));
+console.log(this.exportColumns);
 }
 
 exportPdf() {
 import("jspdf").then(jsPDF => {
     import("jspdf-autotable").then(x => {
         const doc = new jsPDF.default(0,0);
-        doc.autoTable(this.columns, this.cars);
+        console.log(this.exportColumns);
+        doc.autoTable(this.exportColumns, this.sheet);
+        
         doc.save('primengTable.pdf');
     })
 })
@@ -70,8 +80,8 @@ import("file-saver").then(FileSaver => {
 
 getCars() {
 let cars = [];
-for(let car of this.cars) {
-    car.year = car.year.toString();
+for(let car of this.sheet) {
+    car.issue = car.issue.toString();
     cars.push(car);
 }
 return cars;

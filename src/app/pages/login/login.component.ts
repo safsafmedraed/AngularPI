@@ -1,3 +1,4 @@
+import { LoginService } from 'app/Services/login.service';
 import {Component, OnInit, OnDestroy, Inject} from '@angular/core';
 import {Entreprise} from '../../Models/entreprise';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -6,7 +7,7 @@ import * as $ from 'jquery';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {EntrepriseService} from '../../Services/entreprise.service';
-import { LoginService } from 'src/app/Services/login.service';
+
 import {LOCAL_STORAGE, WebStorageService} from 'ngx-webstorage-service';
 
 @Component({

@@ -2,39 +2,66 @@
 
 </div>
 <!-- Page content -->
+<p-table #dt [columns]="cols" [value]="sheet" selectionMode="multiple" [(selection)]="selectedCars">
+    <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix" style="text-align: left">
+            <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="margin-right: 0.5em;"></button>
+            <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+            <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning"></button>
+            <button type="button" pButton icon="pi pi-file" iconPos="left" label="CSV - Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+        </div>
+    </ng-template>
+</p-table>
 
-<p-table #dt [columns]="cols" [value]="cars" [paginator]="true" [rows]="10">
-        <ng-template pTemplate="caption">
-            <div style="text-align: right">        
-                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th *ngFor="let sh of sheet">
-                    {{col.header}}
-                </th>
-            </tr>
-            <tr>
-                <th *ngFor="let col of columns" [ngSwitch]="col.field">
-                    <input *ngSwitchCase="'vin'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')">
-                    <div *ngSwitchCase="'year'">
-                        Value > {{yearFilter}}
-                        <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="yearFilter"></i>
-                        <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="1970" [max]="2010" (onChange)="onYearChange($event, dt)"></p-slider>
-                    </div>
-                    <p-dropdown *ngSwitchCase="'brand'" [options]="brands" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-                    <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                    <input *ngSwitchCase="'price'" pInputText type="text" placeholder="Custom - Greater Than" (input)="dt.filter($event.target.value, col.field, 'custom')">
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr [pSelectableRow]="rowData">
-                <td *ngFor="let col of columns">
-                    {{rowData[col.field]}}
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="nom">
+        <mat-header-cell  *matHeaderCellDef> Student name </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.student.nom}} {{element.student.prenom}} </mat-cell>
+      </ng-container>
+  
+          <ng-container matColumnDef="title">
+          <mat-header-cell  *matHeaderCellDef> Title </mat-header-cell>
+          <mat-cell  *matCellDef="let element"> {{element.title}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <mat-header-cell  *matHeaderCellDef> Title </mat-header-cell>
+            <mat-cell  *matCellDef="let element"> {{element.date |date}} </mat-cell>
+          </ng-container>
+      
+            <ng-container matColumnDef="staff">
+                <mat-header-cell  *matHeaderCellDef> Staff </mat-header-cell>
+                <mat-cell  *matCellDef="let element"> {{element.staffSheets[0].nom}} {{element.staffSheets[0].prenom}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="sheetstatus">
+                  <mat-header-cell  *matHeaderCellDef> Status </mat-header-cell>
+                  <mat-cell  *matCellDef="let element"> {{element.sheetstatus}}</mat-cell>
+                </ng-container>
+              <ng-container matColumnDef="assign">
+                  <mat-header-cell  *matHeaderCellDef> Assign staff </mat-header-cell>
+                  <mat-cell  *matCellDef="let element">
+                      <div *ngIf="element.staffSheets == NULL">
+                          <button mat-flat-button color="primary">Accept sheet</button>
+                      </div>
+                     </mat-cell>
+                </ng-container> 
+            
+             
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+   
+
+
+
+
+
+  
+  

@@ -27,7 +27,7 @@ import {OfferComponent} from '../../pages/offer/offer.component';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {PanelModule} from 'primeng/panel';
-import { SheetModuleModule } from 'src/app/pages/sheet-module/sheet-module.module';
+import { SheetModuleModule } from 'app/pages/sheet-module/sheet-module.module';
 import {ChartModule} from 'primeng/chart';
 
 import {TableModule} from 'primeng/table';

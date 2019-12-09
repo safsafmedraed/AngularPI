@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { statsService } from 'src/app/Services/statsService';
-import { Stat } from 'src/app/Models/Sats';
+import { statsService } from 'app/Services/statsService';
+import { Stat } from 'app/Models/Sats';
 
 @Component({
   selector: 'app-tables',
