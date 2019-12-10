@@ -13,6 +13,7 @@ declare interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
   {path: '/dashboard', title: 'Corporate space', icon: 'ni-tv-2 text-primary', class: '', role: ['ADMINISTRATEUR']},
+  {path: '/stat', title: 'dashboard', icon: 'ni-tv-2 text-primary', class: '', role: ['ADMINISTRATEUR']},
   {path: '/offer', title: 'internship Space', icon: 'ni-tv-2 text-primary', class: '', role: ['student']},
   {path: '/icons', title: 'Fiche', icon: 'ni-planet text-blue', class: '', role: ['SUPERVISOR']},
   {path: '/maps', title: 'Marwen', icon: 'ni-pin-3 text-orange', class: '', role: ['SUPERVISOR']},
@@ -24,7 +25,8 @@ export const ROUTES: RouteInfo[] = [
   {path: '/loginE', title: 'Login', icon: 'ni-key-25 text-info', class: '', role: []},
   {path: '/skills', title: 'Skills', icon: 'ni-tv-2 text-primary', class: '', role: ['student']},
   {path: '/choice', title: 'login choice', icon: 'ni-tv-2 text-primary', class: '', role: []},
-  {path: '/offerc', title: 'MyOffres', icon: 'ni-tv-2 text-primary', class: '', role: ['']}
+  {path: '/offerc', title: 'MyOffres', icon: 'ni-tv-2 text-primary', class: '', role: ['']},
+  {path: '/search', title: 'search', icon: 'ni-tv-2 text-primary', class: '', role: ['student']}
 
 ];
 

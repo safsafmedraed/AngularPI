@@ -13,7 +13,14 @@ import {MapsComponent} from '../../pages/maps/maps.component';
 import {UserProfileComponent} from '../../pages/user-profile/user-profile.component';
 import {TablesComponent} from '../../pages/tables/tables.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatSelectModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatFormFieldModule, MatInputModule, MatMenuModule,
+  MatPaginatorModule,
+  MatSelectModule
+} from '@angular/material';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {LoginentrepriseComponent} from '../../pages/loginentreprise/loginentreprise.component';
@@ -25,9 +32,16 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {PopupoffreComponent} from '../../pages/offer/popupoffre/popupoffre.component';
 import {CandidaturePopupComponent} from '../../pages/candidature-popup/candidature-popup.component';
 import {ByidComponent} from '../../pages/offer/byid/byid.component';
+import {MatchingComponent} from '../../pages/offer/matching/matching.component';
+import {SearchUiComponent} from '../../pages/search-ui/search-ui.component';
+import {
+  NgAisHierarchicalMenuModule, NgAisHitsModule,
+  NgAisInstantSearchModule, NgAisModule,
+  NgAisRefinementListModule,
+  NgAisSearchBoxModule
+} from 'angular-instantsearch';
+import {ChatComponent} from '../../pages/offer/chat/chat.component';
 
-
-// import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -41,7 +55,13 @@ import {ByidComponent} from '../../pages/offer/byid/byid.component';
     DragDropModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    NgAisModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatMenuModule,
+
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
@@ -58,7 +78,8 @@ import {ByidComponent} from '../../pages/offer/byid/byid.component';
     NourcheneComponent,
     OfferComponent,
     SkillsComponent,
-    ByidComponent
+    ByidComponent,
+    SearchUiComponent, ChatComponent
   ]
 })
 

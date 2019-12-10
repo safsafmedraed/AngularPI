@@ -36,6 +36,8 @@ import {CandidaturePopupComponent} from './pages/candidature-popup/candidature-p
 import {RedirecttologinComponent} from './pages/redirecttologin/redirecttologin.component';
 import {ByidComponent} from './pages/offer/byid/byid.component';
 import {MatchingComponent} from './pages/offer/matching/matching.component';
+import {RECAPTCHA_LANGUAGE} from 'ng-recaptcha';
+import {ChatComponent} from './pages/offer/chat/chat.component';
 
 
 @NgModule({
@@ -71,7 +73,10 @@ import {MatchingComponent} from './pages/offer/matching/matching.component';
     multi: true
   }, MatDatepickerModule,
 
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}, {
+      provide: RECAPTCHA_LANGUAGE,
+      useValue: 'en'
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent, MatchingComponent]

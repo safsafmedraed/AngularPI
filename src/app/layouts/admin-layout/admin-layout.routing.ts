@@ -10,6 +10,8 @@ import {OfferComponent} from '../../pages/offer/offer.component';
 import {LoginentrepriseComponent} from '../../pages/loginentreprise/loginentreprise.component';
 import {SkillsComponent} from '../../pages/skills/skills.component';
 import {ByidComponent} from '../../pages/offer/byid/byid.component';
+import {SearchUiComponent} from '../../pages/search-ui/search-ui.component';
+import {ChatComponent} from '../../pages/offer/chat/chat.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -22,6 +24,8 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'nourchene', component: NourcheneComponent},
   {path: 'skills', component: SkillsComponent},
   {path: 'offerc', component: ByidComponent},
+  {path: 'search', component: SearchUiComponent},
+  {path: 'stat', component: ChatComponent}
 
 
 ];

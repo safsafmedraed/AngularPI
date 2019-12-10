@@ -46,7 +46,7 @@ export class ByidComponent implements OnInit {
     console.log(id.id);
     dialogREf1.componentInstance.index = id.id;
 
-  }
+  } 
 
   popup() {
     const dialogREf = this.dialog.open(PopupoffreComponent);

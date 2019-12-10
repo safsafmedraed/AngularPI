@@ -5,6 +5,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import {Food} from '../offer/popupoffre/popupoffre.component';
 import {Userskills} from '../../Models/userskills';
 import {getValue} from '@angular/core/src/render3/styling/class_and_style_bindings';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-skills',
@@ -28,7 +29,7 @@ export class SkillsComponent implements OnInit {
   ];
 
 
-  constructor(public skillservice: SkillsService) {
+  constructor(public skillservice: SkillsService, public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -53,6 +54,8 @@ export class SkillsComponent implements OnInit {
   addskillsstudent(userskills, rate) {
     this.rate = rate;
     this.skillservice.affectstudentskills(userskills, rate).subscribe(data => 'created');
+    // @ts-ignore
+    this.snackBar.open('Your choice has been saved rate: ' + rate + ' skills:' + this.abilities[0].skill);
 
   }
 

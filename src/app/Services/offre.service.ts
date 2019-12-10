@@ -63,4 +63,8 @@ export class OffreService {
     );
 
   }
+
+  stat(idE, date) {
+    return this.http.get(this.host + '/StatD?idE=' + idE + '&date=' + date);
+  }
 }

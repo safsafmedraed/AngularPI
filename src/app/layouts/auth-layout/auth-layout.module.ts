@@ -15,6 +15,7 @@ import {TokenInterceptorService} from '../../Services/token-interceptor.service'
 import {EntrepriseService} from '../../Services/entreprise.service';
 import {CandidaturePopupComponent} from '../../pages/candidature-popup/candidature-popup.component';
 import {RedirecttologinComponent} from '../../pages/redirecttologin/redirecttologin.component';
+import {RecaptchaModule} from 'ng-recaptcha';
 
 const notifierDefaultOptions: NotifierOptions = {
   position: {
@@ -64,6 +65,7 @@ const notifierDefaultOptions: NotifierOptions = {
     FormsModule,
     NotifierModule.withConfig(notifierDefaultOptions),
     ReactiveFormsModule,
+    RecaptchaModule,
     // NgbModule
   ]
   ,

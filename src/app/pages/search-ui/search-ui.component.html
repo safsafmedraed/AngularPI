@@ -1,0 +1,56 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<h1>Search for your best offre</h1>
+<ais-instantsearch
+  [config]="{
+    appId: 'P3UBJQADO7',
+    apiKey: 'ccb69f2e24d9e53bc8a92dbf8e1215cd',
+    indexName: 'offreentreprise',
+    routing: true
+  }"
+>
+  <ais-search-box placeholder="Search for offers..." submitTitle="Go" resetTitle="Clear" [autofocus]="true" ></ais-search-box>
+ <h2> <ais-refinement-list attribute="localisation"></ais-refinement-list></h2>
+
+<div class="table-responsive">
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Offre</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <ais-hits>
+      <ng-template let-hits="hits">
+
+    <tr *ngFor="let hit of hits">
+      <th scope="row">
+
+      </th>
+      <td>
+        <ais-highlight attribute="annonce" [hit]="hit">
+        </ais-highlight>
+      </td>
+      <td>
+        <ais-highlight attribute="datedebut" [hit]="hit">
+        </ais-highlight>
+      </td>
+      <td>
+        <ais-highlight attribute="profilrech" [hit]="hit">
+        </ais-highlight>
+      </td>
+      <td class="text-right">
+        {{hit.type}}
+      </td>
+    </tr>
+      </ng-template>
+    </ais-hits>
+    </tbody>
+  </table>
+</div>
+
+  <ais-pagination totalPages="5"></ais-pagination>
+</ais-instantsearch>
+

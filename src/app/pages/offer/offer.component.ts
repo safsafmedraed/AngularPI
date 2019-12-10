@@ -8,6 +8,7 @@ import {PopupComponent} from '../popup/popup.component';
 import {PopupoffreComponent} from './popupoffre/popupoffre.component';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {CandidaturePopupComponent} from '../candidature-popup/candidature-popup.component';
+import {ChatComponent} from './chat/chat.component';
 
 @Component({
   selector: 'app-offer',
@@ -66,4 +67,8 @@ export class OfferComponent implements OnInit {
       }, eur => console.log('error'));
     });
   }
+
+ /* popup1() {
+    const dialogREf = this.dialog.open(ChatComponent);
+  }*/
 }
