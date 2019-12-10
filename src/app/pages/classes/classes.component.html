@@ -38,15 +38,13 @@
               <td>
                 {{i.classname}}
               </td>
-              <td> this class is able to contains {{i.numberofstudents}} more</td>
-              <td *ngIf="i.Option != null ">{{i.Option.name}}</td>
+              <td> this class  contains {{i.numberofstudents}} students</td>
               <td class="text-right">
                 <div ngbDropdown placement="bottom-right">
                   <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
                     <i class="fas fa-ellipsis-v"></i>
                   </a>
                   <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="javascript:void(0)" (click)="popup(i.id)">Assign this  class</a>
                     <a class="dropdown-item" href="javascript:void(0)" (click)="DeleteSchool(i.id)">delete this departement</a>
                     <!--<a class="dropdown-item" [routerLink]="['/options',i.id] ">View this site's Options</a>-->
                   </div>

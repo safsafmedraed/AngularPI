@@ -4,7 +4,7 @@ import {SchoolService} from '../../../Services/school.service';
 import {Site} from '../../../Models/Site';
 import {School} from '../../../Models/School';
 import {NotifierService} from 'angular-notifier';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ajoutsite',

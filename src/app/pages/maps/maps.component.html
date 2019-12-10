@@ -36,7 +36,7 @@
                 </div>
               </th>
               <td>
-                {{i.schoolname}}<button (click)="cliick(i.id)"></button>
+                {{i.schoolname}}
               </td>
               <td class="text-right">
                 <div ngbDropdown placement="bottom-right">
@@ -45,7 +45,7 @@
                   </a>
                   <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
                     <a class="dropdown-item" href="javascript:void(0)" (click)="DeleteSchool(i.id)">delete School</a>
-
+                    <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/site',i.id]">view this School's sites</a>
                   </div>
                 </div>
               </td>

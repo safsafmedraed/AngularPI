@@ -10,9 +10,8 @@
     <div class="col">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
-          <h3 class="text-white mb-0">All Departements</h3>
+          <h3 class="text-white mb-0">No assigned classes</h3>
           <a [routerLink]="['/ajoutclass']">Add a new class</a> <br>
-          <a [routerLink]="['/naclass']">View no assigned classes</a>
           <td class="text-left">
           </td>
         </div>
@@ -27,7 +26,7 @@
             </thead>
             <tbody>
             <tr *ngFor=" let i of classes">
-              <th scope="row" *ngIf="i.Option != null">
+              <th scope="row" *ngIf="i.option == null">
                 <div class="media align-items-center" >
 
                   <div class="media-body">
@@ -35,11 +34,11 @@
                   </div>
                 </div>
               </th>
-              <td *ngIf="i.Option != null">
+              <td *ngIf="i.option == null">
                 {{i.classname}}
               </td>
-              <td *ngIf="i.Option == null"> this class is able to contains {{i.numberofstudents}} more</td>
-              <td class="text-right" *ngIf="i.Option != null">
+              <td *ngIf="i.option == null"> this class is able to contains {{i.numberofstudents}} more</td>
+              <td class="text-right" *ngIf="i.option == null">
                 <div ngbDropdown placement="bottom-right">
                   <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
                     <i class="fas fa-ellipsis-v"></i>
