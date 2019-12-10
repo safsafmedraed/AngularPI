@@ -21,4 +21,7 @@ export class ProjectService {
  delete(id) {
     return this.http.delete(this.url + '/deleteproject/' + id);
   }
+  getLinks(key) {
+    return this.http.get<any[]>(this.url + '/getlinks/' + key);
+  }
 }

@@ -32,7 +32,7 @@ export class TaskService {
     return this.http.delete(this.url + '/deletetask/' + id);
   }
   getKeywords(id) {
-    return this.http.get<any>(this.url + '/getkeywords/' + id);
+    return this.http.get<any[]>(this.url + '/getkeywords/' + id);
   }
   getStats(id) {
     return this.http.get<any>(this.url + '/getstatsbyproject/' + id);

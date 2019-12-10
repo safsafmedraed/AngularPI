@@ -9,6 +9,7 @@ import {AddTaskComponent} from '../add-task/add-task.component';
 import {Project} from '../../../Models/Project';
 import {ProjectService} from '../../../Services/project.service';
 import {TaskDetailsComponent} from '../task-details/task-details.component';
+import {HelpComponent} from "../help/help.component";
 
 @Component({
   selector: 'app-board',
@@ -133,5 +134,11 @@ this.status = st;
       this.done.splice(index, 1);
     }
     this.doing.push(task);
+  }
+
+  openHelp(id: number, title) {
+    const modalRef = this.modalService.open(HelpComponent);
+    modalRef.componentInstance.id = id;
+    modalRef.componentInstance.title = title;
   }
 }

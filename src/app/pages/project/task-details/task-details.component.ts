@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ProjectService} from '../../../Services/project.service';
 import {TaskService} from '../../../Services/task.service';
 import { Task } from 'src/app/Models/Task';
 import {TaskAttachmentService} from '../../../Services/task-attachment.service';
+import {HelpComponent} from "../help/help.component";
 
 @Component({
   selector: 'app-task-details',
@@ -18,7 +19,7 @@ export class TaskDetailsComponent implements OnInit {
 
   uploadedFiles: any[] = [];
 
-  constructor(public activeModal: NgbActiveModal, private fs: TaskAttachmentService, private ps: ProjectService, private ts: TaskService, private as: TaskAttachmentService) {
+  constructor(public activeModal: NgbActiveModal,private modalService: NgbModal , private fs: TaskAttachmentService, private ps: ProjectService, private ts: TaskService, private as: TaskAttachmentService) {
   }
 
   ngOnInit() {
@@ -37,5 +38,9 @@ export class TaskDetailsComponent implements OnInit {
     });
     this.files = [];
     this.fs.getFiles(this.id).subscribe(data2 => {this.files = data2; console.log(data2); });
+  }
+  openHelp(id: number) {
+    const modalRef = this.modalService.open(HelpComponent);
+    modalRef.componentInstance.id = id;
   }
 }

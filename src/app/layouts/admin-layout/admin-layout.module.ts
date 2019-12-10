@@ -31,6 +31,8 @@ import {TaskFileComponent} from '../../pages/project/task-file/task-file.compone
 import {NgxDocViewerModule} from "ngx-doc-viewer";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {HelpComponent} from "../../pages/project/help/help.component";
+import {HelpDetailComponent} from "../../pages/project/help-detail/help-detail.component";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -48,7 +50,6 @@ import {MatInputModule} from "@angular/material/input";
     ReactiveFormsModule,
     ChartModule,
     NgxDocViewerModule,
-    MatInputModule,
   ],
   declarations: [
     DashboardComponent,
@@ -65,9 +66,11 @@ import {MatInputModule} from "@angular/material/input";
     TaskCommentComponent,
     StatsComponent,
     ActivityComponent,
+    HelpComponent,
+    HelpDetailComponent,
     TaskFileComponent
   ],
-  entryComponents: [AddTaskComponent, TaskDetailsComponent]
+  entryComponents: [AddTaskComponent, TaskDetailsComponent, HelpComponent]
 })
 
 export class AdminLayoutModule {/*constructor(
