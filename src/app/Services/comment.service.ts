@@ -26,4 +26,7 @@ export class CommentService {
   getvotePerComment(id) {
     return this.http.get<VoteComment[]>(this.host2 + '?id=' + id) ;
   }
+  getnotif(){
+    return this.http.get<string[]>(this.host + '/notifs');
+  }
 }

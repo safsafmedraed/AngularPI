@@ -1,6 +1,6 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<!--<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 
-</div>
+</div>-->
 <!-- Page content -->
 <!--
 <div  class="row">
@@ -18,7 +18,23 @@
 </div>
 </div>-->
 
-<button type="button" class="btn btn-primary" (click)="openModal(template)">add post</button>
+
+
+<br>
+<button type="button" class="btn btn-primary"  (click)="openModal(template)">add post</button>                        {{this.notifs.length}}
+
+
+<div ngbDropdown placement="bottom-right">
+  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle >
+    Notifications
+  </a>
+  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+    <div *ngFor="let i of notifs"> {{i}} <br> ---------</div>
+
+  </div>
+</div>
+
+
 <input type="text"  class="form-control form-control-alternative"  placeholder="search.." [(ngModel)]="term">
 <div class="table-responsive">
   <table class="table align-items-center table-dark table-flush">
@@ -45,7 +61,7 @@
       </th>
       <td >
 
-        {{i.users.nom}} {{i.users.prenom}}
+        {{i.users.nom}} {{i.users.prenom}} {{i.id_post}}
       </td>
       <td>
             <span class="badge badge-dot mr-4" >
@@ -67,7 +83,11 @@
           </a>
           <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
             <a class="dropdown-item" (click)="onSelect(i)"  >Details</a>
+            <a class="dropdown-item"  *ngIf="this.student.id == i.users.id" (click)="delete(i.id_post)"  >Supprimer</a>
+
+
           </div>
+
         </div>
       </td>
 
@@ -79,7 +99,7 @@
 
     </tbody>
   </table>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls (pageChange)="p = $event" ></pagination-controls >
 </div>
 <ng-template #template>
 <form [formGroup]="questionf" >

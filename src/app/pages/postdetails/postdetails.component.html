@@ -1,12 +1,14 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<!--<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 
 
-</div>
+</div>-->
 
 <!--name :{{post.name_post}}<br>
 
 état :{{post.etat}}<br>
 <img align="center" height="60" width="50" src="{{post.image_post}}"><br> -->
+<button type="button" style="alignment: left;" class="btn btn-primary btn-sm" *ngIf="this.student.id == this.post.users.id" (click)="updatepost()">Résolu ?!</button>
+
 <div class="card" style="width: 60rem;" >
   <div class="card-body">
     <h5 class="card-title" style="color: #1da1f2" >Titre:</h5><br>
@@ -42,10 +44,10 @@
 
   </div>
 </div>
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-primary" role="alert" *ngIf="this.post.etat == 'non résolu'">
   <strong>Add a Comment</strong> !
 </div>
-<form [formGroup]="reponse">
+<form [formGroup]="reponse" *ngIf="this.post.etat == 'non résolu'">
   <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description" rows="3" placeholder="Write your comment..."></textarea>
   <button type="button" style="alignment: left;" class="btn btn-primary btn-sm" (click)="addComment()">Submit Your Comment !</button>
 </form>

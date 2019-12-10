@@ -6,6 +6,7 @@ import {Post} from '../../Models/Post';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Student} from '../../Models/Student';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {CommentService} from '../../Services/comment.service';
 
 @Component({
   selector: 'app-tables',
@@ -17,10 +18,13 @@ Posts: Post[] = [];
 post: Post;
 img: string;
 term: string;
+notifs: string[];
 p = 1;
+student: Student;
+userid: number;
   modalRef: BsModalRef;
 
-  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, public postService: PostService, private router: Router , private modalService: BsModalService) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, public commentService: CommentService, public postService: PostService, private router: Router , private modalService: BsModalService) { }
 
   private questionf = new FormGroup({
     name_post: new FormControl('', [Validators.required]),
@@ -31,7 +35,14 @@ p = 1;
   ngOnInit() {
     this.postService.getPosts().subscribe(data => {this.Posts = data;
       console.log(data);
+     } );
+    this.commentService.getnotif().subscribe(data => {this.notifs = data;
+      console.log(data);
+
     } );
+    this.student = this.storage.get('user');
+
+
 
   }
 
@@ -71,5 +82,9 @@ p = 1;
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+  delete(id: number) {
+    this.postService.deletePost(id).subscribe();
+    this.ngOnInit();
   }
 }

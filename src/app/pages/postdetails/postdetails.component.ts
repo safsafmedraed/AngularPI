@@ -9,6 +9,7 @@ import {LOCAL_STORAGE, WebStorageService} from 'ngx-webstorage-service';
 import {Observable} from 'rxjs';
 import {VoteComment} from '../../Models/VoteComment';
 import {VoteService} from '../../Services/vote.service';
+import {Student} from '../../Models/Student';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class PostdetailsComponent implements OnInit {
   post: Post;
   vote: VoteComment;
   Votes: VoteComment[] = [];
+  student: Student ;
   private reponse = new FormGroup({
     description: new FormControl('', [Validators.required])
   });
@@ -34,7 +36,7 @@ export class PostdetailsComponent implements OnInit {
     this.postService.getPostById(id).subscribe( data => {this.post = data; console.log(data);
       } );
     } );
-
+    this.student = this.storage.get('user');
   }
   get description() {
     return this.reponse.get('description');
@@ -55,6 +57,9 @@ export class PostdetailsComponent implements OnInit {
     this.voteService.addVote(this.vote, i).subscribe();
 
 
+  }
+  updatepost() {
+    this.postService.updatePost(this.post.id_post).subscribe();
   }
 
 }

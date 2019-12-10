@@ -24,5 +24,10 @@ export class PostService {
   addPost(post: Post): Observable<any> {
     return this.http.post(  this.host , post, this.httpOptions );
   }
-
+  deletePost(id: number) {
+    return this.http.delete(this.host + '/' + id);
+  }
+  updatePost(id) {
+    return this.http.put(this.host + '?idposte=' + id , this.httpOptions);
+  }
 }
