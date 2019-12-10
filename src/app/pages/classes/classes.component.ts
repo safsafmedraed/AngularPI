@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Classes} from "../../Models/Classes";
-import {MatDialog} from "@angular/material/dialog";
-import {ActivatedRoute} from "@angular/router";
-import {ClassesService} from "../../Services/classes.service";
+import {Classes} from '../../Models/Classes';
+import {MatDialog} from '@angular/material/dialog';
+import {ActivatedRoute} from '@angular/router';
+import {ClassesService} from '../../Services/classes.service';
+import {ClasspopupComponent} from './classpopup/classpopup.component';
+import {AddstudentpopupComponent} from './addstudentpopup/addstudentpopup.component';
 
 @Component({
   selector: 'app-classes',
@@ -26,5 +28,12 @@ export class ClassesComponent implements OnInit {
     this.classeservice.DeleteSite(id).subscribe(data => console.log('ok'));
     console.log(id);
     window.location.reload();
+  }
+  popup(i) {
+    this.dialog.open(AddstudentpopupComponent, {
+      data: {
+        anyProperty: i
+      }
+    });
   }
 }

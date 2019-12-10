@@ -17,6 +17,7 @@ import { PoopupComponent } from './pages/site/poopup/poopup.component';
 import { PoppupComponent } from './pages/departements/poppup/poppup.component';
 import { OptionpoppupComponent } from './pages/options/optionpoppup/optionpoppup.component';
 import { ClasspopupComponent } from './pages/classes/classpopup/classpopup.component';
+import { AddstudentpopupComponent } from './pages/classes/addstudentpopup/addstudentpopup.component';
 
 @NgModule({
   imports: [
@@ -37,10 +38,11 @@ import { ClasspopupComponent } from './pages/classes/classpopup/classpopup.compo
     PoopupComponent,
     PoppupComponent,
     OptionpoppupComponent,
-    ClasspopupComponent
+    ClasspopupComponent,
+    AddstudentpopupComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent, PoopupComponent, PoppupComponent, OptionpoppupComponent, ClasspopupComponent]
+  entryComponents: [PopupComponent, PoopupComponent, PoppupComponent, OptionpoppupComponent, ClasspopupComponent, AddstudentpopupComponent]
 })
 export class AppModule { }

@@ -20,6 +20,9 @@ export class ClassesService {
   affecter(school, id) {
     return this.http.put<Classes>(this.host + '/' + id, school);
   }
+  affecterstudent(school, id) {
+    return this.http.put<Classes>(this.host + '/' + school + '/' + id, {});
+  }
   DeleteSite(id) {
     return this.http.delete<Classes>(this.host + '/' + id);
   }

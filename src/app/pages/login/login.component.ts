@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('type', 'staff');
           this.storage.set('user', data.user);
           this.storage.set('token', data.token);
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('school');
         } else if (data.type == 'student') {
           console.log('student');
           this.storage.set('type', 'student');
