@@ -26,6 +26,11 @@ import {TaskCommentComponent} from '../../pages/project/task-comment/task-commen
 import {StatsComponent} from '../../pages/project/stats/stats.component';
 
 import {ChartModule} from 'primeng/chart';
+import {ActivityComponent} from '../../pages/project/activity/activity.component';
+import {TaskFileComponent} from '../../pages/project/task-file/task-file.component';
+import {NgxDocViewerModule} from "ngx-doc-viewer";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -42,6 +47,8 @@ import {ChartModule} from 'primeng/chart';
     DragDropModule,
     ReactiveFormsModule,
     ChartModule,
+    NgxDocViewerModule,
+    MatInputModule,
   ],
   declarations: [
     DashboardComponent,
@@ -56,7 +63,9 @@ import {ChartModule} from 'primeng/chart';
     AddTaskComponent,
     TaskDetailsComponent,
     TaskCommentComponent,
-    StatsComponent
+    StatsComponent,
+    ActivityComponent,
+    TaskFileComponent
   ],
   entryComponents: [AddTaskComponent, TaskDetailsComponent]
 })

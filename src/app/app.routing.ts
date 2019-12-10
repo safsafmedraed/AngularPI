@@ -9,10 +9,7 @@ import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 import {ActivityComponent} from './pages/project/activity/activity.component';
 
 const routes: Routes = [
-  {
-    path: 'activity',
-    component: ActivityComponent
-  },
+
   {
     path: '',
     redirectTo: 'dashboard',

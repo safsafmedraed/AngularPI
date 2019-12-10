@@ -4,7 +4,6 @@ import {ProjectService} from '../../../Services/project.service';
 import {TaskService} from '../../../Services/task.service';
 import { Task } from 'src/app/Models/Task';
 import {TaskAttachmentService} from '../../../Services/task-attachment.service';
-import {MessageService} from 'primeng';
 
 @Component({
   selector: 'app-task-details',
@@ -15,13 +14,16 @@ export class TaskDetailsComponent implements OnInit {
   task: Task;
   @Input() id;
   fileToUpload: File = null;
+  files: any[] = [];
+
   uploadedFiles: any[] = [];
 
-  constructor(public activeModal: NgbActiveModal, private ps: ProjectService, private ts: TaskService, private as: TaskAttachmentService) {
+  constructor(public activeModal: NgbActiveModal, private fs: TaskAttachmentService, private ps: ProjectService, private ts: TaskService, private as: TaskAttachmentService) {
   }
 
   ngOnInit() {
     this.ts.getTask(this.id).subscribe(data => this.task = data);
+    this.fs.getFiles(this.id).subscribe(data => {this.files = data; console.log(data); });
   }
 
   handleFileInput(files: FileList) {
@@ -29,10 +31,11 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   uploadFileToActivity() {
-    this.as.postFile(this.fileToUpload).subscribe(data => {
-      // do something, if upload success
+    this.as.postFile(this.fileToUpload, this.id).subscribe(data => {
     }, error => {
       console.log(error);
     });
+    this.files = [];
+    this.fs.getFiles(this.id).subscribe(data2 => {this.files = data2; console.log(data2); });
   }
 }

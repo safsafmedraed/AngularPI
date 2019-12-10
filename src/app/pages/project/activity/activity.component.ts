@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {TaskAttachmentService} from '../../../Services/task-attachment.service';
 
 @Component({
   selector: 'app-activity',

@@ -12,22 +12,24 @@ export class StatsComponent implements OnInit {
   data: any;
   data2: any;
   data3: any;
+  private projectid: number;
 
   constructor(private route: ActivatedRoute, private ts: TaskService) {
-    this.ts.getStats(4).subscribe(data => {
+    this.projectid = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.ts.getStats(this.projectid).subscribe(data => {
                                            this.data = {
       labels: ['To Do ', 'Doing', 'Done'],
       datasets: [
         {
           data: [data.TO_DO , data.DOING, data.DONE.number],
           backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
+            '#8789C0',
+            '#7CC6FE',
             '#FFCE56'
           ],
           hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
+            '#8789C0',
+            '#7CC6FE',
             '#FFCE56'
           ]
         }]
@@ -38,12 +40,12 @@ export class StatsComponent implements OnInit {
           {
             data: [data.DONE.approved , data.DONE.notapproved ],
             backgroundColor: [
-              '#FF6384',
-              '#36A2EB'
+              '#B5446E',
+              '#05A8AA'
             ],
             hoverBackgroundColor: [
-              '#FF6384',
-              '#36A2EB'
+              '#B5446E',
+              '#05A8AA'
             ]
           }]
       };
@@ -57,13 +59,13 @@ export class StatsComponent implements OnInit {
           {
             data: [data.inTime , data.withoutDelay, data.withDelay],
             backgroundColor: [
-              '#FF6384',
-              '#36A2EB',
+              '#BC412B',
+              '#1446A0',
               '#FFCE56'
             ],
             hoverBackgroundColor: [
-              '#FF6384',
-              '#36A2EB',
+              '#BC412B',
+              '#1446A0',
               '#FFCE56'
             ]
           }]

@@ -15,4 +15,10 @@ export class ProjectService {
   getProjectbyid(id) {
     return this.http.get<Project>(this.url + '/getproject/' + id);
   }
+  getProjectbystudent(id) {
+    return this.http.get<Project>(this.url + '/getprojectbystudent/' + id);
+  }
+ delete(id) {
+    return this.http.delete(this.url + '/deleteproject/' + id);
+  }
 }

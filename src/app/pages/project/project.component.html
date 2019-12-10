@@ -16,7 +16,7 @@
           <h3 class="text-white mb-0">All Projects</h3>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-dark table-flush">
+          <table  class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
             <tr>
               <th scope="col">Title</th>
@@ -25,11 +25,12 @@
               <th scope="col">Supervisor</th>
               <th scope="col">Keywords</th>
               <th scope="col">Start date</th>
+              <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let project of projects" (click)="onselect(project.id)" >
-              <th scope="row">
+            <tr *ngFor="let project of projects"  >
+              <th scope="row" (click)="onselect(project.id)">
                 <div class="media align-items-center">
 
                   <div class="media-body">
@@ -57,6 +58,18 @@
               <td class="text-right">
                 {{project.datedebut}}
               </td>
+              <td class="text-right">
+                <div ngbDropdown placement="bottom-right">
+                  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                    <a class="dropdown-item" (click)="onselect(project.id)" >Open Board</a>
+                    <a class="dropdown-item" (click)="delete(project)">Delete</a>
+                    <a class="dropdown-item" (click)="opencharts(project.id)">Charts</a>
+                  </div>
+                </div>
+              </td>
             </tr>
 
 
@@ -65,6 +78,7 @@
           </table>
 
         </div>
+
       </div>
     </div>
   </div>

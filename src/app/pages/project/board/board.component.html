@@ -28,7 +28,7 @@
                   (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('TO_DO')" >
                   <div  class="card card-stats" (click)="openDetails(item.id)" (cdkDragStarted)="dragStart(item.id,'todo')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of todo" cdkDrag>
                     <div class="card-header bg-transparent">
-                      <h3 >{{item.title}}</h3>
+                      <h5 >{{item.title}}</h5>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                   (cdkDropListDropped)="drop($event)">
                   <div  class="card card-stats" (click)="openDetails(item.id)" (cdkDragStarted)="dragStart(item.id,'doing')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of doing" cdkDrag>
                     <div class="card-header bg-transparent">
-                      <h3 >{{item.title}}</h3>
+                      <h5 >{{item.title}}</h5>
                     </div>
                   </div>
                 </div>
@@ -68,7 +68,7 @@
                   (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('DONE')" >
                   <div  class="card card-stats" (click)="openDetails(item.id)" (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
                     <div class="card-header bg-transparent">
-                      <h3 >{{item.title}}</h3>
+                      <h5 >{{item.title}}</h5>
                     </div>
                   </div>
                 </div>

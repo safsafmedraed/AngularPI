@@ -20,7 +20,7 @@ import { ProjectComponent } from './pages/project/project.component';
 import { BoardComponent } from './pages/project/board/board.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
-import { ActivityComponent } from './pages/project/activity/activity.component';
+
 
 
 
@@ -41,7 +41,7 @@ import { ActivityComponent } from './pages/project/activity/activity.component';
     AdminLayoutComponent,
     AuthLayoutComponent,
     PopupComponent,
-    ActivityComponent
+
 
 
   ],
