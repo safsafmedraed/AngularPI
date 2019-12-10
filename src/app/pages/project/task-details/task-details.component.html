@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h3 class="modal-title">{{task.title}}</h3>
+  <h3 class="modal-title">{{task.title}} <i *ngIf="task.approved" class="fas fa-check-circle text-green"></i></h3>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -13,6 +13,9 @@
    </div>
       <div class="col">
         <div class="row">   <h4 >Deadline : </h4><p> {{task.deadline | date}}</p> </div>
+      </div>
+      <div class="col" *ngIf="task.status == 'DONE'">
+        <div class="row">   <h4 >finish date : </h4><p> {{task.date | date}}</p> </div>
       </div>
     </div>
     <h4>Description : </h4>

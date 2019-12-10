@@ -90,7 +90,7 @@
                   <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
                     <div class="card-header bg-transparent">
                       <div style=" display: inline-flex;vertical-align: middle;" >
-                        <h5 (click)="openDetails(item.id)" >{{item.title}}</h5>
+                        <h5 (click)="openDetails(item.id)" >{{item.title}}<i *ngIf="item.approved" class="fas fa-check-circle text-green"></i></h5>
                         <div ngbDropdown placement="right-top">
                           <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
                             <i class="fas fa-ellipsis-v"></i>
@@ -98,6 +98,7 @@
                           <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
                             <a class="dropdown-item" (click)="deletedone(item)">Delete</a>
+                            <div class="dropdown-item">Approve : <i (click)="approuve(item)" class="far fa-check-circle text-green"></i><i (click)="disapprouve(item)" class="fas fa-times-circle text-red"></i></div>
                           </div>
                         </div>
                       </div>                    </div>

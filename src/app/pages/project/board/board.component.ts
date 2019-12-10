@@ -120,4 +120,18 @@ this.status = st;
       this.done.splice(index, 1);
     }
   }
+  approuve(task) {
+    const ta = {id: task.id , approved: true};
+    this.ts.updateapproved(ta).subscribe();
+  }
+  disapprouve(task) {
+    const ta = {id: task.id , approved: false};
+    this.ts.updateapproved(ta).subscribe();
+    const index = this.done.indexOf(task);
+
+    if (index !== -1) {
+      this.done.splice(index, 1);
+    }
+    this.doing.push(task);
+  }
 }
