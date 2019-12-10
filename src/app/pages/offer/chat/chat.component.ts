@@ -59,7 +59,7 @@ export class ChatComponent implements OnInit {
     const formattedDate = moment(date).format('YYYY/MM/DD');
     console.log(formattedDate);
     this.offre.stat(idE, formattedDate).subscribe(data => this.stats = data);
-  }
+  }   
 }
 
 
