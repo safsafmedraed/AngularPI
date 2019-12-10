@@ -3,7 +3,7 @@
 </div>
 <div class="card">
   <mat-form-field class="example-full-width">
-    <input matInput [matDatepicker]="picker"  placeholder="Choose the Start date" [(ngModel)]="Offre.datedebut"
+    <input matInput [matDatepicker]="picker"   placeholder="Choose the Start date" [(ngModel)]="Offre.datedebut "
            name="datedebut" >
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker touchUi #picker></mat-datepicker>
@@ -19,9 +19,10 @@
   </mat-form-field>
   <button type="button" class="btn btn-warning" (click)="onclick(Offre.entreprise,Offre.datedebut)">Search</button>
   <div class="card-body">
-    <div class="chart">
+    <div class="chart" >
       <!-- Chart wrapper -->
-      <canvas id="chart-orders" class="chart-canvas"></canvas>
+      <canvas id="chart-orders" class="chart-canvas" ></canvas>
     </div>
   </div>
 </div>
+

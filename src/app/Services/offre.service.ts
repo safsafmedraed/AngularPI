@@ -5,6 +5,8 @@ import {Category} from '../Models/Category';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 import {Useroffre} from '../Models/useroffre';
+import {Entreprise} from '../Models/entreprise';
+import {Stat} from '../Models/stat';
 
 
 @Injectable({
@@ -65,6 +67,8 @@ export class OffreService {
   }
 
   stat(idE, date) {
-    return this.http.get(this.host + '/StatD?idE=' + idE + '&date=' + date);
+    return this.http.get<Stat[]>(this.host + '/StatD?idE=' + idE + '&date=' + date).pipe(tap
+      (data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError));
   }
 }

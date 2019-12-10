@@ -13,6 +13,7 @@ import {Entreprise} from '../../../Models/entreprise';
 import {EntrepriseService} from '../../../Services/entreprise.service';
 import {Offreentreprise} from '../../../Models/offreentreprise';
 import * as moment from 'moment';
+import {Stat} from '../../../Models/stat';
 
 
 @Component({
@@ -28,6 +29,8 @@ export class ChatComponent implements OnInit {
   Companies: Entreprise[] = [];
   Offre: Offreentreprise = new Offreentreprise();
 
+  stats: Stat[];
+
   constructor(public offre: OffreService, public CompanyService: EntrepriseService) {
   }
 
@@ -38,7 +41,7 @@ export class ChatComponent implements OnInit {
     parseOptions(Chart, chartOptions());
 
     const ordersChart = new Chart(chartOrders, {
-      type: 'bar',
+      type: 'pie',
       options: chartExample2.options,
       data: {
         labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -53,10 +56,10 @@ export class ChatComponent implements OnInit {
   }
 
   onclick(idE, date) {
-   // const dateTime = date.value ; // Replace event.value with your date value
-  //  console.log(moment(dateTime).format('YYYY-MM-DD'));
-    this.offre.stat(idE, date).subscribe(data => 'ok');
-    console.log(this.offre.stat(idE, date));
+    const formattedDate = moment(date).format('YYYY/MM/DD');
+    console.log(formattedDate);
+    this.offre.stat(idE, formattedDate).subscribe(data => this.stats = data, eur => console.log('error'));
+    
   }
 }
 

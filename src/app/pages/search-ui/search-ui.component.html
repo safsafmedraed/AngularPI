@@ -9,6 +9,11 @@
     routing: true
   }"
 >
+  <h3><ais-stats>
+    <ng-template let-state="state">
+      {{state.nbHits}} results found in {{state.processingTimeMS}}ms.
+    </ng-template>
+  </ais-stats></h3>
   <ais-search-box placeholder="Search for offers..." submitTitle="Go" resetTitle="Clear" [autofocus]="true" ></ais-search-box>
  <h2> <ais-refinement-list attribute="localisation"></ais-refinement-list></h2>
 
