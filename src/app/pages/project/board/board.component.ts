@@ -97,20 +97,25 @@ this.status = st;
   deletetodo(item) {
     this.ts.deletetask(item.id).subscribe();
     const index = this.todo.indexOf(item);
+
     if (index !== -1) {
       this.todo.splice(index, 1);
     }
   }
   deletedoing(item) {
     this.ts.deletetask(item.id).subscribe();
+
     const index = this.doing.indexOf(item);
+
     if (index !== -1) {
       this.doing.splice(index, 1);
     }
   }
   deletedone(item) {
     this.ts.deletetask(item.id).subscribe();
+
     const index = this.done.indexOf(item);
+
     if (index !== -1) {
       this.done.splice(index, 1);
     }
