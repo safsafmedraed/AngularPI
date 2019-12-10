@@ -18,7 +18,7 @@ import {NourcheneComponent} from './pages/nourchene/nourchene.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { GestionSoutenancesComponent } from './pages/gestion-soutenances/gestion-soutenances.component';
 import {MatDialogModule} from '@angular/material';
-
+import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {NotifierModule, NotifierOptions, NotifierService} from 'angular-notifier';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
@@ -46,16 +46,17 @@ import {ListViewAllModule} from '@syncfusion/ej2-angular-lists';
 import { SplitterModule } from '@syncfusion/ej2-angular-layouts';
 import { DlDateTimePickerModule, DlDateTimeDateModule } from 'angular-bootstrap-datetimepicker';
 import { AgmCoreModule } from '@agm/core';
-import { ToolbarService, GridModule } from '@syncfusion/ej2-angular-grids';
+import { ToolbarService, PageService, GridModule } from '@syncfusion/ej2-angular-grids';
 import { ViewDetailsDefenseComponent } from './pages/Defense/view-details-defense/view-details-defense.component';
 import { EvaluationSheetComponent } from './pages/Defense/evaluation-sheet/evaluation-sheet.component';
 import { SignaturePadModule } from '@ng-plus/signature-pad';
 import { ViewListDefensesComponent } from './pages/Defense/view-list-defenses/view-list-defenses.component';
 import { ViewDefenseJuryComponent } from './pages/Defense/view-defense-jury/view-defense-jury.component';
 import { Ng2ScreenshotModule } from 'ng2-screenshot';
-
-
-
+import { ChartjsModule } from '@ctrl/ngx-chartjs';
+import { OnlyLoggedInUsersGuard } from './guard/OnlyLoggedInUsersGuard';
+import { AlwaysAuthGuard } from './guard/AlwaysAuthGuard';
+import { NbThemeModule, NbStepperModule } from '@nebular/theme';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -134,7 +135,10 @@ const customNotifierOptions: NotifierOptions = {
     SplitterModule,
     AutoCompleteModule,
     GridModule,
-    SignaturePadModule
+    SignaturePadModule,
+    ChartjsModule,
+    MatStepperModule
+ 
 
   ],
   declarations: [
@@ -154,11 +158,13 @@ const customNotifierOptions: NotifierOptions = {
   ],
   providers: [NotifierService,DayService,
     WeekService,
+     ToolbarService,
+     PageService,
     WorkWeekService,
     ToolbarService,
     MonthService,
     AgendaService,
-    MonthAgendaService,
+    MonthAgendaService,OnlyLoggedInUsersGuard,AlwaysAuthGuard,
     TimelineViewsService, TimelineMonthService],
   bootstrap: [AppComponent],
   entryComponents: [PopupComponent,ViewDetailsDefenseComponent,NourcheneComponent,DetailsSheetDiagComponent]

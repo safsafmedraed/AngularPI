@@ -14,7 +14,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule, MatDialogModule, MatExpansionModule } from '@angular/material';
-
+import {MatStepperModule} from '@angular/material/stepper';
 import {NourcheneComponent} from '../../pages/nourchene/nourchene.component';
 import {OfferComponent} from '../../pages/offer/offer.component';
 import {GestionSoutenancesComponent} from '../../pages/gestion-soutenances/gestion-soutenances.component';
@@ -36,12 +36,15 @@ import { SignaturePadModule } from '@ng-plus/signature-pad';
 
 // import { ToastrModule } from 'ngx-toastr';
 import { DlDateTimePickerModule, DlDateTimeDateModule } from 'angular-bootstrap-datetimepicker';
-import { ToolbarService, GridModule } from '@syncfusion/ej2-angular-grids';
+import { ToolbarService, GridModule,PageService } from '@syncfusion/ej2-angular-grids';
 import { EvaluationSheetComponent } from '../../pages/Defense/evaluation-sheet/evaluation-sheet.component';
 import { ViewListDefensesComponent } from '../../pages/Defense/view-list-defenses/view-list-defenses.component';
 import { ViewDefenseJuryComponent } from '../../pages/Defense/view-defense-jury/view-defense-jury.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-
+import { ChartjsModule } from '@ctrl/ngx-chartjs';
+import { AlwaysAuthGuard } from '../../guard/AlwaysAuthGuard';
+import { OnlyLoggedInUsersGuard } from '../../guard/OnlyLoggedInUsersGuard';
+import { NbThemeModule, NbStepperModule } from '@nebular/theme';
 const customNotifierOptions: NotifierOptions = {
   position: {
     horizontal: {
@@ -110,8 +113,11 @@ const customNotifierOptions: NotifierOptions = {
     MatExpansionModule,
     SignaturePadModule,
     NgxQRCodeModule,
-    Ng2ScreenshotModule
+    Ng2ScreenshotModule,
+   ChartjsModule,
+   MatStepperModule
  
+  
 
     
 
@@ -134,11 +140,13 @@ const customNotifierOptions: NotifierOptions = {
   providers: [NotifierService,DayService,
     WeekService,
     WorkWeekService,
+ ToolbarService,
     MonthService,
+    PageService,
     AgendaService,
     ToolbarService,
     MonthAgendaService,
-    TimelineViewsService, TimelineMonthService]
+    TimelineViewsService, TimelineMonthService,OnlyLoggedInUsersGuard,AlwaysAuthGuard]
 })
 
 export class AdminLayoutModule {/*constructor(

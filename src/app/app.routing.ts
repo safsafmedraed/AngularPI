@@ -9,7 +9,7 @@ import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, {
     path: '',
@@ -18,8 +18,9 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
-      }
-    ]
+      },
+    ],
+ 
   }, {
     path: '',
     component: AdminLayoutComponent,
@@ -31,7 +32,7 @@ const routes: Routes = [
     ]
   }, {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'login'
   }
 ];
 

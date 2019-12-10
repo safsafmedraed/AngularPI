@@ -1,7 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Inject } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { WebStorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +13,19 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor( @Inject(LOCAL_STORAGE) private storage: WebStorageService ,location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
   }
 
+public nomprenom;
   ngOnInit() {
+    this.nomprenom= this.storage.get('Fullname');
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+  }
+  logout(){
+    console.log("aaa")
+    this.storage.clear();
+
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());

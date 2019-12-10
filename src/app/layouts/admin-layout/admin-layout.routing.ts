@@ -15,18 +15,22 @@ import { EvaluationSheetComponent } from '../../pages/Defense/evaluation-sheet/e
 import { ViewListDefensesComponent } from '../../pages/Defense/view-list-defenses/view-list-defenses.component';
 import { ViewDetailsDefenseComponent } from '../../pages/Defense/view-details-defense/view-details-defense.component';
 import { ViewDefenseJuryComponent } from '../../pages/Defense/view-defense-jury/view-defense-jury.component';
+import { OnlyLoggedInUsersGuard } from '../../guard/OnlyLoggedInUsersGuard';
+import { AlwaysAuthGuard } from '../../guard/AlwaysAuthGuard';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'offer', component: OfferComponent},
   {path: 'user-profile', component: UserProfileComponent},
-  {path: 'tables', component: TablesComponent},
-  {path: 'icons', component: IconsComponent},
-  {path: 'maps', component: MapsComponent},
-  {path: 'Detailsheets', component: DetailsSheetComponent},
+  {path: 'tables', component: TablesComponent, canActivate: [OnlyLoggedInUsersGuard]},
+  {path: 'icons', component: IconsComponent, canActivate: [OnlyLoggedInUsersGuard]},
+  {path: 'maps', component: MapsComponent, canActivate: [OnlyLoggedInUsersGuard]},
+  {path: 'Detailsheets', component: DetailsSheetComponent, canActivate: [OnlyLoggedInUsersGuard]},
   {path: 'AddDefense', component: AddDefenseComponent},
+  {path: 'gestionSoutenance', component: GestionSoutenancesComponent, canActivate: [OnlyLoggedInUsersGuard]},
+  {path: 'evaluateDefense', component: EvaluationSheetComponent,canActivate: [OnlyLoggedInUsersGuard]},
+  {path: 'ViewDefenseJury', component: ViewDefenseJuryComponent,canActivate: [OnlyLoggedInUsersGuard]},
+  {path: 'ViewListDefenseJury', component: ViewListDefensesComponent,canActivate: [OnlyLoggedInUsersGuard]}
 
-  {path: 'gestionSoutenance', component: GestionSoutenancesComponent},
-  {path: 'evaluateDefense', component: ViewListDefensesComponent},
-  {path: 'ViewDefenseJury', component: ViewDefenseJuryComponent}
+  
 ];
