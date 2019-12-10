@@ -24,7 +24,7 @@
                   cdkDropList
                   #todoList="cdkDropList"
                   [cdkDropListData]="todo"
-                  class="card-body"
+                  class="card-body anyClass"
                   (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('TO_DO')" >
                   <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'todo')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of todo" cdkDrag>
                     <div  class="card-header  bg-transparent">
@@ -50,12 +50,13 @@
                 <h2 class="align-items-center text-xl text-white" style=" display: inline-flex;vertical-align: middle;" ><i class="material-icons">build</i>DOING</h2>
               </div>
 
-              <div class="card-body">
+
 
                 <div
                   cdkDropList
                   #doingList="cdkDropList"
                   [cdkDropListData]="doing"
+                  class="card-body anyClass"
                   (cdkDropListEntered)="dragEnd('DOING')"
                   (cdkDropListDropped)="drop($event)">
                   <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'doing')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of doing" cdkDrag>
@@ -74,17 +75,18 @@
                       </div>                    </div>
                   </div>
                 </div>
-              </div>
+
             </div>
             <div style="background-color: #EFEFEF;" class="card border-0">
               <div class="card-header"  style="background-color: #00B961;">
                 <h2 class="align-items-center text-xl text-white" style=" display: inline-flex;vertical-align: middle;" ><i class="material-icons">check_circle</i>DONE</h2>
               </div>
-              <div class="card-body">
+
 
                 <div
                   cdkDropList
                   #doneList="cdkDropList"
+                  class="card-body anyClass"
                   [cdkDropListData]="done"
                   (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('DONE')" >
                   <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
@@ -103,7 +105,7 @@
                         </div>
                       </div>                    </div>
                   </div>
-                </div>
+
               </div>
             </div>
 
