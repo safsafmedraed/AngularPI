@@ -96,8 +96,35 @@ export class SheetServiceService {
     )
     
   }
+ getNotAcceptedSheets () {
+    return this.httpClient.get<Sheet[]>(
+      'http://localhost:9080/Graduation-Project-web/Staff/DisplayNotAcceptedSheets'
+    );
+  }
+
+  AcceptSheetByChef(id,sheet){
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this.httpClient.post<Sheet>(
+      'http://localhost:9080/Graduation-Project-web/Staff/AcceptSheet/'+id,sheet,httpOptions
+
+    )  
 }
 
+DeleteStaff(id,sheet){
+
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
+  return this.httpClient.post<Sheet>(
+    'http://localhost:9080/Graduation-Project-web/Staff/DeleteStaffFromSheet/'+id,sheet,httpOptions
+
+  )
+  
+}
+}
 
 
 

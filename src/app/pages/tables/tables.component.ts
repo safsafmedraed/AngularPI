@@ -10,6 +10,7 @@ import { Stat } from 'app/Models/Sats';
 export class TablesComponent implements OnInit {
   data: any;
   data1: any;
+  data2 : any;
   
   constructor(private statsService:statsService) { }
   stats:Stat
@@ -86,6 +87,27 @@ export class TablesComponent implements OnInit {
                            ]
                       }]    
         };
+
+        this.data2 = {
+          labels: ['Back end','Mobile', 'Front end'],
+          datasets: [
+              {
+                  label: 'My First dataset',
+                  backgroundColor: 'rgba(255,99,132,0.2)',
+                  borderColor: 'rgba(255,99,132,1)',
+                  pointBackgroundColor: 'rgba(255,99,132,1)',
+                  pointBorderColor: '#fff',
+                  pointHoverBackgroundColor: '#fff',
+                  pointHoverBorderColor: 'rgba(255,99,132,1)',
+                  data: [this.stats.Backend,
+                    this.stats.Mobile,
+                    this.stats.Frontend,
+                    
+                    ]
+              },
+             
+          ]
+      };
     }
     
     )

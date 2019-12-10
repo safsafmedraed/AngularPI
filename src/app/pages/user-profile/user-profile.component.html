@@ -2,25 +2,52 @@
 </div>  
 
       <div *ngIf="sh">
-          <mat-card class="example-card">
+          <mat-card class="example-card"  [style.backgroundColor]="'#172b4d'">
               <mat-card-header>
-                <mat-card-title>Your sheet details mr : {{sh.student.nom}}  {{sh.student.prenom}}  </mat-card-title>
-                <mat-card-subtitle>Content sheet</mat-card-subtitle>
+                <mat-card-title [ngStyle]="{'color':'white'}">Your sheet details mr : {{sh.student.nom}}  {{sh.student.prenom}}  </mat-card-title>
+                <mat-card-subtitle [ngStyle]="{'color':'white'}">Content sheet</mat-card-subtitle>
               </mat-card-header>
-              <mat-card-content>
-                Title : <p> {{sh.title}} </p>
+              <mat-card-content [ngStyle]="{'color':'white'}" >
+                <!-- Title : <p> {{sh.title}} </p>
                 Description :<p> {{sh.description}}</p>
                 Issue  :<p> {{sh.issue}}</p>
                 Features :<p> {{sh.features}}</p>
                 Categorys :
                 <div *ngFor="let c of toArrays(sh.categorys)">
-                 {{ c.name_Category}}
-                 </div>
+                 {{ c.name_Category}} -->
+                 <mat-list>
+                  <h3 mat-subheader class="mat-marg" [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">Title :</h3>
+                  <mat-list-item>
+                   
+                        <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >folder</mat-icon>
+                        <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.title}}</h4>
+  
+                  </mat-list-item>
+                  
+                  <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Description :</h3>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">note</mat-icon>
+                    <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.description}}</h4>
+                  </mat-list-item>
+
+                  
+                  <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Issue :</h3>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">note</mat-icon>
+                    <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.issue}}</h4>
+                  </mat-list-item>
+                  <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Features :</h3>
+                  <mat-list-item >
+                    <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">note</mat-icon>
+                    <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.features}}</h4>
+                  </mat-list-item>
+                </mat-list>
+                 
               </mat-card-content>
               <mat-card-actions>
-                <button mat-raised-button matTooltip="Your can only modify description and title" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button" (click)="openDialog(sh.student.id)" >
+                <button mat-raised-button mat-button color="warn" matTooltip="Your can only modify description and title" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button" (click)="openDialog(sh.student.id)" >
                  Minor modification</button>
-                <button  mat-raised-button matTooltip="You need your staff to accept or refuse your modification for issue and features" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button" (click)="openDialogMajor(sh.student.id)">Major modification</button>
+                <button  mat-raised-button mat-button color="warn" matTooltip="You need your staff to accept or refuse your modification for issue and features" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button" (click)="openDialogMajor(sh.student.id)">Major modification</button>
               </mat-card-actions>
             </mat-card> 
       </div>       

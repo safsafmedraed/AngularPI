@@ -1,26 +1,26 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 </div>    
-    
-    <mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-card class="example-card"  [style.backgroundColor]="'#172b4d'">
+    <mat-vertical-stepper [linear]="isLinear" #stepper >
       <mat-step [stepControl]="firstFormGroup">
         
           <form [formGroup]="sheetform">
-              <ng-template matStepLabel>Fill out your name</ng-template>
+              <ng-template matStepLabel>Fill your sheet details</ng-template>
             <div class="example-container">
               <mat-form-field>
-                <input matInput placeholder="Input" class="form-control" formControlName="title">
+                <input matInput placeholder="Set your project title" class="form-control" formControlName="title">
               </mat-form-field>
             
               <mat-form-field>
-                <textarea matInput placeholder="Textarea" class="form-control" formControlName="description"></textarea>
+                <textarea matInput placeholder="Set your project description" class="form-control" formControlName="description"></textarea>
               </mat-form-field>
             
               <mat-form-field>
-                <textarea matInput placeholder="Textarea" class="form-control" formControlName="issue"></textarea>
+                <textarea matInput placeholder="Set your project issue" class="form-control" formControlName="issue"></textarea>
               </mat-form-field>
             
               <mat-form-field>
-                <textarea matInput placeholder="Textarea" class="form-control" formControlName="features"></textarea>
+                <textarea matInput placeholder="Set your project features" class="form-control" formControlName="features"></textarea>
               </mat-form-field>
              
             </div>
@@ -29,17 +29,23 @@
       </mat-step>
       <mat-step [stepControl]="secondFormGroup">
           <form [formGroup]="Categoryform" >
-              <ng-template matStepLabel>Fill out your address</ng-template>
-              <h4>mat-select</h4>
+              <ng-template matStepLabel>Fill your category</ng-template>
+              <h4>Category</h4>
               <mat-form-field>
-                <mat-label>Choose an option</mat-label>
+                <mat-label>Choose a category </mat-label>
                 <mat-select [disabled]="disableSelect.value" formControlName="name_Category">
-                  <mat-option value="option1">Option 1</mat-option>
-                  <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
-                  <mat-option value="option3">Option 3</mat-option>
+                  <mat-option value="option1">JAVA EE</mat-option>
+                  <mat-option value="option2" disabled>.NET</mat-option>
+                  <mat-option value="option3">Symfony</mat-option>
+                  <mat-option value="option3">Ruby</mat-option>
+                  <mat-option value="option3">Angular</mat-option>
+                  <mat-option value="option3">VueJs</mat-option>
+                  <mat-option value="option3">React</mat-option>
+                  <mat-option value="option3">Swift</mat-option>
+                  <mat-option value="option3">Ionic</mat-option>
+                  <mat-option value="option3">Android</mat-option>
                 </mat-select>
               </mat-form-field>
-              <button mat-button (click)="addCategorytosheet()">Next</button>
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext (click)="addCategorytosheet()">Next</button>
@@ -48,13 +54,11 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
-        You are now done.
+        You are now done please wait for the approval.
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="stepper.reset()">Reset</button>
         </div>
       </mat-step>
     </mat-vertical-stepper>
-            
-       
-           
+  </mat-card>          

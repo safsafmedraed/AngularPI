@@ -1,7 +1,8 @@
 import { Student } from './Student';
 import { Category } from './Category';
+import { Staff } from './Staff';
 export class Sheet {
-ID_SHEET: number;
+id_sheet: number;
 description: string;
 features: string;
 issue: string;
@@ -20,6 +21,7 @@ acceptAnnulation: string;
 refusAnnulation: string;
 sheetStatus: sheetStatus;
 category : Category[];
+staffSheet : Staff[];
 }
 
 export enum sheetStatus {

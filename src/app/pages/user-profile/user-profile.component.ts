@@ -32,8 +32,8 @@ openDialog(sheetIdStudent:number): void {
   this.sheetservice.getSheetbyIDstudent(sheetIdStudent).subscribe((data) =>{
     this.sheet=data;
     const dialogRef = this.dialog.open(DialogMinorModif, {
-      width: '500px',
-      height : '700px',
+      width: '800px',
+      height : '400px',
       data: {shh: this.sheet }
       
     });
@@ -45,8 +45,8 @@ openDialogMajor(sheetIdStudent:number): void {
   this.sheetservice.getSheetbyIDstudent(sheetIdStudent).subscribe((data) =>{
     this.sheet=data;
     const dialogRef = this.dialog.open(DialogMajorModif, {
-      width: '500px',
-      height : '700px',
+      width: '800px',
+      height : '400px',
       data: {shh: this.sheet }
       
     });

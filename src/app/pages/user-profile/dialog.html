@@ -1,13 +1,17 @@
-<h1 mat-dialog-title>Refuse Reason</h1>
-<h5> Send your refuse reason to {{data.shh.student.nom}}</h5>
+
+<h1 mat-dialog-title >Minor modification</h1>
+<h5> Apply your modification mr : {{data.shh.student.nom}}</h5>
 <div mat-dialog-content>
-  <form [formGroup]="refuseForm">
-  <textarea matInput placeholder="Textarea" class="form-control" formControlName="description" [(ngModel)]="data.shh.description"></textarea>
+  <form [formGroup]="refuseForm" >
+  <h1 mat-dialog-title >Title</h1>
   <textarea matInput placeholder="Textarea" class="form-control" formControlName="title"  [(ngModel)]="data.shh.title"></textarea>
+  <h1 mat-dialog-title >Description</h1>
+  <textarea matInput placeholder="Textarea" matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5 class="form-control" formControlName="description" [(ngModel)]="data.shh.description" ></textarea>
+  
     <!-- data.shh.refuseModificationReason -->
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button (click)="ModifMino(data.shh.id_sheet)" cdkFocusInitial>Apply</button>
+  <button mat-raised-button color="warn"  (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary"  color="primary" (click)="ModifMino(data.shh.id_sheet)" (click)="onNoClick()" cdkFocusInitial>Apply</button>
 </div>

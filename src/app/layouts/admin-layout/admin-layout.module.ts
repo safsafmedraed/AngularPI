@@ -41,6 +41,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
+import {FieldsetModule} from 'primeng/fieldset';
 
 
 
@@ -108,7 +109,8 @@ import { CodeHighlighterModule } from 'primeng/codehighlighter';
 		ToastModule,
 		InputTextModule,
 		TabViewModule,
-		CodeHighlighterModule
+    CodeHighlighterModule,
+    FieldsetModule
     
   ],
   declarations: [
