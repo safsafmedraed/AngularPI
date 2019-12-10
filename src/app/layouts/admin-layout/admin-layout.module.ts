@@ -42,6 +42,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import {FieldsetModule} from 'primeng/fieldset';
+import {CaptchaModule} from 'primeng/captcha';
 
 
 
@@ -110,7 +111,8 @@ import {FieldsetModule} from 'primeng/fieldset';
 		InputTextModule,
 		TabViewModule,
     CodeHighlighterModule,
-    FieldsetModule
+    FieldsetModule,
+    CaptchaModule
     
   ],
   declarations: [

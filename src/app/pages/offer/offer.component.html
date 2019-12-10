@@ -1,3 +1,4 @@
+
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 </div>    
 <mat-card class="example-card"  [style.backgroundColor]="'#172b4d'">
@@ -9,6 +10,10 @@
             <div class="example-container">
               <mat-form-field>
                 <input matInput placeholder="Set your project title" class="form-control" formControlName="title">
+                <div *ngIf="sheetform.get('title').errors?.required && sheetform.get('title').touched " class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i>
+                  Oh snap! add your title !
+             </div>
               </mat-form-field>
             
               <mat-form-field>
@@ -24,7 +29,7 @@
               </mat-form-field>
              
             </div>
-            <button mat-button matStepperNext (click)="createSheet()">Next</button>
+            <button mat-button matStepperNext [disabled]="!sheetform.valid" (click)="createSheet()">Next</button>
             </form>
       </mat-step>
       <mat-step [stepControl]="secondFormGroup">
@@ -48,7 +53,8 @@
               </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext (click)="addCategorytosheet()">Next</button>
+            <button mat-button matStepperNext  (click)="addCategorytosheet()">Next</button>
+            <button mat-button color="warn" (click)="getLIb()">Show Language Library</button>
           </div>
         </form>
       </mat-step>
@@ -61,4 +67,43 @@
         </div>
       </mat-step>
     </mat-vertical-stepper>
-  </mat-card>          
+  </mat-card>      
+<p>
+  
+</p>
+ 
+ <div *ngIf="showlib">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+  <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="color">
+      <mat-header-cell  *matHeaderCellDef> Color </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> {{element.color}}</mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="name">
+        <mat-header-cell  *matHeaderCellDef> Library name </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="homepage">
+          <mat-header-cell  *matHeaderCellDef> Home page </mat-header-cell>
+          <mat-cell  *matCellDef="let element"> <p>{{element.homepage}}</p> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="default_language">
+          <mat-header-cell  *matHeaderCellDef> Default language </mat-header-cell>
+          <mat-cell  *matCellDef="let element"> {{element.default_language}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="project_count">
+          <mat-header-cell  *matHeaderCellDef> Project count </mat-header-cell>
+          <mat-cell  *matCellDef="let element"> {{element.project_count}} </mat-cell>
+        </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+ 
+</div>

@@ -1,3 +1,4 @@
+import { Lib } from './../Models/Lib';
 import { Category } from './../Models/Category';
 import { Sheet } from './../Models/Sheet';
 import { Injectable } from '@angular/core';
@@ -124,6 +125,13 @@ DeleteStaff(id,sheet){
   )
   
 }
+
+getLib () {
+  return this.httpClient.get<Lib[]>(
+    'https://libraries.io/api/platforms?api_key=0e2fb660ededecba6ff3c3fef1b656be'
+  );
+}
+
 }
 
 
