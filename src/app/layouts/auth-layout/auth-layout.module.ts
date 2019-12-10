@@ -9,11 +9,6 @@ import {LoginComponent} from '../../pages/login/login.component';
 import {RegisterComponent} from '../../pages/register/register.component';
 import {NotifierModule, NotifierOptions} from 'angular-notifier';
 import {LoginentrepriseComponent} from '../../pages/loginentreprise/loginentreprise.component';
-import {LoginService} from '../../Services/login.service';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {TokenInterceptorService} from '../../Services/token-interceptor.service';
-import {EntrepriseService} from '../../Services/entreprise.service';
-import {CandidaturePopupComponent} from '../../pages/candidature-popup/candidature-popup.component';
 import {RedirecttologinComponent} from '../../pages/redirecttologin/redirecttologin.component';
 import {RecaptchaModule} from 'ng-recaptcha';
 
