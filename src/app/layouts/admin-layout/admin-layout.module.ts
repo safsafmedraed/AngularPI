@@ -83,10 +83,5 @@ import {ChatComponent} from '../../pages/offer/chat/chat.component';
   ]
 })
 
-export class AdminLayoutModule {/*constructor(
-  private readonly router: Router,
-) {
-  router.events
-    .subscribe(console.log);
-}*/
+export class AdminLayoutModule {
 }
