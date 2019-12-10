@@ -16,7 +16,7 @@
               <div class="card-header " style="background-color: #2A92BF;">
                 <div class="row">
                 <h2 class="align-items-center text-xl text-white" style=" display: inline-flex;vertical-align: middle;" ><i class="material-icons">report_problem</i>TO DO</h2>
-                <button class="btn btn-sm btn-outline-white align-items-center ml-7 " style=" display: inline-flex;vertical-align: middle;" (click)="open()"><i class="material-icons">control_point</i>Add Task</button>
+                <button class="btn btn-sm btn-outline-white align-items-center ml-3 " style=" display: inline-flex;vertical-align: middle;" (click)="open()"><i class="material-icons">control_point</i>Add Task</button>
                 </div>
               </div>
 
@@ -26,9 +26,20 @@
                   [cdkDropListData]="todo"
                   class="card-body"
                   (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('TO_DO')" >
-                  <div  class="card card-stats" (click)="openDetails(item.id)" (cdkDragStarted)="dragStart(item.id,'todo')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of todo" cdkDrag>
-                    <div class="card-header bg-transparent">
-                      <h5 >{{item.title}}</h5>
+                  <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'todo')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of todo" cdkDrag>
+                    <div  class="card-header  bg-transparent">
+                      <div style=" display: inline-flex;vertical-align: middle;" >
+                      <h5 (click)="openDetails(item.id)" >{{item.title}}</h5>
+                      <div ngbDropdown placement="right-top">
+                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                          <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                          <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
+                          <a class="dropdown-item" (click)="deletetodo(item)">Delete</a>
+                        </div>
+                      </div>
+                      </div>
                     </div>
                 </div>
 
@@ -47,10 +58,20 @@
                   [cdkDropListData]="doing"
                   (cdkDropListEntered)="dragEnd('DOING')"
                   (cdkDropListDropped)="drop($event)">
-                  <div  class="card card-stats" (click)="openDetails(item.id)" (cdkDragStarted)="dragStart(item.id,'doing')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of doing" cdkDrag>
+                  <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'doing')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of doing" cdkDrag>
                     <div class="card-header bg-transparent">
-                      <h5 >{{item.title}}</h5>
-                    </div>
+                      <div style=" display: inline-flex;vertical-align: middle;" >
+                        <h5 (click)="openDetails(item.id)" >{{item.title}}</h5>
+                        <div ngbDropdown placement="right-top">
+                          <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                            <i class="fas fa-ellipsis-v"></i>
+                          </a>
+                          <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                            <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
+                            <a class="dropdown-item" (click)="deletedoing(item)">Delete</a>
+                          </div>
+                        </div>
+                      </div>                    </div>
                   </div>
                 </div>
               </div>
@@ -66,10 +87,20 @@
                   #doneList="cdkDropList"
                   [cdkDropListData]="done"
                   (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('DONE')" >
-                  <div  class="card card-stats" (click)="openDetails(item.id)" (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
+                  <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
                     <div class="card-header bg-transparent">
-                      <h5 >{{item.title}}</h5>
-                    </div>
+                      <div style=" display: inline-flex;vertical-align: middle;" >
+                        <h5 (click)="openDetails(item.id)" >{{item.title}}</h5>
+                        <div ngbDropdown placement="right-top">
+                          <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                            <i class="fas fa-ellipsis-v"></i>
+                          </a>
+                          <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                            <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
+                            <a class="dropdown-item" (click)="deletedone(item)">Delete</a>
+                          </div>
+                        </div>
+                      </div>                    </div>
                   </div>
                 </div>
               </div>
