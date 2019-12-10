@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title">Video Conferencing</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container">
+<div [id]="localCallId" class="local"></div>
+
+<div *ngFor="let callId of remoteCalls" [id]="callId" class="remote"></div></div>
+</div>

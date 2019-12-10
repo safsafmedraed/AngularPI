@@ -21,6 +21,9 @@ import { BoardComponent } from './pages/project/board/board.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { HelpComponent } from './pages/project/help/help.component';
 import { HelpDetailComponent } from './pages/project/help-detail/help-detail.component';
+import { environment } from 'src/environments/environment';
+import { NgxAgoraModule } from 'ngx-agora';
+import { VideoComponent } from './pages/project/video/video.component';
 
 
 

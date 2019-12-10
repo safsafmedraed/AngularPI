@@ -10,6 +10,7 @@ import {Project} from '../../../Models/Project';
 import {ProjectService} from '../../../Services/project.service';
 import {TaskDetailsComponent} from '../task-details/task-details.component';
 import {HelpComponent} from "../help/help.component";
+import {VideoComponent} from "../video/video.component";
 
 @Component({
   selector: 'app-board',
@@ -140,5 +141,9 @@ this.status = st;
     const modalRef = this.modalService.open(HelpComponent);
     modalRef.componentInstance.id = id;
     modalRef.componentInstance.title = title;
+  }
+  openChat() {
+    const modalRef = this.modalService.open(VideoComponent);
+
   }
 }

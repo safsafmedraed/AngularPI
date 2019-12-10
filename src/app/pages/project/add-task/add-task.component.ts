@@ -56,7 +56,8 @@ private project: Project;
 
     console.log(task);
     this.ts.addTask(JSON.stringify(task)).subscribe( sucess => {
-        this.passEntry.emit(task);this.activeModal.close();
+        this.passEntry.emit(task);
+        this.activeModal.close();
     });
   }
 }

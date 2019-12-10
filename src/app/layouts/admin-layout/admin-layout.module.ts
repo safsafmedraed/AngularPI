@@ -29,12 +29,17 @@ import {ChartModule} from 'primeng/chart';
 import {ActivityComponent} from '../../pages/project/activity/activity.component';
 import {TaskFileComponent} from '../../pages/project/task-file/task-file.component';
 import {NgxDocViewerModule} from "ngx-doc-viewer";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {HelpComponent} from "../../pages/project/help/help.component";
-import {HelpDetailComponent} from "../../pages/project/help-detail/help-detail.component";
+import {MatInputModule} from '@angular/material/input';
+import {HelpComponent} from '../../pages/project/help/help.component';
+import {HelpDetailComponent} from '../../pages/project/help-detail/help-detail.component';
+import {AgoraConfig, NgxAgoraModule} from 'ngx-agora';
+import {environment} from '../../../environments/environment';
+import {VideoComponent} from '../../pages/project/video/video.component';
 
 // import { ToastrModule } from 'ngx-toastr';
+const agoraConfig: AgoraConfig = {
+  AppID: 'b76638003a5c40b5afb4efcd196249d1',
+};
 
 @NgModule({
   imports: [
@@ -50,6 +55,7 @@ import {HelpDetailComponent} from "../../pages/project/help-detail/help-detail.c
     ReactiveFormsModule,
     ChartModule,
     NgxDocViewerModule,
+    NgxAgoraModule.forRoot(agoraConfig)
   ],
   declarations: [
     DashboardComponent,
@@ -68,9 +74,10 @@ import {HelpDetailComponent} from "../../pages/project/help-detail/help-detail.c
     ActivityComponent,
     HelpComponent,
     HelpDetailComponent,
-    TaskFileComponent
+    TaskFileComponent,
+    VideoComponent,
   ],
-  entryComponents: [AddTaskComponent, TaskDetailsComponent, HelpComponent]
+  entryComponents: [AddTaskComponent, VideoComponent, TaskDetailsComponent, HelpComponent]
 })
 
 export class AdminLayoutModule {/*constructor(
