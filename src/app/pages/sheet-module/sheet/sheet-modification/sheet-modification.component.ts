@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE, WebStorageService } from 'ngx-webstorage-service';
 import { Sheet } from 'app/Models/Sheet';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -21,9 +22,11 @@ export class SheetModificationComponent implements OnInit {
   shh : Sheet;
   animal: string;
   name: string;
-  constructor(private sheetservice: SheetServiceService , public dialog: MatDialog) { }
+  sheetIdStaff : any;
+  constructor(private sheetservice: SheetServiceService , public dialog: MatDialog,@Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
   ngOnInit() {
-    this.sheetservice.getListStaffModification().subscribe(data => {
+    this.sheetIdStaff = this.storage.get('user').id;
+    this.sheetservice.getListStaffModification(this.sheetIdStaff).subscribe(data => {
       this.sheet = [];
       this.sheet = data;
   });

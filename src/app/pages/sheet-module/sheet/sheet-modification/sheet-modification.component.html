@@ -3,36 +3,36 @@
   <mat-accordion class="example-headers-align">
       <mat-expansion-panel>
         <mat-expansion-panel-header class="header">
-          <mat-panel-title>
+          <mat-panel-title [ngStyle]="{'color':'white'}" >
               {{sh.student.nom}} 
           </mat-panel-title>
-          <mat-panel-description>
+          <mat-panel-description [ngStyle]="{'color':'white'}">
             {{sh.student.prenom}}
        </mat-panel-description>
-          <mat-panel-description>
+          <mat-panel-description [ngStyle]="{'color':'white'}">
                {{sh.student.email}}
                <mat-icon>account_circle</mat-icon>
           </mat-panel-description>
          
         </mat-expansion-panel-header>
-        <mat-card class="example-card">
+        <mat-card class="example-card" [style.backgroundColor]="'#172b4d'">
           <mat-card-header>
-            <mat-card-title>Major request modification</mat-card-title>
-            <mat-card-subtitle>Content</mat-card-subtitle>
-          </mat-card-header>
-          From :
-          <mat-card-content>
-            <p> {{sh.issue}} </p>
-            <p> {{sh.features}}</p>
+            <mat-card-title [ngStyle]="{'color':'white'}" >Major request modification</mat-card-title>
+            <mat-card-subtitle [ngStyle]="{'color':'white'}">Content</mat-card-subtitle>
+          </mat-card-header >
+         <p [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">From : </p> 
+          <mat-card-content [ngStyle]="{'color':'white'}">
+            <p> Issue : {{sh.issue}} </p>
+            <p> Features : {{sh.features}}</p>
           </mat-card-content>
-          To :
-          <mat-card-content>
-            <p> {{sh.featuresRequest}}</p>
-            <p> {{sh.issueRequest}} </p>
+          <p [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">To : </p> 
+          <mat-card-content [ngStyle]="{'color':'white'}">
+            <p>Issue : {{sh.featuresRequest}}</p>
+            <p>Features : {{sh.issueRequest}} </p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-button (click)="AcceptModification(sh.id_sheet)" color="primary" >Accept</button>
-            <button mat-button color="warn" (click)="openDialog(shh.student.id)">Refuse</button>
+            <button mat-button color="warn" (click)="openDialog(sh.student.id)">Refuse</button>
           </mat-card-actions>
         </mat-card> 
       </mat-expansion-panel>

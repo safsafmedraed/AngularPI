@@ -19,9 +19,9 @@ export class SheetServiceService {
       'http://localhost:9080/Graduation-Project-web/Staff/DisplayAllSheet'
     );
   }
-  getStaffSheet() {
+  getStaffSheet(id) {
     return this.httpClient.get<Sheet[]>(
-      'http://localhost:9080/Graduation-Project-web/Staff/DisplayStaffSheets/' + 56
+      'http://localhost:9080/Graduation-Project-web/Staff/DisplayStaffSheets/'+id
     );
   }
 
@@ -35,9 +35,9 @@ export class SheetServiceService {
     return this.httpClient.put<Sheet>(
       'http://localhost:9080/Graduation-Project-web/Staff/RefuseSheetBySupervisor/' + id, new Sheet())
   }
-  getListStaffModification() {
+  getListStaffModification(id) {
     return this.httpClient.get<Sheet[]>(
-      'http://localhost:9080/Graduation-Project-web/Staff/DisplayModificationRequests/' + 56
+      'http://localhost:9080/Graduation-Project-web/Staff/DisplayModificationRequests/'+id
     );
   }
 

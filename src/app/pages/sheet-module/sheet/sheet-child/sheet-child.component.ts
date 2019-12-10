@@ -1,7 +1,8 @@
+import { LOCAL_STORAGE, WebStorageService } from 'ngx-webstorage-service';
 import { Category } from './../../../../Models/Category';
 import { MatDialog } from '@angular/material/dialog';
 import { Sheet } from './../../../../Models/Sheet';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { SheetServiceService } from 'app/Services/SheetService.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { SheetServiceService } from 'app/Services/SheetService.service';
 })
 export class SheetChildComponent implements OnInit {
 
-  constructor(private sheetservice: SheetServiceService, dialog: MatDialog) { }
+  constructor(private sheetservice: SheetServiceService, dialog: MatDialog,@Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
 
   sheet: Sheet[];
   s : number;
@@ -21,9 +22,11 @@ export class SheetChildComponent implements OnInit {
   mode = 'indeterminate';
   value = 50;
   isShownR : boolean = false
+  sheetIdStaff : any;
   ngOnInit() {
     // tslint:disable-next-line: deprecation
-    this.sheetservice.getAllSheet().subscribe(data => {
+    this.sheetIdStaff = this.storage.get('user').id;
+    this.sheetservice.getStaffSheet(this.sheetIdStaff).subscribe(data => {
       this.sheet = [];
       this.sheet = data;
       console.log(this.sheet);

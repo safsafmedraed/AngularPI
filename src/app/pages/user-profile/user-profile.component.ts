@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
   sh: any;
   sheet : Sheet;
   id : any ;
+  display: boolean = false;
   constructor(private sheetservice: SheetServiceService,@Inject(LOCAL_STORAGE) private storage: WebStorageService,public dialog: MatDialog) { }
   
   ngOnInit() {
@@ -23,6 +24,9 @@ export class UserProfileComponent implements OnInit {
     this.sheetservice.getSheetbyIDstudent(this.sheetIdStudent).subscribe(data => {
       this.sh = data;
   });
+}
+showDialog() {
+  this.display = true;
 }
 toArrays(categorys: object ) {
   return Object.keys(categorys).map(key => categorys[key]);

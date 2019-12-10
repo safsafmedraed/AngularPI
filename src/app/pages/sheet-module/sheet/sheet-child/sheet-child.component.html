@@ -2,41 +2,58 @@
   <mat-accordion class="example-headers-align">
       <mat-expansion-panel>
         <mat-expansion-panel-header class="header">
-          <mat-panel-title>
+          <mat-panel-title [ngStyle]="{'color':'white'}">
               {{sh.student.nom}} 
           </mat-panel-title>
-          <mat-panel-description>
+          <mat-panel-description [ngStyle]="{'color':'white'}">
             {{sh.student.prenom}}
        </mat-panel-description>
-          <mat-panel-description>
+          <mat-panel-description [ngStyle]="{'color':'white'}">
                {{sh.student.email}}
                <mat-icon>account_circle</mat-icon>
           </mat-panel-description>
          
         </mat-expansion-panel-header>
-        <mat-panel-title>
-          Title :  {{sh.title}}
-         
-        </mat-panel-title>
-        <mat-panel-title>
-           Issue :  {{sh.issue}}
+        <mat-list>
+            <h3 mat-subheader class="mat-marg" [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">Title :</h3>
+            <mat-list-item>
+             
+                  <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >title</mat-icon>
+                  <h4 mat-line>{{sh.title}}</h4>
+
+            </mat-list-item>
+            
+            <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Description :</h3>
+            <mat-list-item>
+              <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">description</mat-icon>
+              <h4 mat-line >{{sh.description}}</h4>
+            </mat-list-item>
+
+            
+            <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Issue :</h3>
+            <mat-list-item>
+              <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">report_problem</mat-icon>
+              <h4 mat-line>{{sh.issue}}</h4>
+            </mat-list-item>
+            <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Features :</h3>
+            <mat-list-item >
+              <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">emoji_objects</mat-icon>
+              <h4 mat-line>{{sh.features}}</h4>
+            </mat-list-item>
+          </mat-list>
           
-         </mat-panel-title>
-    
-         <mat-panel-title>
-            Features :  {{sh.features}}
-         </mat-panel-title>
-       <mat-panel-title>
-        Key words :  {{sh.key_words}}
-     </mat-panel-title>
-     <mat-panel-title>
-      Sheet status :  {{sh.sheetstatus}}
-   </mat-panel-title>
-   <mat-panel-title> 
-   <div *ngFor="let c of toArrays(sh.categorys)">
-    {{ c.name_Category}}
-   </div>
-</mat-panel-title>
+          <h3 mat-subheader class="mat-marg" [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">Categorys:</h3>
+            <mat-list-item>
+             
+                <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >category</mat-icon>
+                  <div *ngFor="let c of toArrays(sh.categorys)">
+                      
+                      <h4 mat-line>{{c.name_Category}}</h4>
+                  </div>
+
+            </mat-list-item>
+             
+          
         <mat-action-row>
          <div *ngIf="sh.sheetstatus == 'REFUSED' || sh.sheetstatus== 'DEFAULT'">
          <button mat-flat-button color="primary" (click)="AcceptSheet(sh.id_sheet)" (click)="toggleShow()">Accept sheet</button>

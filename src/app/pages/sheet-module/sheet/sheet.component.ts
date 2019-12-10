@@ -1,6 +1,7 @@
+import { LOCAL_STORAGE, WebStorageService } from 'ngx-webstorage-service';
 import { Category } from './../../../Models/Category';
 import { Sheet } from './../../../Models/Sheet';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { SheetServiceService } from 'app/Services/SheetService.service';
 import { Router } from '@angular/router';
 
@@ -14,8 +15,9 @@ export class SheetComponent implements OnInit {
   showFiller = false;
   sheet: Sheet[];
   res : number;
+  sheetIdStaff : any;
  
-  constructor(private sheetservice: SheetServiceService , private router: Router) { }
+  constructor(private sheetservice: SheetServiceService , private router: Router ,@Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
   // tslint:disable-next-line: use-life-cycle-interface
   ngOnInit() {
 }
@@ -33,13 +35,15 @@ export class SheetComponent implements OnInit {
   }
 
   getStaffSheet() {
-  this.sheetservice.getStaffSheet().subscribe(data => {
+    this.sheetIdStaff = this.storage.get('user').id;
+  this.sheetservice.getStaffSheet(this.sheetIdStaff).subscribe(data => {
     this.sheet = [] ;
     this.sheet = data ;
   });
   }
   calcul(){
-    this.sheetservice.getListStaffModification().subscribe(data => {
+    this.sheetIdStaff = this.storage.get('user').id;
+    this.sheetservice.getListStaffModification(this.sheetIdStaff).subscribe(data => {
       this.sheet = data;
     this.res=this.sheet.length;
     return this.res;
