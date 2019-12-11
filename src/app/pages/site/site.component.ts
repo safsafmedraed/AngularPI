@@ -19,12 +19,15 @@ export class SiteComponent implements OnInit {
   school: School = new School();
   schoolname: string;
   id: number;
-
+  size: number;
+  startindex = 0;
+  endindex = 10;
   ngOnInit() {
     this.route.params.subscribe(paramsId => {
       this.id = paramsId.id;
     });
-    this.SiteeService.getsitebyschool(this.id).subscribe(data => this.Sites = data, eur => console.log('error'));
+    // tslint:disable-next-line:max-line-length
+    this.SiteeService.getsitebyschool(this.id).subscribe(data => {this.Sites = data; console.log(data.length); this.size = data.length; }, eur => console.log('error'));
     console.log(this.school);
   }
   popup(i) {
@@ -33,6 +36,13 @@ export class SiteComponent implements OnInit {
         anyProperty: i
       }
     });
+  }
+  getArrayfromNumber() {
+    return new Array(this.size);
+  }
+  updateindex(pageindex) {
+    this.startindex = pageindex;
+    this.endindex = pageindex +1;
   }
   DeleteSite(id) {
     console.log(id);
