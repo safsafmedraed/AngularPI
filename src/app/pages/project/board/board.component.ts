@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
@@ -9,8 +9,9 @@ import {AddTaskComponent} from '../add-task/add-task.component';
 import {Project} from '../../../Models/Project';
 import {ProjectService} from '../../../Services/project.service';
 import {TaskDetailsComponent} from '../task-details/task-details.component';
-import {HelpComponent} from "../help/help.component";
-import {VideoComponent} from "../video/video.component";
+import {HelpComponent} from '../help/help.component';
+import {VideoComponent} from '../video/video.component';
+import {LOCAL_STORAGE, WebStorageService} from "ngx-webstorage-service";
 
 @Component({
   selector: 'app-board',
@@ -24,8 +25,9 @@ export class BoardComponent implements OnInit {
   task: Task ;
   idd: number;
   project: Project;
+  private typeuser: boolean ;
 
-  constructor(private route: ActivatedRoute, private ts: TaskService, private modalService: NgbModal, private ps: ProjectService) {
+  constructor(private route: ActivatedRoute, private ts: TaskService, private modalService: NgbModal, private ps: ProjectService, @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
 
   }
   todo: Task[] = [];
@@ -62,7 +64,14 @@ export class BoardComponent implements OnInit {
                                                         this.todo = data.filter(t => t.status.includes('TO_DO'));
                                                         console.log(this.tasks); });
 
+    if (this.storage.get('user').role == 'SUPERVISOR' || this.storage.get('type') == 'encadreur') {
+      this.typeuser = true;
 
+    } else if (this.storage.get('type') == 'student') {
+      this.typeuser = false;
+
+
+    }
   }
 
   dragEnd(st) {

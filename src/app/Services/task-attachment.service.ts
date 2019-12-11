@@ -10,7 +10,7 @@ import {TaskAttachment} from '../Models/TaskAttachment';
 export class TaskAttachmentService {
   url = '/api/taskfile/';
   constructor(private http: HttpClient) { }
-  postFile(fileToUpload: File, id): Observable<boolean> {
+ public postFile(fileToUpload: File, id): Observable<boolean> {
     const endpoint = '/api/taskfile/upload?id=' + id;
     const formData: FormData = new FormData();
     formData.append('uploadedFile', fileToUpload);
@@ -28,7 +28,7 @@ export class TaskAttachmentService {
       {responseType: 'blob' as 'json'}).toPromise();
     return file;
   }
-  getFiles(id) {
+  public getFiles(id) {
     return this.http.get<TaskAttachment[]>(this.url + '/getallfiles/' + id);
   }
 }

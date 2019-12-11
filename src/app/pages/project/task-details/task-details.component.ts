@@ -5,6 +5,8 @@ import {TaskService} from '../../../Services/task.service';
 import { Task } from 'src/app/Models/Task';
 import {TaskAttachmentService} from '../../../Services/task-attachment.service';
 import {HelpComponent} from "../help/help.component";
+import {forEach} from "@angular/router/src/utils/collection";
+import {TaskFileComponent} from "../task-file/task-file.component";
 
 @Component({
   selector: 'app-task-details',
@@ -16,15 +18,15 @@ export class TaskDetailsComponent implements OnInit {
   @Input() id;
   fileToUpload: File = null;
   files: any[] = [];
-
+  filesnames: any[] = [];
   uploadedFiles: any[] = [];
 
-  constructor(public activeModal: NgbActiveModal,private modalService: NgbModal , private fs: TaskAttachmentService, private ps: ProjectService, private ts: TaskService, private as: TaskAttachmentService) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal , private fs: TaskAttachmentService, private ps: ProjectService, private ts: TaskService) {
   }
 
   ngOnInit() {
     this.ts.getTask(this.id).subscribe(data => this.task = data);
-    this.fs.getFiles(this.id).subscribe(data => {this.files = data; console.log(data); });
+    this.fs.getFiles(this.id).subscribe(data => {this.files = data; console.log(data); data.forEach(e => this.filesnames.push('http://localhost:9080/Graduation-Project-web/taskfile/downloadbyid/' + e.id)); });
   }
 
   handleFileInput(files: FileList) {
@@ -32,7 +34,7 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   uploadFileToActivity() {
-    this.as.postFile(this.fileToUpload, this.id).subscribe(data => {
+    this.fs.postFile(this.fileToUpload, this.id).subscribe(data => {
     }, error => {
       console.log(error);
     });
@@ -41,6 +43,10 @@ export class TaskDetailsComponent implements OnInit {
   }
   openHelp(id: number) {
     const modalRef = this.modalService.open(HelpComponent);
+    modalRef.componentInstance.id = id;
+  }
+  openfile(id: number) {
+    const modalRef = this.modalService.open(TaskFileComponent);
     modalRef.componentInstance.id = id;
   }
 }

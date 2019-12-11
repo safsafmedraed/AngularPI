@@ -11,16 +11,16 @@ declare interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  {path: '/dashboard', title: 'Corporate space', icon: 'ni-tv-2 text-primary', class: '', role: ['student']},
-  {path: '/offer', title: 'Corporate space1', icon: 'ni-tv-2 text-primary', class: '', role: ['student']},
-  {path: '/icons', title: 'Fiche', icon: 'ni-planet text-blue', class: '', role: ['student']},
-  {path: '/maps', title: 'Marwen', icon: 'ni-pin-3 text-orange', class: '', role: ['student']},
-  {path: '/user-profile', title: 'Dhaker', icon: 'ni-single-02 text-yellow', class: '', role: ['student']},
-  {path: '/projects', title: 'project', icon: ' ni-folder-17 text-yellow', class: '', role: ['student', 'SUPERVISOR']},
-  {path: '/tables', title: 'Aziz', icon: 'ni-bullet-list-67 text-red', class: '', role: ['student']},
-  {path: '/nourchene', title: 'Nourchene', icon: 'ni-bullet-list-67 text-red', class: '', role: ['student']},
-  {path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '', role: ['student']},
-  {path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: '', role: ['student']}
+  {path: '/dashboard', title: 'Corporate space', icon: 'ni-tv-2 text-primary', class: '', role: ['student', 'SUPERVISOR', 'encadreur']},
+  {path: '/offer', title: 'Corporate space1', icon: 'ni-tv-2 text-primary', class: '', role: ['student', 'SUPERVISOR', 'encadreur']},
+  {path: '/icons', title: 'Fiche', icon: 'ni-planet text-blue', class: '', role: []},
+  {path: '/maps', title: 'Marwen', icon: 'ni-pin-3 text-orange', class: '', role: []},
+  {path: '/user-profile', title: 'user-profile', icon: 'ni-single-02 text-yellow', class: '', role: ['student', 'SUPERVISOR', 'encadreur']},
+  {path: '/projects', title: 'project', icon: ' ni-folder-17 text-yellow', class: '', role: ['student', 'SUPERVISOR', 'encadreur']},
+  {path: '/tables', title: 'Forum', icon: 'ni-bullet-list-67 text-red', class: '', role: ['student', 'SUPERVISOR', 'encadreur']},
+  {path: '/nourchene', title: 'Nourchene', icon: 'ni-bullet-list-67 text-red', class: '', role: []},
+  {path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '', role: []},
+  {path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: '', role: []}
 ];
 
 @Component({

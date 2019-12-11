@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TaskAttachmentService} from '../../../Services/task-attachment.service';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-task-file',
@@ -7,13 +8,14 @@ import {TaskAttachmentService} from '../../../Services/task-attachment.service';
   styleUrls: ['./task-file.component.scss']
 })
 export class TaskFileComponent implements OnInit {
-   file = 'http://localhost:9080/Graduation-Project-web/taskfile/downloadbyid/4';
+   file ;
 
   @Input() id;
-  constructor() { }
+  @Input() files;
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
-
+this.file = 'http://localhost:9080/Graduation-Project-web/taskfile/downloadbyid/' + this.id;
 
   }
 

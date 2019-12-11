@@ -35,6 +35,7 @@ import {HelpDetailComponent} from '../../pages/project/help-detail/help-detail.c
 import {AgoraConfig, NgxAgoraModule} from 'ngx-agora';
 import {environment} from '../../../environments/environment';
 import {VideoComponent} from '../../pages/project/video/video.component';
+import {ImageViewerModule} from "ng2-image-viewer";
 
 // import { ToastrModule } from 'ngx-toastr';
 const agoraConfig: AgoraConfig = {
@@ -55,7 +56,8 @@ const agoraConfig: AgoraConfig = {
     ReactiveFormsModule,
     ChartModule,
     NgxDocViewerModule,
-    NgxAgoraModule.forRoot(agoraConfig)
+    NgxAgoraModule.forRoot(agoraConfig),
+    ImageViewerModule
   ],
   declarations: [
     DashboardComponent,
@@ -77,7 +79,7 @@ const agoraConfig: AgoraConfig = {
     TaskFileComponent,
     VideoComponent,
   ],
-  entryComponents: [AddTaskComponent, VideoComponent, TaskDetailsComponent, HelpComponent]
+  entryComponents: [AddTaskComponent, VideoComponent, TaskDetailsComponent, HelpComponent, TaskFileComponent]
 })
 
 export class AdminLayoutModule {/*constructor(

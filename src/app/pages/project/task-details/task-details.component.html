@@ -35,16 +35,12 @@
       <button (click)="uploadFileToActivity()" class="btn btn-outline-success">Upload</button>
     </div></div>
  <div class="row">
-    <div  class="card  card-stats"  style="border-color: #2b2b58"  *ngFor="let item of files" >
+    <div (click)="openfile(item.id)" class="card  card-stats"  style="border-color: #2b2b58"  *ngFor="let item of files" >
       <div class="card-body bg-transparent">
         <h5 >{{item.name}}</h5>
       </div>
     </div>
  </div>
-
-    <app-task-file></app-task-file>
-
-<app-video></app-video>
     <app-task-comment [task]="task"></app-task-comment>
   </div>
   <div class="modal-footer">

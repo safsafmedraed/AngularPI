@@ -72,8 +72,7 @@
                           </a>
                           <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
-                            <a class="dropdown-item" (click)="openHelp(item.id)" >Help</a>
-
+                            <a class="dropdown-item" (click)="openHelp(item.id, item.title)" >Help</a>
                             <a class="dropdown-item" (click)="deletedoing(item)">Delete</a>
                           </div>
                         </div>
@@ -104,9 +103,9 @@
                           </a>
                           <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
-                            <a class="dropdown-item" (click)="openHelp(item.id)" >Help</a>
+                            <a class="dropdown-item" (click)="openHelp(item.id, item.title)" >Help</a>
                             <a class="dropdown-item" (click)="deletedone(item)">Delete</a>
-                            <div class="dropdown-item">Approve : <i (click)="approuve(item)" class="far fa-check-circle text-green"></i><i (click)="disapprouve(item)" class="fas fa-times-circle text-red"></i></div>
+                            <div class="dropdown-item" *ngIf="typeuser == false?true:false">Approve : <i (click)="approuve(item)" class="far fa-check-circle text-green"></i><i (click)="disapprouve(item)" class="fas fa-times-circle text-red"></i></div>
                           </div>
                         </div>
                       </div>                    </div>
