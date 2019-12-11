@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NotifierService} from 'angular-notifier';
 import {School} from '../../../Models/School';
 import {SchoolService} from '../../../Services/school.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ajout-school',
@@ -11,7 +12,7 @@ import {SchoolService} from '../../../Services/school.service';
 export class AjoutSchoolComponent implements OnInit {
   private readonly notifier: NotifierService;
   School: School = new School();
-  constructor(public SchooolService: SchoolService, notifierService: NotifierService) {
+  constructor(public SchooolService: SchoolService, notifierService: NotifierService, private Routerr: Router) {
     this.notifier = notifierService;
   }
 
@@ -26,5 +27,6 @@ export class AjoutSchoolComponent implements OnInit {
       id: 'THAT_NOTIFICATION_ID',
 
     });
+    this.Routerr.navigateByUrl('/school');
   }
 }

@@ -28,6 +28,6 @@ export class AjoutdepartComponent implements OnInit {
       id: 'THAT_NOTIFICATION_ID',
 
     });
-    this.Routerr.navigateByUrl('Departement');
+    this.Routerr.navigateByUrl('nadeparts');
   }
 }

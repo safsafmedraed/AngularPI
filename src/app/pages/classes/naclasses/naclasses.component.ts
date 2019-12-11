@@ -3,6 +3,7 @@ import {Classes} from '../../../Models/Classes';
 import {MatDialog} from '@angular/material/dialog';
 import {ClassesService} from '../../../Services/classes.service';
 import {ClasspopupComponent} from '../classpopup/classpopup.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-naclasses',

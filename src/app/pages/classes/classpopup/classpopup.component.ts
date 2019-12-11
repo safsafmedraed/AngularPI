@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {OptionService} from '../../../Services/option.service';
 import {ClassesService} from '../../../Services/classes.service';
 import {Options} from '../../../Models/Options';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-classpopup',
@@ -12,7 +13,7 @@ import {Options} from '../../../Models/Options';
 export class ClasspopupComponent implements OnInit {
   Options: Options[] = [];
   constructor(public OptionsS: OptionService, public classesService: ClassesService, public dialogRef: MatDialogRef<ClasspopupComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+              @Inject(MAT_DIALOG_DATA) public data: any, private Routerr: Router) { }
 
   ngOnInit() {
     this.OptionsS.getOpt().subscribe(data => this.Options = data, eur => console.log('error'));
@@ -22,5 +23,6 @@ export class ClasspopupComponent implements OnInit {
     this.classesService.affecter(c, id).subscribe(data => 'ok');
     console.log(id, c);
     this.dialogRef.close();
+    this.Routerr.navigateByUrl('class/' + c.id);
   }
 }

@@ -29,6 +29,6 @@ export class NaoptionsComponent implements OnInit {
     console.log(id);
     this.Opptionservice.DeleteDepart(id).subscribe(data => console.log('ok'));
     console.log(id);
-    window.location.reload();
+     // window.location.reload();
   }
 }

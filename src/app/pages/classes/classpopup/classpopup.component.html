@@ -16,7 +16,7 @@
             </select>-->
 
             <div *ngFor=" let s of Options">
-              <input type="radio" value="{{s}}" name="schoolname">//{{s.id}}//
+              <input type="radio" value="{{s}}" name="schoolname">Option :{{s.name}}
               <button type="submit" class="btn btn-primary mt-4" (click)="affecter( s,data.anyProperty )">affect to this Option</button>
             </div>
 

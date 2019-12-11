@@ -1,12 +1,12 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
 
 </div>
-<h3 class="text-blue mb-0">Adding a School</h3>
+<h3 class="text-blue mb-0">Adding a Site</h3>
 <form role="form">
   <div class="form-group">
     <div class="input-group input-group-alternative mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text">Schoolname<i class="ni ni-hat-3"></i></span>
+        <span class="input-group-text">Sitename<i class="ni ni-hat-3"></i></span>
       </div>
       <input class="form-control" placeholder="Sitename" type="text" [(ngModel)]="Sitte.sitename" name="schoolname">
 
@@ -33,7 +33,7 @@
 
   </div>
   <div class="text-center">
-    <button type="submit" class="btn btn-primary mt-4" (click)="AddSite(Sitte)">Create School</button>
+    <button type="submit" class="btn btn-primary mt-4" (click)="AddSite(Sitte)">Create Site</button>
     <!-- notifier declare -->
     <notifier-container></notifier-container>
   </div>

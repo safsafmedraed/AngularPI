@@ -14,11 +14,11 @@
       <div class="input-group-prepend">
         <span class="input-group-text">number of students<i class="ni ni-hat-3"></i></span>
       </div>
-      <input class="form-control" placeholder="number of students" type="text" [(ngModel)]="class.numberofstudents" name="schoolname">
+      <input class="form-control" placeholder="number of students" type="number" [(ngModel)]="class.numberofstudents" name="schoolname">
     </div>
   </div>
   <div class="text-center">
-    <button type="submit" class="btn btn-primary mt-4" (click)="addDepartement(class)">Create School</button>
+    <button type="submit" class="btn btn-primary mt-4" (click)="addDepartement(class)">Create a class</button>
     <!-- notifier declare -->
     <notifier-container></notifier-container>
   </div>
