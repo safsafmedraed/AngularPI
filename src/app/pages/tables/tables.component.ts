@@ -89,7 +89,7 @@ export class TablesComponent implements OnInit {
         };
 
         this.data2 = {
-          labels: ['Back end','Mobile', 'Front end'],
+          labels: ['Back end','Mobile', 'Front end','Else'],
           datasets: [
               {
                   label: 'My First dataset',
@@ -102,7 +102,7 @@ export class TablesComponent implements OnInit {
                   data: [this.stats.Backend,
                     this.stats.Mobile,
                     this.stats.Frontend,
-                    
+                    0
                     ]
               },
              

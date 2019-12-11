@@ -17,6 +17,7 @@ export class MapsComponent implements OnInit {
 sheet : Sheet [];
     cols: any[];
     sh : Sheet ;
+    sheetfilter : Sheet [];
     selectedCars: Sheet[];
     exportColumns: any[];
     name: string;
@@ -29,7 +30,7 @@ sheet : Sheet [];
     showall = true ;
     chosenMod: string = "";
 
-    displayedColumns: string[] = ['nom','title','date','staff','sheetstatus','cancel'];
+    displayedColumns: string[] = ['nom','title','date','sheetstatus','cancel'];
 
     displayedColumnsFilter: string[] = ['nom','title','assign'];
     applyFilter(filterValue: string) {
@@ -43,10 +44,9 @@ sheet : Sheet [];
     this.serviceSheet.getAllSheet().subscribe(data => {
       this.sheet = [];
       this.sheet = data;
-      // this.delay(1000).then(any=>{
+      this.delay(1000).then(any=>{
         this.dataSource = new MatTableDataSource(this.sheet);
-  //  });
-      console.log(this.dataSource);
+   });
   });
  
 this.cols = [
@@ -56,7 +56,7 @@ this.cols = [
     { field: 'features', header: 'Features' }
 ];
 this.exportColumns = this.cols.map(sh => ({title: sh.header, dataKey: sh.field}));
-console.log(this.exportColumns);
+
 }
 exportPdf() {
 import("jspdf").then(jsPDF => {
@@ -101,36 +101,52 @@ return cars;
 getNotAcceptedSheet(){
   this.show = true;
   this.showall = false;
-  this.serviceSheet.getNotAcceptedSheets().subscribe(data => {
-    this.sheet = [];
-    this.sheet = data;
-    this.dataSourceFilter = new MatTableDataSource(data);
-    console.log(this.dataSourceFilter);
-});
+  this.serviceSheet.getNotAcceptedSheets().subscribe()
+console.log(this.sheetfilter);
+    
+    
 }
 Acceptsheet(id) 
 {
-    this.serviceSheet.AcceptSheetByChef(id,this.sh).subscribe(data => {
-      this.sh = data;
-      console.log(this.sh);
-  });
+    this.serviceSheet.AcceptSheetByChef(id,this.sh).subscribe(
+      data=>{for(var i=0;i<this.sheetfilter.length;i++){
+        if(this.sheetfilter[i].id_sheet==id){
+          this.sheetfilter.splice(i,1);
+          this.dataSourceFilter = new MatTableDataSource(this.sheetfilter);
+        }
+        console.log(this.sheetfilter);
+      }
+      
+      });
+      
 }
 
 CancelStaff(id) 
 {
   
-    this.serviceSheet.DeleteStaff(id,this.sh).subscribe((() => {
-      this.sheet.forEach((element)=>{
-        
-        if(element.id_sheet==id){
-        console.log(element)
-          element=this.sh
-          this.dataSource = this.sheet.filter(item =>item! == element)
-      }})
-      
-      
-  }));
+    this.serviceSheet.DeleteStaff(id,this.sh).subscribe(data=>
+      {for(var i=0;i<this.sheet.length;i++){
+      if(this.sheet[i].id_sheet==id){
+        this.sheet.splice(i,1);
+        this.dataSource = new MatTableDataSource(this.sheet);
+      }
+      console.log(this.sheet);
+    }
+    
+    });
+     
   
+  
+}
+affich(){
+  this.serviceSheet.getAllSheet().subscribe(data => {
+    this.sheet = [];
+    this.sheet = data;
+      this.dataSourceFilter = new MatTableDataSource(this.sheet);
+      this.changeDetectorRefs.detectChanges();
+ });
+    
+
 }
 modo(){
   switch(this.chosenMod) {  
@@ -145,10 +161,10 @@ modo(){
       this.show = true ;
       this.showall = false;
       this.serviceSheet.getNotAcceptedSheets().subscribe(data => {
-        this.sheet = [];
-        this.sheet = data;
+        this.sheetfilter = [];
+        this.sheetfilter = data;
         this.dataSourceFilter = new MatTableDataSource(data);
-        console.log(this.dataSourceFilter);
+        console.log(this.sheetfilter);
     });
       console.log(this.show+ "filter ") 
       console.log(this.showall+ "all filter")

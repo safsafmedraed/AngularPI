@@ -40,9 +40,16 @@ export class SheetModificationComponent implements OnInit {
     return Object.keys(categorys).map(key => categorys[key]);
   }
   AcceptModification(index :number){
-    this.sheetservice.AcceptModification(index).subscribe((data) =>{
-      this.ngOnInit();
-    })
+    this.sheetservice.AcceptModification(index).subscribe(
+      data=>
+      {for(var i=0;i<this.sheet.length;i++){
+      if(this.sheet[i].id_sheet==index){
+        this.sheet.splice(i,1);
+      }
+      console.log(this.sheet);
+    }
+    
+    });
   }
   openDialog(sheetIdStudent:number): void {
     

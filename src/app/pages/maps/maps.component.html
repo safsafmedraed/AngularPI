@@ -43,11 +43,6 @@
             <mat-cell  *matCellDef="let element"> {{element.date |date}} </mat-cell>
           </ng-container>
       
-            <ng-container matColumnDef="staff">
-                <mat-header-cell  *matHeaderCellDef> Staff </mat-header-cell>
-                <mat-cell  *matCellDef="let element"> {{element.staffSheets[0].nom}} {{element.staffSheets[0].prenom}}</mat-cell>
-              </ng-container>
-
               <ng-container matColumnDef="sheetstatus">
                   <mat-header-cell  *matHeaderCellDef> Status </mat-header-cell>
                   <mat-cell  *matCellDef="let element"> {{element.sheetstatus}}</mat-cell>
