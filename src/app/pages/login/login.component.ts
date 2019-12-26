@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('type', 'staff');
           this.storage.set('user', data.user);
           this.storage.set('token', data.token);
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('projects');
         } else if (data.type == 'student') {
           console.log('student');
           this.storage.set('type', 'student');
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('token', data.token);
           console.log(this.storage.get('user').id
           );
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('projects');
 
         } else if (data.type == 'encadreur') {
           console.log('encadreur');
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('user', data.user);
           this.storage.set('email', email.value);
           this.storage.set('token', data.token);
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('projects');
 
         }
 

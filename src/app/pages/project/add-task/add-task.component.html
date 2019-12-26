@@ -17,7 +17,7 @@
   </div>
   <div  class="form-group">
     <label  class="form-control-label" >description:</label>
-    <input class="form-control form-control-alternative"  formControlName="description" placeholder="title" type="text" >
+    <textarea class="form-control form-control-alternative"  formControlName="description" placeholder="description"  ></textarea>
     <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
       <div *ngIf=" description.touched && description.errors.required">description required</div>
       <div *ngIf="description.errors.minlength">min length = 3</div>
