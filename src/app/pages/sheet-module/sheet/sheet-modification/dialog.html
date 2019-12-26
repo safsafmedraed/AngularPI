@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Refuse Reason</h1>
+<h5> Send your refuse reason to {{data.shh.student.nom}}</h5>
+<div mat-dialog-content>
+  <form [formGroup]="refuseForm">
+  <input class="form-control" formControlName="refuseModificationReason">
+    <!-- data.shh.refuseModificationReason -->
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="RefuseMod(data.shh.id_sheet,data.shh.student.id)" cdkFocusInitial>Refuse</button>
+</div>

@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Category } from '../../Models/Category';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+
+import { SelectItem } from 'primeng/api';
+import { MatTableDataSource } from '@angular/material';
+import {Sheet} from '../../Models/Sheet';
+import {SheetServiceService} from '../../Services/SheetService.service';
 declare const google: any;
 
 @Component({
@@ -8,49 +14,137 @@ declare const google: any;
 })
 export class MapsComponent implements OnInit {
 
-  constructor() { }
+sheet: Sheet [];
+    cols: any[];
+    sh: Sheet ;
+    sheetfilter: Sheet [];
+    selectedCars: Sheet[];
+    exportColumns: any[];
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+    dataSource ;
+    dataSourceFilter;
+    show = false;
+    showall = true ;
+    chosenMod = '';
 
-  ngOnInit() {
-   /* let map = document.getElementById('map-canvas');
-    let lat = map.getAttribute('data-lat');
-    let lng = map.getAttribute('data-lng');
+    displayedColumns: string[] = ['nom', 'title', 'date', 'sheetstatus', 'cancel'];
 
-    var myLatlng = new google.maps.LatLng(lat, lng);
-    var mapOptions = {
-        zoom: 12,
-        scrollwheel: false,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-          {"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},
-          {"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},
-          {"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},
-          {"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},
-          {"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},
-          {"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
-          {"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},
-          {"featureType":"water","elementType":"all","stylers":[{"color":'#5e72e4'},{"visibility":"on"}]}]
+    displayedColumnsFilter: string[] = ['nom', 'title', 'assign'];
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
     }
+  constructor( private serviceSheet: SheetServiceService , private changeDetectorRefs: ChangeDetectorRef) { }
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log('fired'));
+}
+  ngOnInit() {
+    this.serviceSheet.getAllSheet().subscribe(data => {
+      this.sheet = [];
+      this.sheet = data;
+      this.delay(1000).then(any => {
+        this.dataSource = new MatTableDataSource(this.sheet);
+   });
+  });
 
-    map = new google.maps.Map(map, mapOptions);
-
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title: 'Hello World!'
-    });
-
-    var contentString = '<div class="info-window-content"><h2>Argon Dashboard</h2>' +
-        '<p>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</p></div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
-    });*/
-  }
+    this.cols = [
+    { field: 'description', header: 'Description' },
+    { field: 'title', header: 'Title' },
+    { field: 'issue', header: 'Issue' },
+    { field: 'features', header: 'Features' }
+];
+    this.exportColumns = this.cols.map(sh => ({title: sh.header, dataKey: sh.field}));
 
 }
+
+
+
+
+
+
+getCars() {
+const cars = [];
+for (const car of this.sheet) {
+    car.issue = car.issue.toString();
+    cars.push(car);
+}
+return cars;
+}
+getNotAcceptedSheet() {
+  this.show = true;
+  this.showall = false;
+  this.serviceSheet.getNotAcceptedSheets().subscribe();
+  console.log(this.sheetfilter);
+
+
+}
+Acceptsheet(id) {
+    this.serviceSheet.AcceptSheetByChef(id, this.sh).subscribe(
+      data => {for (let i = 0; i < this.sheetfilter.length; i++) {
+        if (this.sheetfilter[i].id_sheet == id) {
+          this.sheetfilter.splice(i, 1);
+          this.dataSourceFilter = new MatTableDataSource(this.sheetfilter);
+        }
+        console.log(this.sheetfilter);
+      }
+
+      });
+
+}
+
+CancelStaff(id) {
+
+    this.serviceSheet.DeleteStaff(id, this.sh).subscribe(data => {for (let i = 0; i < this.sheet.length; i++) {
+      if (this.sheet[i].id_sheet == id) {
+        this.sheet.splice(i, 1);
+        this.dataSource = new MatTableDataSource(this.sheet);
+      }
+      console.log(this.sheet);
+    }
+
+    });
+
+
+
+}
+affich() {
+  this.serviceSheet.getAllSheet().subscribe(data => {
+    this.sheet = [];
+    this.sheet = data;
+    this.dataSourceFilter = new MatTableDataSource(this.sheet);
+    this.changeDetectorRefs.detectChanges();
+ });
+
+
+}
+modo() {
+  switch (this.chosenMod) {
+     case 'all': {
+        this.show = false ;
+        this.showall = true;
+        console.log(this.show + 'filter ');
+        console.log(this.showall + 'all filter');
+        break;
+     }
+     case 'not': {
+      this.show = true ;
+      this.showall = false;
+      this.serviceSheet.getNotAcceptedSheets().subscribe(data => {
+        this.sheetfilter = [];
+        this.sheetfilter = data;
+        this.dataSourceFilter = new MatTableDataSource(data);
+        console.log(this.sheetfilter);
+    });
+      console.log(this.show + 'filter ');
+      console.log(this.showall + 'all filter');
+      break;
+     }
+  }
+}
+}
+
+
+
+

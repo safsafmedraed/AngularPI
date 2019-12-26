@@ -1,0 +1,20 @@
+export class Stat{
+    StudentsNotSignedForStaff:number;
+    StudentsWhoGotHelpFromStaff:number;
+    StudentsWhoCanceledTheirProject:number;
+    StudentsWhoCantCancelProject:number;
+    JAVAEE:number;
+    NET:number;
+    Symfony:number;
+    Ruby:number;
+    Devops:number;
+    Angular:number;
+    React:number;
+    VueJs:number;
+    Ionic:number;
+    Android:number;
+    Swift:number;
+    Frontend:number;
+    Mobile:number;
+    Backend:number;
+}

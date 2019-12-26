@@ -1,15 +1,71 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
-  <!-- Mask -->
-  <span class="mask bg-gradient-danger opacity-8"></span>
-  <!-- Header container -->
-  <div class="container-fluid d-flex align-items-center">
-    <div class="row">
-      <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hello Jesse</h1>
-        <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-        <a href="#!" class="btn btn-info">Edit profile</a>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>  
 
+      <div *ngIf="sh">
+          <mat-card class="example-card"  [style.backgroundColor]="'#172b4d'">
+              <mat-card-header>
+                <mat-card-title [ngStyle]="{'color':'white'}">Your sheet details mr : {{sh.student.nom}}  {{sh.student.prenom}}  
+                    
+                </mat-card-title>
+                <mat-card-subtitle [ngStyle]="{'color':'white'}">Content sheet</mat-card-subtitle>
+                <div *ngIf="sh.refuseModificationReason">
+                    <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Notification"></button>
+                    </div>
+              </mat-card-header>
+              <mat-card-content [ngStyle]="{'color':'white'}" >
+                <!-- Title : <p> {{sh.title}} </p>
+                Description :<p> {{sh.description}}</p>
+                Issue  :<p> {{sh.issue}}</p>
+                Features :<p> {{sh.features}}</p>
+                Categorys :
+                <div *ngFor="let c of toArrays(sh.categorys)">
+                 {{ c.name_Category}} -->
+                 <mat-list>
+                  <h3 mat-subheader class="mat-marg" [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">Title :</h3>
+                  <mat-list-item>
+                   
+                        <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >title</mat-icon>
+                        <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.title}}</h4>
+  
+                  </mat-list-item>
+                  
+                  <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Description :</h3>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">description</mat-icon>
+                    <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.description}}</h4>
+                  </mat-list-item>
+
+                  
+                  <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Issue :</h3>
+                  <mat-list-item>
+                    <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">report_problem</mat-icon>
+                    <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.issue}}</h4>
+                  </mat-list-item>
+                  <h3 mat-subheader [ngStyle]="{'font-size':'22px','color':'#f55b3b'}" >Features :</h3>
+                  <mat-list-item >
+                    <mat-icon mat-list-icon [ngStyle]="{'font-size':'22px','color':'#f55b3b'}">emoji_objects</mat-icon>
+                    <h4 mat-line [ngStyle]="{'color':'white'}">{{sh.features}}</h4>
+                  </mat-list-item>
+                </mat-list>
+                 
+                <p-dialog header="You have been refused to modify" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+                [maximizable]="true" [baseZIndex]="10000">
+                <p>Refuse reason : {{sh.refuseModificationReason}}</p>
+                <p>sent At : {{sh.date |date}}</p>
+                <p-footer>
+                    <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Yes"></button>
+                    <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No" class="ui-button-secondary"></button>
+                </p-footer>
+        </p-dialog>
+
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-raised-button mat-button color="warn" matTooltip="Your can only modify description and title" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button" (click)="openDialog(sh.student.id)" >
+                 Minor modification</button>
+                <button  mat-raised-button mat-button color="warn" matTooltip="You need your staff to accept or refuse your modification for issue and features" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" class="example-button" (click)="openDialogMajor(sh.student.id)">Major modification</button>
+              </mat-card-actions>
+            </mat-card> 
+      </div>       
+       
+     
+    

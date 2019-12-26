@@ -17,7 +17,7 @@ export const ROUTES: RouteInfo[] = [
     title: 'Corporate space',
     icon: 'ni-tv-2 text-primary',
     class: '',
-    role: ['ADMINISTRATEUR', 'student', 'SUPERVISOR', 'encadreur']
+    role: ['ADMINISTRATEUR']
   },
   {path: '/stat', title: 'dashboard', icon: 'ni-tv-2 text-primary', class: '', role: ['ADMINISTRATEUR']},
   {path: '/offer', title: 'internship Space', icon: 'ni-tv-2 text-primary', class: '', role: ['student', 'SUPERVISOR', 'encadreur']},

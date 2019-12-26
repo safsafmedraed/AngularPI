@@ -16,6 +16,8 @@ import {ChatComponent} from '../../pages/offer/chat/chat.component';
 import {ProjectComponent} from '../../pages/project/project.component';
 import {BoardComponent} from '../../pages/project/board/board.component';
 import {StatsComponent} from '../../pages/project/stats/stats.component';
+import {SheetComponent} from '../../pages/sheet-module/sheet/sheet.component';
+import {StudentSheetComponent} from "../../pages/student-sheet/student-sheet.component";
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -23,15 +25,21 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'projects/stats/:id', component: StatsComponent},
   {path: 'projectboard/:id', component: BoardComponent},
   {path: 'offer', component: OfferComponent},
-  {path: 'user-profile', component: UserProfileComponent},
-  {path: 'tables', component: TablesComponent},
   {path: 'icons', component: IconsComponent},
-  {path: 'maps', component: MapsComponent},
   {path: 'nourchene', component: NourcheneComponent},
   {path: 'skills', component: SkillsComponent},
   {path: 'offerc', component: ByidComponent},
   {path: 'search', component: SearchUiComponent},
-  {path: 'stat', component: ChatComponent}
+  {path: 'stat', component: ChatComponent},
+
+  {path: 'student', component: StudentSheetComponent},
+
+
+  {path: 'sheet-process', component: UserProfileComponent},
+  {path: 'stats', component: TablesComponent},
+  {path: 'sheet', component: SheetComponent},
+  {path: 'allsheets', component: MapsComponent},
+
 
 
 ];

@@ -1,0 +1,109 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+</div>
+<mat-card class="example-card"  [style.backgroundColor]="'#172b4d'">
+  <mat-vertical-stepper [linear]="isLinear" #stepper >
+    <mat-step [stepControl]="firstFormGroup">
+
+      <form [formGroup]="sheetform">
+        <ng-template matStepLabel>Fill your sheet details</ng-template>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Set your project title" class="form-control" formControlName="title">
+            <div *ngIf="sheetform.get('title').errors?.required && sheetform.get('title').touched " class="alert alert-fill-danger" role="alert">
+              <i class="mdi mdi-alert-circle"></i>
+              Oh snap! add your title !
+            </div>
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Set your project description" class="form-control" formControlName="description"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Set your project issue" class="form-control" formControlName="issue"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Set your project features" class="form-control" formControlName="features"></textarea>
+          </mat-form-field>
+
+        </div>
+        <button mat-button matStepperNext [disabled]="!sheetform.valid" (click)="createSheet()">Next</button>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="Categoryform" >
+        <ng-template matStepLabel>Fill your category</ng-template>
+        <h4>Category</h4>
+        <mat-form-field>
+          <mat-label>Choose a category </mat-label>
+          <mat-select [disabled]="disableSelect.value" formControlName="name_Category">
+            <mat-option value="JAVA EE">JAVA EE</mat-option>
+            <mat-option value=".NET" disabled>.NET</mat-option>
+            <mat-option value="Symfony">Symfony</mat-option>
+            <mat-option value="Ruby">Ruby</mat-option>
+            <mat-option value="Angular">Angular</mat-option>
+            <mat-option value="VueJs">VueJs</mat-option>
+            <mat-option value="React">React</mat-option>
+            <mat-option value="Swift">Swift</mat-option>
+            <mat-option value="Ionic">Ionic</mat-option>
+            <mat-option value="Android">Android</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext  (click)="addCategorytosheet()">Next</button>
+          <button mat-button color="warn" (click)="getLIb()">Show Language Library</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done please wait for the approval.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</mat-card>
+<p>
+
+</p>
+
+<div *ngIf="showlib">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="color">
+      <mat-header-cell  *matHeaderCellDef> Color </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> {{element.color}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell  *matHeaderCellDef> Library name </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> {{element.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="homepage">
+      <mat-header-cell  *matHeaderCellDef> Home page </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> <p>{{element.homepage}}</p> </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="default_language">
+      <mat-header-cell  *matHeaderCellDef> Default language </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> {{element.default_language}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="project_count">
+      <mat-header-cell  *matHeaderCellDef> Project count </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> {{element.project_count}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+</div>

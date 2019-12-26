@@ -3,3 +3,84 @@
 </div>
 <!-- Page content -->
 
+
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <select matNativeControl required [(ngModel)]="chosenMod" (ngModelChange)="modo()">
+      <option value="all">All</option>
+      <option value="not">Not Accepted</option>
+    </select>
+  </mat-form-field>
+
+  <!-- ALL -->
+  <div *ngIf="showall">
+    <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="nom">
+        <mat-header-cell  *matHeaderCellDef> Student name </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.student.nom}} {{element.student.prenom}} </mat-cell>
+      </ng-container>
+
+          <ng-container matColumnDef="title">
+          <mat-header-cell  *matHeaderCellDef> Title </mat-header-cell>
+          <mat-cell  *matCellDef="let element"> {{element.title}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <mat-header-cell  *matHeaderCellDef> Title </mat-header-cell>
+            <mat-cell  *matCellDef="let element"> {{element.date |date}} </mat-cell>
+          </ng-container>
+
+              <ng-container matColumnDef="sheetstatus">
+                  <mat-header-cell  *matHeaderCellDef> Status </mat-header-cell>
+                  <mat-cell  *matCellDef="let element"> {{element.sheetstatus}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="cancel">
+                  <mat-header-cell  *matHeaderCellDef> Cancel staff </mat-header-cell>
+                  <mat-cell  *matCellDef="let element">
+                    <button  type="button"  class="ui-button-danger" (click)="CancelStaff(element.id_sheet)">Delete staff</button>                  </mat-cell>
+                </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+  </div>
+
+  <!-- Filter -->
+<div *ngIf="show">
+  <mat-table [dataSource]="dataSourceFilter" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="nom">
+      <mat-header-cell  *matHeaderCellDef> Student name </mat-header-cell>
+      <mat-cell  *matCellDef="let element"> {{element.student.nom}} {{element.student.prenom}} </mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="title">
+        <mat-header-cell  *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.title}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="assign">
+        <mat-header-cell  *matHeaderCellDef> Assign to a staff </mat-header-cell>
+        <mat-cell  *matCellDef="let element">
+          <button  (click)="Acceptsheet(element.id_sheet)">accept </button>
+        </mat-cell>
+      </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumnsFilter"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsFilter;"></mat-row>
+  </mat-table>
+</div>
+
+
+
+
+
+
+

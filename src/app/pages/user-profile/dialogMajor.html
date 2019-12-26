@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Major modification request</h1>
+<h5> Send your modification request mr : {{data.shh.student.nom}} to {{data.shh.staffSheets[0].nom}}</h5>
+<div mat-dialog-content>
+  <form [formGroup]="refuseForm">
+  <h1 mat-dialog-title>Issue</h1>
+  <textarea matInput placeholder="Textarea" class="form-control" formControlName="issueRequest" [(ngModel)]="data.shh.issue"></textarea>
+  <h1 mat-dialog-title>Features</h1>
+  <textarea matInput placeholder="Textarea" class="form-control" formControlName="featuresRequest"  [(ngModel)]="data.shh.features"></textarea>
+    <!-- data.shh.refuseModificationReason -->
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="ModifMajor(data.shh.id_sheet)" (click)="onNoClick()"cdkFocusInitial>Send</button>
+</div>

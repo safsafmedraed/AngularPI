@@ -10,7 +10,11 @@ import {AdminLayoutRoutes} from './admin-layout.routing';
 import {DashboardComponent} from '../../pages/dashboard/dashboard.component';
 import {IconsComponent} from '../../pages/icons/icons.component';
 import {MapsComponent} from '../../pages/maps/maps.component';
-import {UserProfileComponent} from '../../pages/user-profile/user-profile.component';
+import {
+  DialogMajorModif,
+  DialogMinorModif,
+  UserProfileComponent
+} from '../../pages/user-profile/user-profile.component';
 import {TablesComponent} from '../../pages/tables/tables.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -62,6 +66,14 @@ import {AgoraConfig, NgxAgoraModule} from 'ngx-agora';
 import {environment} from '../../../environments/environment';
 import {VideoComponent} from '../../pages/project/video/video.component';
 import {ImageViewerModule} from 'ng2-image-viewer';
+import {SheetModuleModule} from "../../pages/sheet-module/sheet-module.module";
+import {StudentSheetComponent} from "../../pages/student-sheet/student-sheet.component";
+import {MatCardModule} from "@angular/material/card";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatTableModule} from "@angular/material/table";
+import {MatListModule} from "@angular/material/list";
+import {MatIconModule} from "@angular/material/icon";
+import {DialogModule} from "primeng";
 
 // import { ToastrModule } from 'ngx-toastr';
 const agoraConfig: AgoraConfig = {
@@ -86,6 +98,7 @@ const agoraConfig: AgoraConfig = {
     MatDatepickerModule,
     MatInputModule,
     MatMenuModule,
+    SheetModuleModule,
 
     MatButtonModule,
     DragDropModule,
@@ -93,7 +106,13 @@ const agoraConfig: AgoraConfig = {
     ChartModule,
     NgxDocViewerModule,
     NgxAgoraModule.forRoot(agoraConfig),
-    ImageViewerModule
+    ImageViewerModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTableModule,
+    MatListModule,
+    MatIconModule,
+    DialogModule
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
@@ -124,8 +143,11 @@ const agoraConfig: AgoraConfig = {
     HelpDetailComponent,
     TaskFileComponent,
     VideoComponent,
+    StudentSheetComponent,
+    DialogMajorModif,
+    DialogMinorModif
   ],
-  entryComponents: [AddTaskComponent, VideoComponent, TaskDetailsComponent, HelpComponent, TaskFileComponent]
+  entryComponents: [AddTaskComponent, VideoComponent, TaskDetailsComponent, HelpComponent, TaskFileComponent, DialogMajorModif, DialogMinorModif]
 })
 
 export class AdminLayoutModule {

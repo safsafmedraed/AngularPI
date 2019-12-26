@@ -1,0 +1,32 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div>
+    <button mat-icon-button (click)="calcul()" [matMenuTriggerFor]="menu">
+      <mat-icon matBadgeColor="warn">home</mat-icon>
+    </button>
+      <mat-menu #menu="matMenu">
+        <a  class="nav-link" routerLink="/sheet/all"> <button mat-menu-item >
+            Show all my sheets 
+        </button></a>
+        <a  class="nav-link" routerLink="/sheet/requests"> 
+          <mat-icon [matBadge]="res" matBadgeColor="warn">notification_important</mat-icon>
+          
+        </a>
+      </mat-menu>
+      
+  </div>
+</div>
+  <router-outlet></router-outlet>
+<!--<button (click)="getAllSheetData()">All Sheets</button>
+<div *ngFor="let sh of sheet">
+    {{sh.issue}}
+    {{sh.student.nom}}
+    <div *ngFor="let s of toArrays(sh.student)">
+        {{ s.nom }}
+    </div>
+</div>
+<button (click)="getStaffSheet()">57</button>
+<div *ngFor="let sh of sheet">
+    {{sh.issue}}
+    
+</div>-->

@@ -1,0 +1,41 @@
+example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+.c{
+  background-color:chocolate;
+}
+.cc:hover{
+ background-color: black ;
+}
+.header {
+  background-color :#172b4d!important;
+}
+
+.header:hover {
+  background-color : #f5583e !important;
+}
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+  
+}

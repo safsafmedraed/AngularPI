@@ -54,9 +54,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('token', data.token);
           this.router.navigateByUrl('dashboard');
         } else if (data.type === 'student') {
-
-          this.router.navigateByUrl('projects');
-        } else if (data.type === 'student') {
           console.log('student');
           this.storage.set('type', 'student');
           this.storage.set('email', email.value);
@@ -64,7 +61,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('token', data.token);
 
           console.log(this.storage.get('user').id);
-          this.router.navigateByUrl('offer');
           console.log(data);
 
           console.log(this.storage.get('user').id

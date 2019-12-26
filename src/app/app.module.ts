@@ -39,6 +39,7 @@ import {MatchingComponent} from './pages/offer/matching/matching.component';
 import {RECAPTCHA_LANGUAGE} from 'ng-recaptcha';
 import {ChatComponent} from './pages/offer/chat/chat.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { StudentSheetComponent } from './pages/student-sheet/student-sheet.component';
 
 
 
@@ -75,7 +76,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 
     PopupoffreComponent,
     CandidaturePopupComponent,
-    MatchingComponent
+    MatchingComponent,
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
