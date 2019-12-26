@@ -42,6 +42,31 @@ import {
 } from 'angular-instantsearch';
 import {ChatComponent} from '../../pages/offer/chat/chat.component';
 
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+
+import {ProjectComponent} from '../../pages/project/project.component';
+import {BoardComponent} from '../../pages/project/board/board.component';
+import {AddTaskComponent} from '../../pages/project/add-task/add-task.component';
+import {PopupComponent} from '../../pages/popup/popup.component';
+import {TaskDetailsComponent} from '../../pages/project/task-details/task-details.component';
+import {TaskCommentComponent} from '../../pages/project/task-comment/task-comment.component';
+import {StatsComponent} from '../../pages/project/stats/stats.component';
+
+import {ChartModule} from 'primeng/chart';
+import {ActivityComponent} from '../../pages/project/activity/activity.component';
+import {TaskFileComponent} from '../../pages/project/task-file/task-file.component';
+import {NgxDocViewerModule} from 'ngx-doc-viewer';
+import {HelpComponent} from '../../pages/project/help/help.component';
+import {HelpDetailComponent} from '../../pages/project/help-detail/help-detail.component';
+import {AgoraConfig, NgxAgoraModule} from 'ngx-agora';
+import {environment} from '../../../environments/environment';
+import {VideoComponent} from '../../pages/project/video/video.component';
+import {ImageViewerModule} from 'ng2-image-viewer';
+
+// import { ToastrModule } from 'ngx-toastr';
+const agoraConfig: AgoraConfig = {
+  AppID: 'b76638003a5c40b5afb4efcd196249d1',
+};
 
 @NgModule({
   imports: [
@@ -62,6 +87,13 @@ import {ChatComponent} from '../../pages/offer/chat/chat.component';
     MatInputModule,
     MatMenuModule,
 
+    MatButtonModule,
+    DragDropModule,
+    ReactiveFormsModule,
+    ChartModule,
+    NgxDocViewerModule,
+    NgxAgoraModule.forRoot(agoraConfig),
+    ImageViewerModule
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
@@ -79,8 +111,21 @@ import {ChatComponent} from '../../pages/offer/chat/chat.component';
     OfferComponent,
     SkillsComponent,
     ByidComponent,
-    SearchUiComponent, ChatComponent
-  ]
+    SearchUiComponent,
+    ChatComponent,
+    ProjectComponent,
+    BoardComponent,
+    AddTaskComponent,
+    TaskDetailsComponent,
+    TaskCommentComponent,
+    StatsComponent,
+    ActivityComponent,
+    HelpComponent,
+    HelpDetailComponent,
+    TaskFileComponent,
+    VideoComponent,
+  ],
+  entryComponents: [AddTaskComponent, VideoComponent, TaskDetailsComponent, HelpComponent, TaskFileComponent]
 })
 
 export class AdminLayoutModule {

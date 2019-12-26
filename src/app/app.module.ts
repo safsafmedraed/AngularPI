@@ -38,6 +38,10 @@ import {ByidComponent} from './pages/offer/byid/byid.component';
 import {MatchingComponent} from './pages/offer/matching/matching.component';
 import {RECAPTCHA_LANGUAGE} from 'ng-recaptcha';
 import {ChatComponent} from './pages/offer/chat/chat.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
+
+
 
 
 @NgModule({
@@ -49,6 +53,7 @@ import {ChatComponent} from './pages/offer/chat/chat.component';
     NgbModule,
     RouterModule,
     AppRoutingModule,
+
     ScrollingModule,
     MatSlideToggleModule,
     MatFormFieldModule,
@@ -57,12 +62,17 @@ import {ChatComponent} from './pages/offer/chat/chat.component';
     MatInputModule,
     MatNativeDateModule,
     MatButtonModule, MatSnackBarModule,
+
+    DragDropModule,
+
+
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
     PopupComponent,
+
     PopupoffreComponent,
     CandidaturePopupComponent,
     MatchingComponent
@@ -77,9 +87,16 @@ import {ChatComponent} from './pages/offer/chat/chat.component';
       provide: RECAPTCHA_LANGUAGE,
       useValue: 'en'
     }
+
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent, MatchingComponent]
+
+  entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent, MatchingComponent],
+
+  exports: [
+
+  ],
+
 })
 export class AppModule {
 }

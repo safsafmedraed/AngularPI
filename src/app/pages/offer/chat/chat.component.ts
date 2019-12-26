@@ -1,13 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import Chart from 'chart.js';
 
-// core components
-import {
-  chartOptions,
-  parseOptions,
-  chartExample1,
-  chartExample2
-} from '../../../variables/charts';
+
 import {OffreService} from '../../../Services/offre.service';
 import {Entreprise} from '../../../Models/entreprise';
 import {EntrepriseService} from '../../../Services/entreprise.service';
@@ -36,23 +29,6 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.CompanyService.getCompanies().subscribe(data => this.Companies = data, eur => console.log('error'));
-    const chartOrders = document.getElementById('chart-orders');
-
-    parseOptions(Chart, chartOptions());
-
-    const ordersChart = new Chart(chartOrders, {
-      type: 'pie',
-      options: chartExample2.options,
-      data: {
-        labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [
-          {
-            label: 'Candidature',
-            data: [50, 20, 30, 22, 17, 29]
-          }
-        ]
-      }
-    });
   }
 
   onclick(idE, date) {

@@ -1,0 +1,122 @@
+<div class="header bg-gradient-danger pb-5 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="mt--7 pb-8">
+
+
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <div class="row">
+          <h3 class="text-white mb-0">{{project.title}}</h3>
+          <button class="btn btn-sm btn-outline-white align-items-center ml-3 " style=" display: inline-flex;vertical-align: middle;" (click)="openChat()">Video Conferencing</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div cdkDropListGroup class="card-deck">
+            <div style="background-color: #EFEFEF;" class="card border-0">
+              <div class="card-header " style="background-color: #2A92BF;">
+                <div class="row">
+                <h2 class="align-items-center text-xl text-white" style=" display: inline-flex;vertical-align: middle;" ><i class="material-icons">report_problem</i>TO DO</h2>
+                <button class="btn btn-sm btn-outline-white align-items-center ml-3 " style=" display: inline-flex;vertical-align: middle;" (click)="open()"><i class="material-icons">control_point</i>Add Task</button>
+                </div>
+              </div>
+
+                <div
+                  cdkDropList
+                  #todoList="cdkDropList"
+                  [cdkDropListData]="todo"
+                  class="card-body anyClass"
+                  (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('TO_DO')" >
+                  <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'todo')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of todo" cdkDrag>
+                    <div  class="card-header  bg-transparent">
+                      <div style=" display: inline-flex;vertical-align: middle;" >
+                      <h5 (click)="openDetails(item.id)" >{{item.title}}</h5>
+                      <div ngbDropdown placement="right-top">
+                        <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                          <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                          <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
+                          <a class="dropdown-item" (click)="openHelp(item.id, item.title)" >Help</a>
+                          <a class="dropdown-item" (click)="deletetodo(item)">Delete</a>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+            <div style="background-color: #EFEFEF;" class="card border-0">
+              <div class="card-header " style="background-color: #F4CE46;">
+                <h2 class="align-items-center text-xl text-white" style=" display: inline-flex;vertical-align: middle;" ><i class="material-icons">build</i>DOING</h2>
+              </div>
+
+
+
+                <div
+                  cdkDropList
+                  #doingList="cdkDropList"
+                  [cdkDropListData]="doing"
+                  class="card-body anyClass"
+                  (cdkDropListEntered)="dragEnd('DOING')"
+                  (cdkDropListDropped)="drop($event)">
+                  <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'doing')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of doing" cdkDrag>
+                    <div class="card-header bg-transparent">
+                      <div style=" display: inline-flex;vertical-align: middle;" >
+                        <h5 (click)="openDetails(item.id)" >{{item.title}}</h5>
+                        <div ngbDropdown placement="right-top">
+                          <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                            <i class="fas fa-ellipsis-v"></i>
+                          </a>
+                          <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                            <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
+                            <a class="dropdown-item" (click)="openHelp(item.id, item.title)" >Help</a>
+                            <a class="dropdown-item" (click)="deletedoing(item)">Delete</a>
+                          </div>
+                        </div>
+                      </div>                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div style="background-color: #EFEFEF;" class="card border-0">
+              <div class="card-header"  style="background-color: #00B961;">
+                <h2 class="align-items-center text-xl text-white" style=" display: inline-flex;vertical-align: middle;" ><i class="material-icons">check_circle</i>DONE</h2>
+              </div>
+
+
+                <div
+                  cdkDropList
+                  #doneList="cdkDropList"
+                  class="card-body anyClass"
+                  [cdkDropListData]="done"
+                  (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="dragEnd('DONE')" >
+                  <div  class="card card-stats"  (cdkDragStarted)="dragStart(item.id,'done')" (cdkDragEnded)="dragEnded()"   *ngFor="let item of done" cdkDrag>
+                    <div class="card-header bg-transparent">
+                      <div style=" display: inline-flex;vertical-align: middle;" >
+                        <h5 (click)="openDetails(item.id)" >{{item.title}}<i *ngIf="item.approved" class="fas fa-check-circle text-green"></i></h5>
+                        <div ngbDropdown placement="right-top">
+                          <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                            <i class="fas fa-ellipsis-v"></i>
+                          </a>
+                          <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                            <a class="dropdown-item" (click)="openDetails(item.id)" >Open</a>
+                            <a class="dropdown-item" (click)="openHelp(item.id, item.title)" >Help</a>
+                            <a class="dropdown-item" (click)="deletedone(item)">Delete</a>
+                            <div class="dropdown-item" *ngIf="typeuser == true?true:false">Approve : <i (click)="approuve(item)" class="far fa-check-circle text-green"></i><i (click)="disapprouve(item)" class="fas fa-times-circle text-red"></i></div>
+                          </div>
+                        </div>
+                      </div>                    </div>
+                  </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+</div>

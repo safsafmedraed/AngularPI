@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title">New Task</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="ajout"(ngSubmit)="ajoutaction(ajout.value)">
+<div class="modal-body">
+  <div  class="form-group">
+    <label  class="form-control-label" >title:
+    </label>
+    <input class="form-control form-control-alternative"  formControlName="title" placeholder="title" type="text" >
+    <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+      <div *ngIf=" title.touched && title.errors.required">description required</div>
+      <div *ngIf="title.errors.minlength">min length = 3</div>
+    </div>
+  </div>
+  <div  class="form-group">
+    <label  class="form-control-label" >description:</label>
+    <textarea class="form-control form-control-alternative"  formControlName="description" placeholder="description"  ></textarea>
+    <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+      <div *ngIf=" description.touched && description.errors.required">description required</div>
+      <div *ngIf="description.errors.minlength">min length = 3</div>
+    </div>
+  </div>
+
+  <div  class="form-group">
+    <label  class="form-control-label" >deadline:</label>
+    <input class="form-control datepicker" ngbDatepicker  placeholder="Select date" #d="ngbDatepicker" (click)="d.toggle()" type="text"formControlName="deadline"><br>
+    <div *ngIf="deadline.invalid && (deadline.dirty || deadline.touched)" class="alert alert-danger">
+      <div *ngIf=" deadline.touched && deadline.errors.required">deadline required</div>
+
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-outline-success" [disabled]="!ajout.valid">Add</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+
+
+
+
+
+</form>

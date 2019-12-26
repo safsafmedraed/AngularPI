@@ -13,9 +13,15 @@ import {ByidComponent} from '../../pages/offer/byid/byid.component';
 import {SearchUiComponent} from '../../pages/search-ui/search-ui.component';
 import {ChatComponent} from '../../pages/offer/chat/chat.component';
 
+import {ProjectComponent} from '../../pages/project/project.component';
+import {BoardComponent} from '../../pages/project/board/board.component';
+import {StatsComponent} from '../../pages/project/stats/stats.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'projects', component: ProjectComponent},
+  {path: 'projects/stats/:id', component: StatsComponent},
+  {path: 'projectboard/:id', component: BoardComponent},
   {path: 'offer', component: OfferComponent},
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'tables', component: TablesComponent},

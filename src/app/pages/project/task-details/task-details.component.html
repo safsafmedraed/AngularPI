@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{task.title}}
+    <i *ngIf="task.approved" class="fas fa-check-circle text-green"></i>
+
+  </h3>
+  <a (click)="openHelp(task.id)" class="btn btn-sm btn-outline-success">Help</a>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+  <div class="modal-body">
+
+    <div class="row ">
+   <div class="col ml-3">
+     <div class="row">    <h4>   Status : </h4><p> {{task.status}}</p> </div>
+   </div>
+      <div class="col">
+        <div class="row">   <h4 >Deadline : </h4><p> {{task.deadline | date}}</p> </div>
+      </div>
+      <div class="col" *ngIf="task.status == 'DONE'">
+        <div class="row">   <h4 >finish date : </h4><p> {{task.date | date}}</p> </div>
+      </div>
+    </div>
+    <h4>Description : </h4>
+    <p> {{task.description}}</p>
+    <h4>Attachments : </h4>
+
+    <div class="form-group">
+      <label for="file">Choose File</label>
+      <div class="row">
+      <input class="btn btn-outline-success" type="file"
+             id="file"
+             (change)="handleFileInput($event.target.files)">
+      <button (click)="uploadFileToActivity()" class="btn btn-outline-success">Upload</button>
+    </div></div>
+ <div class="row">
+    <div (click)="openfile(item.id)" class="card  card-stats"  style="border-color: #2b2b58"  *ngFor="let item of files" >
+      <div class="card-body bg-transparent">
+        <h5 >{{item.name}}</h5>
+      </div>
+    </div>
+ </div>
+    <app-task-comment [task]="task"></app-task-comment>
+  </div>
+  <div class="modal-footer">
+
+
+  </div>
+
+
+
+
+
+

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
-       aria-controls="sidenav-collapse-main">
+            aria-controls="sidenav-collapse-main">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
@@ -89,12 +89,12 @@
       </form>
       <!-- Navigation -->
       <ul class="navbar-nav">
-          <li  *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-              <a *ngIf="menuItem.role.indexOf(role)!=-1?true:false" routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
-                  <i class="ni {{menuItem.icon}}"></i>
-                  {{menuItem.title}}
-              </a>
-          </li>
+        <li  *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+          <a *ngIf="menuItem.role.indexOf(role)!=-1?true:false" routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+            <i class="ni {{menuItem.icon}}"></i>
+            {{menuItem.title}}
+          </a>
+        </li>
       </ul>
 
       <!-- Divider -->

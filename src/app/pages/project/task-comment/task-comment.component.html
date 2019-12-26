@@ -1,0 +1,26 @@
+
+<div class="card card-stats ">
+  <div class="card-header">
+    <h4>Add Comment</h4>
+    <h5 class="card-title text-uppercase text-muted mb-0"></h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <form>
+          <textarea #cmm class="form-control"  rows="3" ></textarea>
+       <button (click)="onenter(cmm)" class="btn btn-primary" >Add</button>
+        </form>
+      </div>
+    </div>
+    <h4>All Comments :</h4>
+    <div  class="card card-stats"  style="border-color: #a8a9ad"  *ngFor="let item of comments" >
+      <div  style="background-color: #aaa9ad " class="card-header">
+        <h3> {{item.user.nom}}</h3>
+        {{ item.date }}
+      </div>
+      <div style="border-color: #a8a9ad"  class="card-body">
+        {{item.body}}
+      </div>
+  </div>
+  </div></div>

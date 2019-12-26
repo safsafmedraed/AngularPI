@@ -3,12 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false,
-    algolia: {
-      appId: 'P3UBJQADO7',
-      apikey: 'ccb69f2e24d9e53bc8a92dbf8e1215cd'
-    }
+
+  production: false,
+  algolia: {
+    appId: 'P3UBJQADO7',
+    apikey: 'ccb69f2e24d9e53bc8a92dbf8e1215cd'
+  },
+  agora: {
+    appId: 'b76638003a5c40b5afb4efcd196249d1'
   }
-;
+};
 
 

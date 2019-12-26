@@ -1,10 +1,12 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit, ElementRef, Inject} from '@angular/core';
 import {ROUTES} from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {Router} from '@angular/router';
 import {Entreprise} from '../../Models/entreprise';
 import {EntrepriseService} from '../../Services/entreprise.service';
 import {LoginService} from '../../Services/login.service';
+import {LOCAL_STORAGE, WebStorageService} from 'ngx-webstorage-service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -16,10 +18,11 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+
   public nom: string;
   public prenom: string;
 
-  constructor(location: Location, private element: ElementRef, private router: Router,
+  constructor(location: Location, private element: ElementRef, private router: Router, @Inject(LOCAL_STORAGE) private storage: WebStorageService,
               public CompanyService: EntrepriseService, public Logout: LoginService) {
     this.location = location;
   }
@@ -48,10 +51,17 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+
     localStorage.removeItem('user');
     localStorage.removeItem('type');
     localStorage.removeItem('entreprise');
     localStorage.removeItem('identifiant');
+
+    this.storage.remove('email');
+    this.storage.remove('type');
+    this.storage.remove('user');
+
+    this.router.navigateByUrl('login');
 
   }
 }

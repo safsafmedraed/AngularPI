@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title">Viewer</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  <div class="modal-body">
+<app-image-viewer  [images]="[file]"
+                  [idContainer]="'idOnHTML'"
+                  [loadOnInit]="true"></app-image-viewer>
+  </div>
