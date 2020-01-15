@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('email', email);
           this.storage.set('type', 'staff');
           this.storage.set('user', data.user);
+          this.storage.set('role', data.role);
           this.storage.set('token', data.token);
           this.router.navigateByUrl('dashboard');
         } else if (data.type === 'student') {
@@ -58,6 +59,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storage.set('type', 'student');
           this.storage.set('email', email.value);
           this.storage.set('user', data.user);
+          this.storage.set('role', data.role);
+
           this.storage.set('token', data.token);
 
           console.log(this.storage.get('user').id);
@@ -69,6 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         } else if (data.type === 'encadreur') {
           console.log('encadreur');
+          this.storage.set('role', data.role);
 
           console.log(email.value);
           this.storage.set('encadreur', 'encadreur');
@@ -79,7 +83,26 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigateByUrl('projects');
 
         }
+        else if (data.role === 'Teacher') {
+          this.storage.set('role', data.role);
 
+
+          this.storage.set('user', data.user);
+          this.storage.set('email', email.value);
+          this.storage.set('token', data.token);
+          this.router.navigateByUrl('projects');
+
+        }
+        else if (data.role === 'Directeur') {
+          this.storage.set('role', data.role);
+
+
+          this.storage.set('user', data.user);
+          this.storage.set('email', email.value);
+          this.storage.set('token', data.token);
+          this.router.navigateByUrl('projects');
+
+        }
       }
     );
 

@@ -1,0 +1,23 @@
+
+  <div class="card-header display-6 text-center font-weight-bold">Defense Informations </div>
+<div class="row">
+  <div class=" col-12 card">
+ 
+    <div class="card-body p-0">
+      <div class="row justify-content-center">
+     
+        <div class="col-6">Date Defense :   <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="date"> </div><div class="col-3"></div>
+        <div class="col-6">Time Defense  :  <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="time">  </div><div class="col-3"></div>
+        <div class="col-6">Name classroom :  <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="NameClassRoom"> </div><div class="col-3"><div class="col-3"><span class="badge badge-success"></span><span class="badge badge-danger"></span></div></div>
+        <div class="col-6">Location: <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="Location">  </div><div class="col-3"></div>
+        <div class="col-6">State : <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="State"> </div><div class="col-3"></div>
+
+      </div>
+    </div>
+  
+    <div class="card-header text-center font-weight-bold">
+        <span class="float-right"><Button class="btn btn-flat btn-default" (click)="Close()" > Cancel</Button></span>
+    
+        <span class="float-right"><button class="btn btn-flat btn-warning" (click)="Modify()" >Modifier</button></span>
+      </div>
+  </div>

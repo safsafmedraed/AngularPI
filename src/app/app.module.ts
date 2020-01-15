@@ -40,6 +40,14 @@ import {RECAPTCHA_LANGUAGE} from 'ng-recaptcha';
 import {ChatComponent} from './pages/offer/chat/chat.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { StudentSheetComponent } from './pages/student-sheet/student-sheet.component';
+import {AddstudentpopupComponent} from './pages/classes/addstudentpopup/addstudentpopup.component';
+import {ClasspopupComponent} from './pages/classes/classpopup/classpopup.component';
+import {OptionpoppupComponent} from './pages/options/optionpoppup/optionpoppup.component';
+import {PoppupComponent} from './pages/departements/poppup/poppup.component';
+import {PoopupComponent} from './pages/site/poopup/poopup.component';
+import { PostsComponent } from './pages/posts/posts.component';
+
+
 
 
 
@@ -77,6 +85,12 @@ import { StudentSheetComponent } from './pages/student-sheet/student-sheet.compo
     PopupoffreComponent,
     CandidaturePopupComponent,
     MatchingComponent,
+    PoopupComponent,
+    PoppupComponent,
+    OptionpoppupComponent,
+    ClasspopupComponent,
+    AddstudentpopupComponent,
+
   ],
   providers: [EntrepriseService, LoginService, {
     provide: HTTP_INTERCEPTORS,
@@ -91,8 +105,7 @@ import { StudentSheetComponent } from './pages/student-sheet/student-sheet.compo
 
   ],
   bootstrap: [AppComponent],
-
-  entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent, MatchingComponent],
+entryComponents: [PopupComponent, PopupoffreComponent, CandidaturePopupComponent, MatchingComponent, PoopupComponent, PoppupComponent, OptionpoppupComponent, ClasspopupComponent, AddstudentpopupComponent],
 
   exports: [
 

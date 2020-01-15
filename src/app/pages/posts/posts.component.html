@@ -1,0 +1,132 @@
+<!--<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>-->
+<!-- Page content -->
+<!--
+<div  class="row">
+<div *ngFor="let i of Posts" class=" col-xl-3 col-md-6 mb-4">
+  <div  class="card">
+
+  <div class="card-header bg-primary text-white text-uppercase" (click)="onSelect(i)">
+    <h5 class="card-title mb-0"><a (click)="onSelect(i)"></a> </h5>
+    {{i.users.prenom}} {{i.users.nom}}<br>
+     Titre : {{i.name_post}} <i class="fa fa-align-justify" ></i>
+  </div>
+  <div class="card-body">
+  <div class="card-text text-black-50"> name: {{i.name_post}}</div>
+  </div></div>
+</div>
+</div>-->
+
+
+
+<br>
+<button type="button" class="btn btn-primary"  (click)="openModal(template)">New Post</button>                        {{this.notifs.length}}
+
+
+<div ngbDropdown placement="bottom-right">
+  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle >
+    Notifications
+  </a>
+  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+    <div *ngFor="let i of notifs"> {{i}} <br> ---------</div>
+
+  </div>
+</div>
+
+
+<input type="text"  class="form-control form-control-alternative"  placeholder="search.." [(ngModel)]="term">
+<div class="table-responsive">
+  <table class="table align-items-center table-dark table-flush">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Posts</th>
+      <th scope="col">Autheur</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Categorie</th>
+      <th scope="col"></th>
+
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of Posts | filter:term | paginate:{itemsPerPage:4,currentPage:p}">
+      <th scope="row">
+        <div class="media align-items-center">
+
+          <div class="media-body">
+            <span class="mb-0 text-sm">{{i.name_post}}</span>
+          </div>
+        </div>
+      </th>
+      <td >
+
+        {{i.users.nom}} {{i.users.prenom}}
+      </td>
+      <td>
+            <span class="badge badge-dot mr-4" >
+              <i class="bg-warning" *ngIf="i.etat =='non résolu';else success"  ></i>
+              <ng-template #success> <i class="bg-success"></i></ng-template>  {{i.etat}}
+            </span>
+
+
+      </td>
+      <td >
+
+        {{i.categorie}}
+      </td>
+
+      <td class="text-right">
+        <div ngbDropdown placement="bottom-right">
+          <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle >
+            <i class="fas fa-ellipsis-v" ></i>
+          </a>
+          <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+            <a class="dropdown-item" (click)="onSelect(i)"  >Details</a>
+            <a class="dropdown-item"  *ngIf="this.student.id == i.users.id" (click)="delete(i.id_post)"  >Supprimer</a>
+
+
+          </div>
+
+        </div>
+      </td>
+
+
+
+    </tr>
+
+
+
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event" ></pagination-controls >
+</div>
+<ng-template #template>
+  <form [formGroup]="questionf" >
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" formControlName="name_post" class="form-control form-control-alternative" id="exampleFormControlInput1" placeholder="titre">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" formControlName="description_post" class="form-control form-control-alternative" placeholder="description">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" formControlName="categorie" class="form-control form-control-alternative" placeholder="type">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="file" (change)="onFileChanged($event)" formControlName="image" class="form-control form-control-alternative" placeholder="image">
+
+      </div>
+    </div>
+    <button class="btn btn-primary" style="alignment: center" (click)="ajouterpost()" type="button">Submit !</button>
+  </form>
+</ng-template>
+

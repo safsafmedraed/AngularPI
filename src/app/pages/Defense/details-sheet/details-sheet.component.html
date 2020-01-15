@@ -1,0 +1,113 @@
+
+
+<div class="header bg-gradient-danger pb-1 pt-8 pt-md-10">
+</div>
+
+<div class="col-xl-8 order-xl-1">
+  <div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+      <div class="row align-items-center">
+        <div class="col-8">
+          <h3 class="mb-0">Sheet details</h3>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <form>
+        <h6 class="heading-small text-muted mb-4">Sheet informations</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+
+                <label class="form-control-label" >Title</label><br/>
+                <label >{{title}}</label>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" >Description</label><br/>
+                <label >{{description}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" >Features</label><br/>
+                <label >{{features}}</label>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" >Issues</label><br/>
+                <label >{{issues}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <!-- Address -->
+        <h6 class="heading-small text-muted mb-4">Framer information</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" >Firstname Framer</label><br/>
+                <label >{{encadreurName}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" >Lastname Framer</label><br/>
+                <label >{{encadreurprenom}}</label>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" >Email Framer</label><br/>
+                <label >{{emailEncadreur}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="testRaporteur==false">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+          <div class="example-wrapper">
+            <label class="form-control-label" >Availaibale Teachers :</label>
+        <!--    <kendo-combobox
+              [data]="list" [(ngModel)]="selectedValue" name="selectedValue">
+            </kendo-combobox>-->
+
+            <hr class="my-4" />
+          </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12 text-right">
+            <button class="btn btn-danger" [disabled]="testRaporteur" (click)="AffectAReporter()">Assign a reporter</button>
+            <button class="btn btn-danger" [disabled]="testSoutenance"  (click)="PlanifyAdefense()">Planify a defense</button>
+          </div>
+        </div>
+
+
+
+        <!-- Description -->
+
+      </form>
+    </div>
+  </div>
+
+</div>

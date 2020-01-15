@@ -1,0 +1,91 @@
+<div class="header bg-gradient-danger pb-1 pt-8 pt-md-8">
+</div>
+<div class="container-fluid col-12">
+  <div class="row">
+
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Planify Defense</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card-body">
+            <mat-vertical-stepper (selectionChange)="cambiaStep($event)">
+                <mat-step >
+                  <div class="container" *ngIf="onPopupOpen === 0" >
+                    <ng-template matStepLabel>Affect a president to defense</ng-template>
+                    <ejs-splitter #splitterInstance height='266px' width='100%'>
+                        <e-panes>
+                          <e-pane size='35%' min='25%'>
+                            <ng-template #content>
+            
+                              <ejs-listview  id='letterAvatarList' #letterAvatarList
+                                             [dataSource]='dataSource' (select)='onSelect($event)' height=254>
+                                <ng-template #template let-dataSource="">
+            
+                                    <span class="list-text">{{dataSource.text}}</span>
+                                </ng-template>
+                              </ejs-listview>
+                            </ng-template>
+                          </e-pane>
+                          <e-pane size='65%' min='45%'>
+                          </e-pane>
+                        </e-panes>
+                      </ejs-splitter>
+                      <button mat-button matStepperNext class="float-right">Next</button>
+                      <div class="column">
+                          <div class="col-9 text-right" *ngIf="show">
+                            <button mat-button href="#!" class="btn btn-sm btn-default" (click)="affectPresident()">Assign president</button>
+                          </div>
+                        </div>
+            
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Show the disponibility of Teachers</ng-template>
+                    <div class="schedule-container" *ngIf="stepIndex === 1">
+                              
+                        <ejs-schedule #scheduleObj cssClass='schedule-block-events' width='100%' height='650px' [group]="group"
+                    [currentView]="currentView" (popupOpen)='onPopupOpen($event)' [selectedDate]="selectedDate" [eventSettings]="eventSettings" (actionBegin)="onActionBegin($event)">
+            
+                    <e-resources>
+                            <e-resource field='EmployeeId' title='Employees' name='Employee' [dataSource]='employeeDataSource'
+                                        [allowMultiple]='allowMultiple' textField='Text' idField='Id' groupIDField="GroupId" colorField='Color'>
+                            </e-resource>
+                          </e-resources>
+                          <ng-template #resourceHeaderTemplate let-data>
+                            <div class="template-wrap">
+                              <div class="employee-category">
+            
+                                <div class="employee-name">{{getEmployeeName(data)}}</div>
+                                <div class="employee-designation">{{getEmployeeDesignation(data)}}</div>
+                              </div>
+                            </div>
+                          </ng-template>
+                          <ng-template #eventSettingsTemplate let-data>
+                            <div class='template-wrap'>
+                              <div class="subject">{{data.Subject}}</div>
+                            </div>
+                          </ng-template>
+                          <e-views>
+                            <e-view option="Day"></e-view>
+                            <e-view option="TimelineDay"></e-view>
+                            <e-view option="TimelineMonth"></e-view>
+                          </e-views>
+                        </ejs-schedule>
+                      </div>
+                </mat-step>
+             
+                </mat-vertical-stepper>
+ 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<notifier-container></notifier-container>

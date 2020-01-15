@@ -1,0 +1,81 @@
+
+
+<div class="header bg-gradient-danger pb-1 pt-8 pt-md-8">
+</div>
+<div class="container-fluid col-12">
+    <div class="row">
+
+
+    <div class="container-fluid col-12">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+
+
+     <!--           <ng2-screenshot [target]="'#target'" [isOpen]="isOpen" >
+                    <ng2-screenshot-toolbox></ng2-screenshot-toolbox>
+                </ng2-screenshot>-->
+              <h3 class="mb-0">Defense Details</h3>
+            </div>
+
+          </div>
+        </div>
+        <div id="target">
+        <div class="card-body">
+          <form>
+            <h6 class="heading-small text-muted mb-4">Date </h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Date defense</label>
+                    <p>{{date}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">Time Defense</label>
+                    <p>{{time}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Location</label>
+                    <p>{{Location}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Name classroom</label>
+                    <p>{{NameClassRoom}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Address -->
+
+            <h6 class="heading-small text-muted mb-4">Location</h6>
+            <div id="frugalmap">
+
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+           <button class="btn btn-default float-right" (click)="GenerateCode()"> Generate QrCode</button>
+           <button class="btn btn-default float-right" [disabled]="withQrCode" (click)="open()">Make a screenShot</button>
+           <button class="btn btn-default float-right"  (click)="evaluate()">Evaluate</button>
+    <div *ngIf="show">
+      <ngx-qrcode [qrc-element-type]="'img'" [qrc-value]="event">
+      </ngx-qrcode>
+
+    </div>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

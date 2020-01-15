@@ -1,0 +1,58 @@
+<!--<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+
+</div>-->
+
+<!--name :{{post.name_post}}<br>
+
+état :{{post.etat}}<br>
+<img align="center" height="60" width="50" src="{{post.image_post}}"><br> -->
+<button type="button" style="alignment: left;" class="btn btn-primary btn-sm" *ngIf="this.student.id == this.post.users.id" (click)="updatepost()">Résolu ?!</button>
+<!--<button type="button" style="alignment: left;" class="btn btn-primary btn-sm" (click)="addreport()">Report</button>-->
+
+
+<div class="card" style="width: 60rem;" >
+  <div class="card-body">
+    <h5 class="card-title" style="color: #1da1f2" >Titre:</h5><br>
+    <h3 class="card-text">{{post.name_post}}</h3>
+    <h5 class="card-title" style="color: #1da1f2">Description:</h5><br>
+    <h3 class="card-text">{{post.description_post}}</h3>
+    <img class="card-img-top" src="{{post.image_post}}" alt="Card image cap">
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="alert alert-primary" role="alert">
+  <strong>Comments:</strong> !
+</div>
+
+<!--<div *ngFor="let i of Comments">
+
+  description : {{i.description}}<br>+--------**
+  User : {{i.s.nom }}  {{i.s.prenom}}<br>
+  <br><br>
+
+</div>-->
+
+<div class="card" *ngFor="let i of Comments">
+  <span class="badge badge-pill badge-info" style="width: 15rem;">{{i.s.nom}} {{i.s.prenom}}:</span>
+  <div class="card-body" >
+    <p class="card-text" ><strong>{{i.description}}</strong></p> <br>
+    <button type="button" style="background-color: #3aaf85" (click)="addV(i.id_comment)" class="btn btn-primary btn-sm">Vote</button><br>
+{{i.v.length}}
+
+  </div>
+</div>
+<div class="alert alert-primary" role="alert" *ngIf="this.post.etat == 'non résolu'">
+  <strong>Add a Comment</strong> !
+</div>
+<form [formGroup]="reponse" *ngIf="this.post.etat == 'non résolu'">
+  <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description" rows="3" placeholder="Write your comment..."></textarea>
+  <button type="button" style="alignment: left;" class="btn btn-primary btn-sm" (click)="addComment()">Submit Your Comment !</button>
+</form>
+
+
+

@@ -1,0 +1,172 @@
+
+<div class="header bg-gradient-danger pb-1 pt-8 pt-md-8">
+</div>
+  <!-- Main content -->
+
+    <mat-tab-group>
+
+      <mat-tab label="Defenses">
+        <div class="row">
+          <div class="column">
+            <div class="col-lg-5 control-section">
+              <div class="content-wrapper">
+                <div class="col-md-12">
+                  <ejs-schedule #scheduleObj id='schedule' width='850' height='850' [(selectedDate)]="selectedDate"
+                                [eventSettings]="eventSettings">
+                  </ejs-schedule>
+                  <div class="col-12" *ngIf="show" >
+
+                    <ejs-grid #grid [dataSource]='data' (rowSelected)='rowSelected($event)' [toolbar]='toolbarOptions' width='850px' height='850px'>
+                      <e-columns>
+                          <e-column field='Subject' headerText='Subject' textAlign='Right' width=120></e-column>
+                          <e-column field='StateDefense' headerText='StateDefense' width=120></e-column>
+                          <e-column field='Location' headerText='Location' width=150></e-column>
+                          <e-column field='StartTime' headerText='StartTime' width=150></e-column>
+                          <e-column field='EndTime' headerText='EndTime' width=150></e-column>
+                      </e-columns>
+                      </ejs-grid>
+                  <!-- <div class="card shadow" id="grid"></div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column" >
+            <div class="card shadow col-12" >
+            <div class="col-12 property-section property-customization">
+              <div class="property-panel-section">
+
+                <form class="event-search" id="form-search">
+
+
+                  <table id="property-specific" style="width: 100%;height: 100%">
+                    <tbody>
+                    <tr class="row">
+                      <td class="property-panel-content" colspan="2">
+                        <label class="form-control-label">Search by all event fields</label>
+
+                        <div class="property-panel-content">
+                          <input type="text" class="form-control form-control-alternative" id="events-search" placeholder="Enter the Search text" (keyup)="globalSearch($event)" />
+                        </div>
+
+                      </td>
+
+                    </tr>
+                    <tr class="row"><td class="property-panel-content" colspan="2"> <label class="form-control-label">Search by specific event fields</label></td></tr>
+                    <tr class="row">
+                      <td class="property-panel-content" colspan="2">
+
+                        <input #subject type="text" class="form-control form-control-alternative" name="Subject" id="Subject"
+                               placeholder="Subject" />
+                      </td>
+                    </tr>
+                    <tr class="row" >
+                      <td class="property-panel-content" colspan="2">
+                        <label class="form-control-label">Location</label>
+                        <input #location type="text" class="form-control form-control-alternative" name="Location" id="Location"
+                               placeholder="Location" />
+                      </td>
+                    </tr>
+                    <tr class="row" >
+                      <td class="property-panel-content" colspan="2">
+                        <label class="form-control-label">StartTime</label>
+                        <ejs-datepicker #startTime id='StartTime' class="e-start-time" [showClearButton]=false name="StartTime"
+                                        placeholder="Start Time"></ejs-datepicker>
+                      </td>
+                    </tr>
+                    <tr class="row" >
+                      <td class="property-panel-content" colspan="2">
+                        <label class="form-control-label">EndTime</label>
+                        <ejs-datepicker #endTime id='EndTime' class="e-end-time" [showClearButton]=false name="EndTime"
+                                        placeholder="End Time"></ejs-datepicker>
+                      </td>
+                    </tr>
+                    <tr class="row" >
+                      <td class="e-field button-customization" style="width: 50%;">
+                        <button ejs-button id="seperateSearch" type="button" content="Search" (click)="searchOnClick()"></button>
+                      </td>
+                      <td class="e-field button-customization" style="width: 50%;">
+                        <button ejs-button id="clear" content="Clear" type="button" (click)='clearOnClick()'></button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+
+                </form>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+      </mat-tab>
+      <mat-tab label="Sheets waiting">
+          <main class="main">
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+
+            </ol>
+          <notifier-container></notifier-container>
+          <div id="Message"></div>
+
+          <div class="card col-12 mb-3 p-0">
+            <div class="card-header font-weight-bold">Sheets Waiting</div>
+            <div class="card-body">
+              <div class="row mt-2">
+                <div class="col-lg-12">
+                  <div class="card p-0">
+                    <div class="card-body table-responsive">
+                      <ejs-grid [dataSource]='datagrid' allowPaging='true' [toolbar]='toolbargrid' height=365 [pageSettings]='initialPage'>
+                        <e-columns>
+                            <e-column field='id_sheet' headerText='ID Sheet' width='150' ></e-column>
+                            <e-column field='title' headerText='Title' width='150'></e-column>
+                            <e-column field='description' headerText='Description' width='200' format="yMd" textAlign='Right'></e-column>
+
+                            <e-column field='features' headerText='Features' width='250'></e-column>
+                            <e-column field='mark'  headerText='Status' width='150'>
+                              <ng-template #template let-data>
+                                             <td><span class="badge badge-success" *ngIf="data.mark!=0" >Rated</span>
+                                            <span  class="badge badge-danger" *ngIf="data.mark==0" >Not Rated</span></td>
+
+
+                                          <td>
+
+
+                              </ng-template>
+                          </e-column>
+                          <e-column field="id_sheet" headerText='Actions'>
+                            <ng-template #template let-data>
+                              <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-group-toggle" *ngIf="data.mark!=0" (click)="ViewDetails(data)" ><i class="fa fa-eye">
+
+                                </i></button>
+
+                                <button type="button" *ngIf="data.mark==0" class="btn btn-group-toggle" (click)="View(data)" ><i class="fa fa-bell"></i></button>
+
+                              </div>
+
+               </ng-template>
+
+                          </e-column>
+                          </e-columns>
+                    </ejs-grid>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div></main>
+
+
+  </mat-tab>
+      <mat-tab label="Reports">
+
+   <!--     <ngx-chartjs [data]="mydata" type="bar"></ngx-chartjs>-->
+
+
+
+      </mat-tab>
+    </mat-tab-group>

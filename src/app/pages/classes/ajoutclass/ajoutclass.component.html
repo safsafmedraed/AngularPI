@@ -1,0 +1,25 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<h3 class="text-blue mb-0">Adding a class</h3>
+<form role="form">
+  <div class="form-group">
+    <div class="input-group input-group-alternative mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Classname<i class="ni ni-hat-3"></i></span>
+      </div>
+      <input class="form-control" placeholder="class name" type="text" [(ngModel)]="class.classname" name="schoolname">
+    </div>
+    <div class="input-group input-group-alternative mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">number of students<i class="ni ni-hat-3"></i></span>
+      </div>
+      <input class="form-control" placeholder="number of students" type="number" [(ngModel)]="class.numberofstudents" name="schoolname">
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mt-4" (click)="addDepartement(class)">Create a class</button>
+    <!-- notifier declare -->
+    <notifier-container></notifier-container>
+  </div>
+</form>
